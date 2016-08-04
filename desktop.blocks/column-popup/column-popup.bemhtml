@@ -1,0 +1,23 @@
+block('column-popup')(
+	content()(function(){
+		return[
+			{
+				elem: 'title',
+				content:[
+					{
+						block: this.ctx.ico
+					},
+					{
+						block: 'link',
+						content: this.ctx.title
+					}
+				]
+			},
+			{
+				block: 'column-popup-nav',
+				'column-popup-nav': this.ctx['column-popup-nav']
+			}
+		]
+	})
+
+)

@@ -1,0 +1,301 @@
+.calendar-events-list
+  position: relative
+  display: block
+  width: 232px
+  margin: 0 auto
+  top: 276px
+  left: 440px
+  border: 1px solid darken(white, 20%)
+  border: 1px solid alpha(white, 0.5)
+  border-radius: $border-radius-size-medium
+  padding: 22px 0
+  &__slider
+    overflow: hidden
+  &__next,
+  &__prev
+    position: absolute
+    top: 0
+    left: 0
+    right 0
+    height: h=22px
+    border-bottom: 1px solid darken(white, 20%)
+    border-bottom: 1px solid alpha(white, 0.5)
+    text-align: center
+    line-height: h
+    color: white
+    background: transparent
+    transition: background .5s ease
+    font-size: $fs-base
+    &:hover,
+    &:focus
+      outline: none
+      background: darken(white, 20%)
+      background: alpha(white, 0.1)
+      transition: background .5s ease
+      color: white
+      cursor: pointer
+  &__prev
+    top: auto
+    border: 0
+    border-top: 1px solid darken(white, 20%)
+    border-top: 1px solid alpha(white, 0.5)
+  &__months
+    margin-bottom: 15px
+  &__month
+    width: 100%
+    text-align: center
+    height: h=26px
+    line-height: h
+    font-size: $fs-small
+    font-family: 'robotothin'
+    text-transform: capitalize
+  &__text
+    display: inline
+    position: relative
+    &:after,
+    &:before
+      display: block
+      position: absolute
+      top: 50%
+      margin-top: -1px
+      height: 1px
+      width: w=10px
+      left: -(w + 15)
+      content: ''
+      border-top: 1px solid darken(white, 20%)
+      border-top: 1px solid alpha(white, 0.5)
+    &:after
+      left: auto
+      right: -25px
+  &__date
+    margin-left: 21px
+    margin-bottom: 5px
+    line-height: 17px
+    &:last-child
+      margin-bottom: 0px
+    &:after
+      display: block
+      clear: both
+      content: ''
+  &__day
+    display: inline-block
+    float: left
+    margin-right: 13px
+    width: 21px
+    height: 21px
+    border: 1px solid darken(white, 10%)
+    border: 1px solid alpha(white, 0.25)
+    background: darken(white, 20%)
+    background: alpha(white, 0.5)
+    text-align: center
+    line-height: 19px
+    border-radius: $border-radius-base
+    font-size: 12px
+  &__city
+    display: inline-block
+    float: left
+    text-decoration: none
+    border-bottom: 1px solid
+    color: white
+    border-color: white
+    border-color: $white-opacity-80
+    font-size: $fs-small
+    -webkit-font-smoothing: antialiased
+    &:hover,
+    &:focus
+      color: $white-opacity-80
+      border-color: darken(white, 20%)
+      border-color: $white-opacity-80
+      text-decoration: none
+      cursor: pointer
+
+/*.events-list____calendar*/
+/*position: relative*/
+/*display: block*/
+/*width: 270px*/
+/*margin: 0 auto*/
+/*top: 276px*/
+/*left: 440px*/
+/*border: 1px solid darken(white, 20%)*/
+/*border: 1px solid alpha(white, 0.5)*/
+/*border-radius: $border-radius-size-medium*/
+/*padding: 39px 0*/
+/*&-next,*/
+/*&-prev*/
+/*position: absolute*/
+/*top: 0*/
+/*left: 0*/
+/*right 0*/
+/*height: h=38px*/
+/*border-bottom: 1px solid darken(white, 20%)*/
+/*border-bottom: 1px solid alpha(white, 0.5)*/
+/*text-align: center*/
+/*line-height: h*/
+/*color: white*/
+/*background: transparent*/
+/*transition: background .5s ease*/
+/*font-size: ceil(1.5*$fs-base)*/
+/*&:hover,*/
+/*&:focus*/
+/*outline: none*/
+/*background: darken(white, 20%)*/
+/*background: alpha(white, 0.1)*/
+/*transition: background .5s ease*/
+/*color: white*/
+/*cursor: pointer*/
+/*&-prev*/
+/*top: auto*/
+/*border: 0*/
+/*border-top: 1px solid darken(white, 20%)*/
+/*border-top: 1px solid alpha(white, 0.5)*/
+/*&-month*/
+/*width: 100%*/
+/*text-align: center*/
+/*height: h=54px*/
+/*line-height: h*/
+/*font-size: $fs-base-large*/
+/*font-family: 'robotothin'*/
+/*text-transform: capitalize*/
+/*&-text*/
+/*display: inline*/
+/*position: relative*/
+/*&:after,*/
+/*&:before*/
+/*display: block*/
+/*position: absolute*/
+/*top: 50%*/
+/*margin-top: -1px*/
+/*height: 1px*/
+/*width: w=20px*/
+/*left: -(w + 15)*/
+/*content: ''*/
+/*border-top: 1px solid darken(white, 20%)*/
+/*border-top: 1px solid alpha(white, 0.5)*/
+/*&:after*/
+/*left: auto*/
+/*right: -35px*/
+/*&-date*/
+/*margin-left: 21px*/
+/*margin-bottom: 22px*/
+/*&-day*/
+/*display: inline-block*/
+/*margin-right: 13px*/
+/*width: 35px*/
+/*height: 35px*/
+/*border: 1px solid darken(white, 10%)*/
+/*border: 1px solid alpha(white, 0.25)*/
+/*background: darken(white, 20%)*/
+/*background: alpha(white, 0.5)*/
+/*text-align: center*/
+/*line-height: 32px*/
+/*border-radius: $border-radius-size-medium*/
+/*&-city*/
+/*text-decoration: none*/
+/*border-bottom: 1px solid*/
+/*color: white*/
+/*border-color: white*/
+/*border-color: $white-opacity-80*/
+/*font-size: 22px*/
+/*-webkit-font-smoothing: antialiased;*/
+/*&:hover,*/
+/*&:focus*/
+/*color: $white-opacity-80*/
+/*border-color: darken(white, 20%)*/
+/*border-color: $white-opacity-80*/
+/*text-decoration: none*/
+/*cursor: pointer*/
+
+/*position: relative*/
+/*display: block*/
+/*width: 270px*/
+/*margin: 0 auto*/
+/*top: 276px*/
+/*left: 440px*/
+/*border: 1px solid darken(white, 20%)*/
+/*border: 1px solid alpha(white, 0.5)*/
+/*border-radius: $border-radius-size-medium*/
+/*padding: 39px 0*/
+/*&-next,*/
+/*&-prev*/
+/*position: absolute*/
+/*top: 0*/
+/*left: 0*/
+/*right 0*/
+/*height: h=38px*/
+/*border-bottom: 1px solid darken(white, 20%)*/
+/*border-bottom: 1px solid alpha(white, 0.5)*/
+/*text-align: center*/
+/*line-height: h*/
+/*color: white*/
+/*background: transparent*/
+/*transition: background .5s ease*/
+/*font-size: ceil(1.5*$fs-base)*/
+/*&:hover,*/
+/*&:focus*/
+/*outline: none*/
+/*background: darken(white, 20%)*/
+/*background: alpha(white, 0.1)*/
+/*transition: background .5s ease*/
+/*color: white*/
+/*cursor: pointer*/
+/*&-prev*/
+/*top: auto*/
+/*border: 0*/
+/*border-top: 1px solid darken(white, 20%)*/
+/*border-top: 1px solid alpha(white, 0.5)*/
+/*&-month*/
+/*width: 100%*/
+/*text-align: center*/
+/*height: h=54px*/
+/*line-height: h*/
+/*font-size: $fs-base-large*/
+/*font-family: 'robotothin'*/
+/*text-transform: capitalize*/
+/*&-text*/
+/*display: inline*/
+/*position: relative*/
+/*&:after,*/
+/*&:before*/
+/*display: block*/
+/*position: absolute*/
+/*top: 50%*/
+/*margin-top: -1px*/
+/*height: 1px*/
+/*width: w=20px*/
+/*left: -(w + 15)*/
+/*content: ''*/
+/*border-top: 1px solid darken(white, 20%)*/
+/*border-top: 1px solid alpha(white, 0.5)*/
+/*&:after*/
+/*left: auto*/
+/*right: -35px*/
+/*&-date*/
+/*margin-left: 21px*/
+/*margin-bottom: 22px*/
+/*&-day*/
+/*display: inline-block*/
+/*margin-right: 13px*/
+/*width: 35px*/
+/*height: 35px*/
+/*border: 1px solid darken(white, 10%)*/
+/*border: 1px solid alpha(white, 0.25)*/
+/*background: darken(white, 20%)*/
+/*background: alpha(white, 0.5)*/
+/*text-align: center*/
+/*line-height: 32px*/
+/*border-radius: $border-radius-size-medium*/
+/*&-city*/
+/*text-decoration: none*/
+/*border-bottom: 1px solid*/
+/*color: white*/
+/*border-color: white*/
+/*border-color: $white-opacity-80*/
+/*font-size: 22px*/
+/*-webkit-font-smoothing: antialiased;*/
+/*&:hover,*/
+/*&:focus*/
+/*color: $white-opacity-80*/
+/*border-color: darken(white, 20%)*/
+/*border-color: $white-opacity-80*/
+/*text-decoration: none*/
+/*cursor: pointer*/

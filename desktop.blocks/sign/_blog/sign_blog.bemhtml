@@ -1,0 +1,103 @@
+block('sign').mod('blog', true)(
+	content()(function(){
+		var content = [
+			{
+				block: 'col-md-offset-2',
+				mix: { block: 'col-md-8' },
+				content: this.ctx.header
+			},
+			{
+				block: 'clear'
+			},
+			{
+				block: 'col-md-offset-2',
+				mix: { block: 'col-md-2' },
+				content: {
+					block: 'img',
+					mods: { circle: true, responsive: true},
+					url: this.ctx.imgUrl
+				}
+			},
+			{
+				block: 'col-md-6',
+				content: [
+					{
+						block: 'sign',
+						elem: 'title',
+						content: this.ctx.title
+					},
+					{
+						block: 'sign',
+						elem: 'option',
+						content: this.ctx.optionOne
+					},
+					{
+						block: 'sign',
+						elem: 'content',
+						mix: { block : 'row' },
+						content: [
+							{
+								block: this.ctx.colOption ? this.ctx.colOption : 'col-md-6',
+								content: [
+										{
+	                                        block: 'sign',
+	                                        elem: 'option',
+	                                        content: this.ctx.optionTwo
+	                                    },
+	                                    {
+	                                        block: 'sign',
+	                                        elem: 'option',
+	                                        content: this.ctx.optionThree
+	                                    }
+								]
+							},
+							{
+								block: this.ctx.colOptionSecond ? this.ctx.colOptionSecond : 'col-md-6',
+								content: [
+									{
+                                        block: 'sign',
+                                        elem: 'option',
+                                        content: this.ctx.optionFour
+                                    },
+                                    {
+                                        block: 'sign',
+                                        elem: 'option',
+                                        content: this.ctx.optionFive
+                                    }
+								]
+							}
+						]
+					}
+				]
+			}
+		],
+		contentText;
+
+
+		if(!this.ctx.header){
+			content.shift();
+		}
+
+		contentText = [
+			{
+				block: 'clear'
+			},
+			{
+			    block: 'row',
+			    content: {
+			        block: 'col-md-offset-2',
+			        mix: { block: 'col-md-8' },
+			        content: {
+			            block: 'sign',
+			            elem: 'description',
+			            content: this.ctx.textContent
+			        }
+			    }
+			}
+		]
+
+		content.push(contentText);
+
+		return content;
+	})
+)

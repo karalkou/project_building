@@ -1,0 +1,5 @@
+block('headliner').elem('rate-line')(
+    attrs()( function(){
+        return { 'data-rate': this.ctx.dataRate ? this.ctx.dataRate : ''  }
+    })
+)

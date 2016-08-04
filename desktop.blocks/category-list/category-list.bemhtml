@@ -1,0 +1,525 @@
+block('category-list')(
+    content()(function(){
+        var i  = 0;
+        return this.ctx.list.map(function(item){
+            var bemJSON;
+            // переменные, чтобы не повторять разметку несколько раз
+            var centerPart;
+            var rightPart = {
+                elem: 'space-right',
+                mix: { block: 'col-md-2' },
+                content: [
+                    {
+                        block: 'badge',
+                        mix: { block: 'category-list', elem: 'icon' },
+                        content: [
+                            {
+                                block: 'ico',
+                                mods: {type: item['icon-type']}
+                            },
+                            {
+                                elem: 'content',
+                                content: item['icon-text']
+                            }
+                        ]
+                    }
+                ]
+            };
+
+            // смотрим, что приходит на вход для заголовка .category-list__title
+            var currentTitle = item["title"];
+            if((typeof currentTitle == "object") && (currentTitle instanceof Array)){
+                // random title
+                var randTitleIndex = Math.floor(Math.random() * currentTitle.length);
+                var randTitle = currentTitle[randTitleIndex].text;
+                var titleHref = currentTitle[randTitleIndex].href;
+            }
+
+            // есть ли входной массив видов деятельности, если нет, то не выводим
+            if((typeof item.activities == "object") && (item.activities instanceof Array)){
+
+                centerPart = {
+                    elem: 'space-center',
+                    mix: { block: 'col-md-8' },
+                    content: [
+                        {
+                            elem: 'overtitle',
+                            content: item['over-title']
+                        },
+                        {
+                            block: 'link',
+                            mods: { color: 'white' },
+                            mix: { block: 'category-list', elem: 'title' },
+                            url: titleHref ? titleHref : '#',
+                            content: randTitle ? randTitle : 'no title'
+                        },
+                        {
+                            elem: 'text',
+                            content: item['text']
+                        },
+                        {
+                            elem: 'activities-wrap',
+                            content: item.activities || ''
+                        }
+                    ]
+                };
+
+                // с рейтингом или с логотипом
+                if(item.leftFieldType === 'rating'){
+                    bemJSON = [
+                        {
+                            elem: 'item',
+                            attrs: { 'data-id': item.dataId ? item.dataId : '' },
+                            mix: { block: 'row' },
+                            content: [
+                                {
+                                    elem: item.leftFieldType,
+                                    mix: { block: 'col-md-2' },
+                                    content: {
+                                        block: 'rating',
+                                        rate: item.rate
+                                    }
+                                },
+                                centerPart,
+                                rightPart
+                            ]
+                        }
+                    ];
+                }else if(item.leftFieldType === 'logo'){
+                    bemJSON = [
+                        {
+                            elem: 'item',
+                            attrs: { 'data-id': item.dataId ? item.dataId : '' },
+                            mix: { block: 'row' },
+                            content: [
+                                {
+                                    elem: item.leftFieldType + "-wrap",
+                                    mix: { block: 'col-md-2' },
+                                    content: {
+                                        elem: item.leftFieldType,
+                                        content: {
+                                            block: 'img',
+                                            url: item.url,
+                                        }
+                                    }
+                                },
+                                centerPart,
+                                rightPart
+                            ]
+                        }
+                    ];
+                }else{
+                    bemJSON = [
+                        {
+                            elem: 'item',
+                            attrs: { 'data-id': item.dataId ? item.dataId : '' },
+                            mix: { block: 'row' },
+                            content: [
+                                {
+                                    elem: "empty-wrap",
+                                    mix: { block: 'col-md-2' }
+                                },
+                                centerPart,
+                                rightPart
+                            ]
+                        }
+                    ];
+                }
+
+            }else{
+                centerPart = {
+                    elem: 'space-center',
+                    mix: { block: 'col-md-8' },
+                    content: [
+                        {
+                            elem: 'overtitle',
+                            content: item['over-title']
+                        },
+                        {
+                            block: 'link',
+                            mods: { color: 'white' },
+                            mix: { block: 'category-list', elem: 'title' },
+                            url: titleHref ? titleHref : '#',
+                            content: randTitle ? randTitle : 'no title'
+                        },
+                        {
+                            elem: 'text',
+                            content: item['text']
+                        }
+                    ]
+                };
+
+                // с рейтингом или с логотипом
+                    if(item.leftFieldType === 'rating'){
+                        bemJSON = [
+                            {
+                                elem: 'item',
+                                attrs: { 'data-id': item.dataId ? item.dataId : '' },
+                                mix: { block: 'row' },
+                                content: [
+                                    {
+                                        elem: item.leftFieldType,
+                                        mix: { block: 'col-md-2' },
+                                        content: {
+                                            block: 'rating',
+                                            rate: item.rate
+                                        }
+                                    },
+                                    centerPart,
+                                    rightPart
+                                ]
+                            }
+                        ];
+                    }else if(item.leftFieldType === 'logo'){
+                        bemJSON = [
+                            {
+                                elem: 'item',
+                                attrs: { 'data-id': item.dataId ? item.dataId : '' },
+                                mix: { block: 'row' },
+                                content: [
+                                    {
+                                        elem: item.leftFieldType + "-wrap",
+                                        mix: { block: 'col-md-2' },
+                                        content: {
+                                            elem: item.leftFieldType,
+                                            content: {
+                                                block: 'img',
+                                                url: item.url,
+                                            }
+                                        }
+                                    },
+                                    centerPart,
+                                    rightPart
+                                ]
+                            }
+                        ];
+                    }else{
+                        bemJSON = [
+                            {
+                                elem: 'item',
+                                attrs: { 'data-id': item.dataId ? item.dataId : '' },
+                                mix: { block: 'row' },
+                                content: [
+                                    {
+                                        elem: "empty-wrap",
+                                        mix: { block: 'col-md-2' }
+                                    },
+                                    centerPart,
+                                    rightPart
+                                ]
+                            }
+                        ];
+                    }
+            }
+
+            return bemJSON;
+        })
+    }),
+
+    elem('title')(
+
+    ),
+
+    elem('activities-wrap')(
+        tag()('ul'),
+        content()(function(){
+            var i  = 0;
+            var array;
+            if((typeof this.ctx.content == "object") && (this.ctx.content instanceof Array)){
+
+                return this.ctx.content.map(function(item){
+                    i++;
+                    var bemJSON = [
+                        {
+                            tag: 'li',
+                            elem: 'activity',
+                            content: {
+                                elem: 'activity-inner',
+                                content: item.activity
+                            }
+                        }
+                    ];
+
+                    return bemJSON;
+                })
+
+            }
+
+        })
+    ),
+
+    elem('activity')(),
+
+    elem('activity-inner')(
+        tag()('span')
+    ),
+
+    elem('text')(
+        tag()('p')
+    )
+)
+
+/*--------------------------------------------  modifier _wrapper_none  --------------------------------------------*/
+block('category-list').mod('wrapper', 'none')(
+	replace().once()(function(){
+		var items = this.ctx.list.map(function(item){
+            var bemJSON;
+            // переменные, чтобы не повторять разметку несколько раз
+            var centerPart;
+            var rightPart = {
+                elem: 'space-right',
+                mix: { block: 'col-md-2' },
+                content: [
+                    {
+                        block: 'badge',
+                        mix: { block: 'category-list', elem: 'icon' },
+                        content: [
+                            {
+                                block: 'ico',
+                                mods: {type: item['icon-type']}
+                            },
+                            {
+                                elem: 'content',
+                                content: item['icon-text']
+                            }
+                        ]
+                    }
+                ]
+            };
+
+            // смотрим, что приходит на вход для заголовка .category-list__title
+            var currentTitle = item["title"];
+            if((typeof currentTitle == "object") && (currentTitle instanceof Array)){
+                // random title
+                var randTitleIndex = Math.floor(Math.random() * currentTitle.length);
+                var randTitle = currentTitle[randTitleIndex].text;
+                var titleHref = currentTitle[randTitleIndex].href;
+            }else{
+                var randTitle = 'not array of titles'
+                var titleHref = 'not array of titleHrefs'
+            }
+
+            // есть ли входной массив видов деятельности, если нет, то не выводим
+            if((typeof item.activities == "object") && (item.activities instanceof Array)){
+
+                centerPart = {
+                    elem: 'space-center',
+                    mix: { block: 'col-md-8' },
+                    content: [
+                        {
+                            elem: 'overtitle',
+                            content: item['over-title']
+                        },
+                        {
+                            block: 'link',
+                            mods: { color: 'white' },
+                            mix: { block: 'category-list', elem: 'title' },
+                            url: titleHref ? titleHref : '#',
+                            content: randTitle ? randTitle : 'no title'
+                        },
+                        {
+                            elem: 'text',
+                            content: item['text']
+                        },
+                        {
+                            elem: 'activities-wrap',
+                            content: item.activities || ''
+                        }
+                    ]
+                };
+
+                // с рейтингом или с логотипом
+                if(item.leftFieldType === 'rating'){
+                    bemJSON = [
+                        {
+                            elem: 'item',
+                            attrs: { 'data-id': item.dataId ? item.dataId : '' },
+                            mix: { block: 'row' },
+                            content: [
+                                {
+                                    elem: item.leftFieldType,
+                                    mix: { block: 'col-md-2' },
+                                    content: {
+                                        block: 'rating',
+                                        rate: item.rate
+                                    }
+                                },
+                                centerPart,
+                                rightPart
+                            ]
+                        }
+                    ];
+                }else if(item.leftFieldType === 'logo'){
+                    bemJSON = [
+                        {
+                            elem: 'item',
+                            attrs: { 'data-id': item.dataId ? item.dataId : '' },
+                            mix: { block: 'row' },
+                            content: [
+                                {
+                                    elem: item.leftFieldType + "-wrap",
+                                    mix: { block: 'col-md-2' },
+                                    content: {
+                                        elem: item.leftFieldType,
+                                        content: {
+                                            block: 'img',
+                                            url: item.url,
+                                        }
+                                    }
+                                },
+                                centerPart,
+                                rightPart
+                            ]
+                        }
+                    ];
+                }else{
+                    bemJSON = [
+                        {
+                            elem: 'item',
+                            attrs: { 'data-id': item.dataId ? item.dataId : '' },
+                            mix: { block: 'row' },
+                            content: [
+                                {
+                                    elem: "empty-wrap",
+                                    mix: { block: 'col-md-2' }
+                                },
+                                centerPart,
+                                rightPart
+                            ]
+                        }
+                    ];
+                }
+
+            }else{
+                centerPart = {
+                    elem: 'space-center',
+                    mix: { block: 'col-md-8' },
+                    content: [
+                        {
+                            elem: 'overtitle',
+                            content: item['over-title']
+                        },
+                        {
+                            block: 'link',
+                            mods: { color: 'white' },
+                            mix: { block: 'category-list', elem: 'title' },
+                            url: titleHref ? titleHref : '#',
+                            content: randTitle ? randTitle : 'no title'
+                        },
+                        {
+                            elem: 'text',
+                            content: item['text']
+                        }
+                    ]
+                };
+
+                // с рейтингом или с логотипом
+                    if(item.leftFieldType === 'rating'){
+                        bemJSON = [
+                            {
+                                elem: 'item',
+                                attrs: { 'data-id': item.dataId ? item.dataId : '' },
+                                mix: { block: 'row' },
+                                content: [
+                                    {
+                                        elem: item.leftFieldType,
+                                        mix: { block: 'col-md-2' },
+                                        content: {
+                                            block: 'rating',
+                                            rate: item.rate
+                                        }
+                                    },
+                                    centerPart,
+                                    rightPart
+                                ]
+                            }
+                        ];
+                    }else if(item.leftFieldType === 'logo'){
+                        bemJSON = [
+                            {
+                                elem: 'item',
+                                attrs: { 'data-id': item.dataId ? item.dataId : '' },
+                                mix: { block: 'row' },
+                                content: [
+                                    {
+                                        elem: item.leftFieldType + "-wrap",
+                                        mix: { block: 'col-md-2' },
+                                        content: {
+                                            elem: item.leftFieldType,
+                                            content: {
+                                                block: 'img',
+                                                url: item.url,
+                                            }
+                                        }
+                                    },
+                                    centerPart,
+                                    rightPart
+                                ]
+                            }
+                        ];
+                    }else{
+                        bemJSON = [
+                            {
+                                elem: 'item',
+                                attrs: { 'data-id': item.dataId ? item.dataId : '' },
+                                mix: { block: 'row' },
+                                content: [
+                                    {
+                                        elem: "empty-wrap",
+                                        mix: { block: 'col-md-2' }
+                                    },
+                                    centerPart,
+                                    rightPart
+                                ]
+                            }
+                        ];
+                    }
+            }
+
+            return bemJSON;
+        });
+
+        return{
+            tag : '',
+            content: items
+        }
+    }),
+
+    elem('activities-wrap')(
+        tag()('ul'),
+        content()(function(){
+            var i  = 0;
+            var array;
+            if((typeof this.ctx.content == "object") && (this.ctx.content instanceof Array)){
+
+                return this.ctx.content.map(function(item){
+                    i++;
+                    var bemJSON = [
+                        {
+                            tag: 'li',
+                            elem: 'activity',
+                            content: {
+                                elem: 'activity-inner',
+                                content: item.activity
+                            }
+                        }
+                    ];
+
+                    return bemJSON;
+                })
+
+            }
+
+        })
+    ),
+
+    elem('activity')(),
+
+    elem('activity-inner')(
+        tag()('span')
+    ),
+
+    elem('text')(
+        tag()('p')
+    )
+)

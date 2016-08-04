@@ -1,0 +1,19 @@
+.btn_color_red-transparent
+  $c=rgb(239,49,36)
+  border-color: $c
+  border-color: alpha($c, 0.8)
+  color: white !important
+  background: $c
+  background: alpha($c, 0.8)
+  transition: background .5s ease
+  &:hover,
+  &:active,
+  &:focus
+    border-color: lighten($c, 10%)
+    background: alpha($c, 0.9)
+    transition: background .5s ease
+    color: white
+    color: alpha(white, 0.9)
+    background: lighten($c, 10%)
+    background: alpha($c, 0.9)
+    cursor: pointer

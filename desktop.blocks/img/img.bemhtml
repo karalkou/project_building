@@ -1,0 +1,10 @@
+block('img')(
+	tag()('img'),
+	attrs()(function(){
+		return {
+			alt: this.ctx.alt ? this.ctx.alt : 'image',
+			title: this.ctx.title ? this.ctx.title : 'image',
+			src: this.ctx.url
+		}
+	})
+)

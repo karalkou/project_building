@@ -1,0 +1,45 @@
+.abstract-section-list_width_available
+  .abstract-section-list
+    &__item
+      width: 100%
+      float: left
+      transition: height ease-in-out 1s, opacity ease-in-out .5s, margin ease-in-out .5s
+      &:before
+        display: block
+        margin: 0 $offset-base
+        margin-bottom: 29px
+        height: 1px
+        background: white
+        background: alpha(white, 0.3)
+        content: ''
+      &:after
+        display: block
+        clear: both
+        content: ''
+      &_hidden
+        padding 0
+        opacity: 0
+        visibility: hidden
+        height: 0
+        margin-bottom: 0
+      &_visible
+        display: block
+        visibility: visible
+        opacity: 1
+        height: auto
+    &__title
+      font-size: $fs-base-large
+      margin: 0px
+      margin-bottom: 5px
+      line-height: 125%
+      font-family: 'robotolight'
+    &__subtitle
+      margin-bottom: -5px
+    &__content
+      margin-top: $offset-base
+      margin-bottom: 9px
+      font-size: $fs-base
+      color: white
+      color: alpha(white, 0.9)
+      font-family: 'robotothin'
+

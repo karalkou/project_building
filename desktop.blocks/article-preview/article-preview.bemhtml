@@ -1,0 +1,144 @@
+block('article-preview')(
+	content()(function(){
+		var currentEvent = this.ctx.event;
+		return [
+			{
+				elem: 'logo-wrap',
+				mix: this.ctx.logoWrap.mix ? this.ctx.logoWrap.mix : {},
+				content:
+					{
+						block: 'img',
+						mix : this.ctx.logo.mix ? this.ctx.logo.mix : {},
+						mods : this.ctx.logo.mods ? this.ctx.logo.mods : {},
+						url: this.ctx.logo.url
+					}
+			},
+			{
+				block: 'article-preview',
+				elem : 'inner',
+				mix  : this.ctx.innerMix ? this.ctx.innerMix : { block: 'col-md-7' },
+				content: [
+					{
+						tag: this.ctx.title.tag ? this.ctx.title.tag : 'div',
+						block: 'article-preview',
+						mix : this.ctx.title.mix ? this.ctx.title.mix : {},
+						elem: 'title',
+						elemMods : this.ctx.title.mods ? this.ctx.title.mods : {},
+						content: this.ctx.title.content
+					},
+
+					{
+					 block: 'event-line',
+					 mix: currentEvent.mix ? currentEvent.mix : {},
+					 event:
+					 	{
+					 		date: {
+								content:   currentEvent.date.content ? currentEvent.date.content : '',
+								eventMods: currentEvent.date.eventMods ? currentEvent.date.eventMods : {}
+							},
+					 		time: {
+								content:   currentEvent.time.content ? currentEvent.time.content : '',
+								eventMods: currentEvent.time.eventMods ? currentEvent.time.eventMods : {}
+							},
+							city: {
+								content:   currentEvent.city.content ? currentEvent.city.content : '',
+								eventMods: currentEvent.city.eventMods ? currentEvent.city.eventMods : {}
+							},
+							place: {
+								content:   currentEvent.place.content ? currentEvent.place.content : '',
+								eventMods: currentEvent.place.eventMods ? currentEvent.place.eventMods : {}
+							},
+							type: {
+								content:   currentEvent.type.content ? currentEvent.type.content : '',
+								eventMods: currentEvent.type.eventMods ? currentEvent.type.eventMods : {}
+							},
+					 	}
+					},
+
+					{
+						block: 'article-preview',
+						mix : this.ctx.textMix ? this.ctx.textMix : {},
+						elem: 'text',
+						elemMods : this.ctx.text.mods ? this.ctx.text.mods : {},
+						content: this.ctx.text.content
+					},
+					{
+						block: 'btn',
+						mix : this.ctx.button.mix ? this.ctx.button.mix : {},
+						mods: this.ctx.button.mods ? this.ctx.button.mods : {},
+						content: this.ctx.button.content
+					}
+				]
+			}
+		]
+	})
+)
+
+block('article-preview').mod('color', 'black')(
+	content()(function(){
+		var currentEvent = this.ctx.event;
+		return [
+			{
+				elem: 'logo-wrap',
+				mix: this.ctx.logoWrap.mix ? this.ctx.logoWrap.mix : {},
+				content:
+					{
+						block: 'img',
+						mix : this.ctx.logo.mix ? this.ctx.logo.mix : {},
+						mods : this.ctx.logo.mods ? this.ctx.logo.mods : {},
+						url: this.ctx.logo.url
+					}
+			},
+			{
+				block: 'col-md-7',
+				content: [
+					{
+						block: 'article-preview',
+						mix : this.ctx.title.mix ? this.ctx.title.mix : {},
+						elem: 'title',
+						elemMods : this.ctx.title.mods ? this.ctx.title.mods : {},
+						content: this.ctx.title.content
+					},
+
+					{
+					 block: 'event-line',
+					 mods: { color: 'black' },
+					 event:
+					 	{
+					 		date: {
+								content:   currentEvent.date.content,
+								eventMods: currentEvent.date.eventMods
+							},
+							city: {
+								content:   currentEvent.city.content,
+								eventMods: currentEvent.city.eventMods
+							},
+							place: {
+								content:   currentEvent.place.content,
+								eventMods: currentEvent.place.eventMods
+							},
+							type: {
+								content:   currentEvent.type.content,
+								eventMods: currentEvent.type.eventMods
+							},
+					 	}
+					},
+
+					{
+						block: 'article-preview',
+						mix : this.ctx.textMix ? this.ctx.textMix : {},
+						elem: 'text',
+						elemMods : this.ctx.text.mods ? this.ctx.text.mods : {},
+						content: this.ctx.text.content
+					},
+					{
+						block: 'btn',
+						mix : this.ctx.button.mix ? this.ctx.button.mix : {},
+						mods: this.ctx.button.mods ? this.ctx.button.mods : {},
+						content: this.ctx.button.content
+					}
+				]
+			}
+		]
+	})
+)

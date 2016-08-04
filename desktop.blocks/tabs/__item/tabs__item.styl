@@ -1,0 +1,14 @@
+.tabs__item
+  display: block
+  float: left
+  &:before
+    display: none
+  &:first-child
+    .tabs__btn
+      border-left: 1px solid #cccccc
+      border-top-left-radius: $border-radius-base
+      border-bottom-left-radius: $border-radius-base
+  &:last-child
+    .tabs__btn
+      border-top-right-radius: $border-radius-base
+      border-bottom-right-radius: $border-radius-base

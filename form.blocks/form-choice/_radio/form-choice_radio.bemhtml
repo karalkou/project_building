@@ -1,0 +1,45 @@
+block('form-choice').mod('radio', true)(
+    content()(function(){
+        var self = this;
+        return this.ctx.list.map(function(item){
+
+            var bemJSON = {
+                elem: 'inner',
+                elemMods: item.mods,
+                content: [
+                    {
+                        elem: 'input',
+                        elemMods: { type: 'radio' },
+                        attrs: { type: 'radio', name: self.ctx.name, id: item.id }
+                    },
+                    {
+                        elem: 'label',
+                        elemMods: { type: 'radio' },
+                        mix: item.mix,
+                        attrs: { for: item.id },
+                        content: item.content
+                    }
+                ]
+            };
+
+            if(!item.mods){
+                delete bemJSON.elemMods;
+            }
+
+            if(!item.mix){
+                delete bemJSON.mix;
+            }
+
+            return bemJSON;
+
+        });
+    }),
+
+	elem('input')(
+	    tag()('input')
+    ),
+
+    elem('label')(
+        tag()('label')
+    )
+)

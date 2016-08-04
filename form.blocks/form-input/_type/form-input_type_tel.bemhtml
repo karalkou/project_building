@@ -1,0 +1,34 @@
+block('form-input').mod('type', 'tel')(
+	replace().once()(function(){
+	    return {
+	        block: 'form-input-wrapper',
+	        content: [
+	            {
+	                block: 'form-input__first-num',
+	                content: '+7'
+	            },
+	            this.ctx,
+	            {
+	                block: 'form-input__success',
+	                content: { block: 'fa fa-check'}
+	            }
+	        ]
+	    }
+	}),
+	tag()('input'),
+	mix()(function(){
+	    return {
+	        block: this.ctx.error ? 'error': ''
+	    }
+	}),
+	attrs()(function(){
+	    return{
+	          type: this.ctx.type ? this.ctx.type : 'text',
+	          value: this.ctx.val,
+	          name: this.ctx.name,
+	          placeholder: this.ctx.placeholder,
+	          maxlength: this.ctx.maxlength,
+	          disabled: this.ctx.disabled
+	    }
+	})
+);

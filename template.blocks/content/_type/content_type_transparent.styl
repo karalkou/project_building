@@ -1,0 +1,19 @@
+.content_type_transparent
+  background-color: transparent
+  z-index: 2
+  color: white
+  .content__manager
+    a
+      color: white
+      border-bottom: 1px solid white
+      border-color: $white-opacity-80
+      &:hover,
+      &:focus
+        text-decoration: none
+        color: darken(white, 20%)
+        color: $white-opacity-80
+    ul,
+    ol
+      li
+        &:before
+          color: white

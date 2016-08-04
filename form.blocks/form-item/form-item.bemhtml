@@ -1,0 +1,49 @@
+block('form-item')(
+	mix()({block: 'row'}),
+	content()(function(){
+
+		if(this.ctx.errorShow){
+			this.ctx.item.field.error = true
+		}
+
+		if(this.ctx.item.hint){
+			var hint = {
+		          block: 'form',
+		          elem: 'hint',
+		          mix: { block: this.ctx.errorShow ? 'hide' : '' },
+		          content: this.ctx.item.hint
+		      }
+	    }else{
+	        var hint = '';
+	    }
+
+		return [
+			{
+                block: 'form',
+                elem: 'label',
+                mix: this.ctx.item.mix,
+                elemMods : this.ctx.required ? { type: 'required' }:'',
+                content: this.ctx.item.label
+            },
+			{
+				block: this.ctx.item.field.width ? this.ctx.item.field.width : 'col-md-4',
+                content: {
+					tag: '',
+					content: this.ctx.item.field
+				}
+			},
+			{
+				block: 'col-md-4',
+				content: [
+					hint,
+                    {
+                        block: 'form',
+                        elem: 'error',
+                        mix: { block: this.ctx.errorShow ? 'error' : '' },
+                        content: this.ctx.item.error
+                    }
+				]
+            }
+		]
+	})
+)

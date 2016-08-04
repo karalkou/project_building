@@ -1,0 +1,73 @@
+.file-link
+  display: inline-block
+  position: relative
+  width: 100%
+  padding: 0 15px 0 0
+  vertical-align: top
+  margin: 0 20px 20px 0
+  border: 1px solid $red-alfa
+  border-color: alpha($red-alfa, 0.3)
+  border-radius: $border-radius-size-medium
+  background: none
+  cursor: pointer
+  transition: border-color ease-in-out .25s, background ease-in-out .25s
+  text-decoration: none
+  color: $red-alfa
+  &__ico
+    display: table-cell
+    vertical-align: top
+    padding: 5px 10px
+    width: 45px
+    transition: color ease-in-out .25s
+    font-size: $fs-small
+  &__extension-description
+    width: 75%
+  &__line
+    display: block
+    width: 100%
+    height: 1px
+    margin-bottom: 2px
+    background: $red-alfa
+    background alpha($red-alfa, 0.3)
+    &_width
+      &_no-full
+        width: 80%
+  &__content
+    display: table-cell
+    vertical-align: top
+    vertical-align: top
+    padding: 4px 0 10px 15px
+    position: relative
+    transition: color ease-in-out .25s
+  &__size
+    display: block
+    font-size: 80%
+    opacity: .8
+    margin-top: 10px
+  &:before
+    display: block
+    position: absolute
+    content: ''
+    left: 50px
+    top:0
+    bottom: 0
+    width: 1px
+    background: $red-alfa
+    background: alpha($red-alfa, 0.3)
+  &:after
+    display: block
+    content: ''
+    clear: both
+  &:hover
+    background: $red-alfa
+    background: alpha($red-alfa, 0.8)
+    border-color: alpha($red-alfa, 0.8)
+    color: white
+    color: alpha(white, 0.8)
+    .file-link
+      &__line
+        background: white
+        background alpha(white, 0.8)
+    &:before
+      background: white
+      background: alpha(white, 0.8)

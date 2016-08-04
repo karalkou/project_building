@@ -1,0 +1,9 @@
+.link_color_light-gray
+  color: $lightGrayText
+  border-color: $lightGrayText
+  border-color: alpha($grayText, 0.3)
+  &:hover,
+  &:focus
+    color: lighten($lightGrayText , 20%)
+    border-color: lighten($lightGrayText, 20%)
+    border-color: alpha($lightGrayText, 0.3)

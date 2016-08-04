@@ -1,0 +1,28 @@
+.form-textarea
+  width: 100%
+  height: 89px
+  margin: 0px
+  padding: 6px 10px
+  background: #fff
+  background: rgba(0, 0, 0, 0)
+  border: 1px solid #d1d1d1
+  border-radius: 2px
+  overflow: auto
+  resize: none
+  font-size: inherit
+  font-family: inherit
+  font-weight: 300
+  color: inherit
+  -webkit-font-smoothing: antialiased;
+  &:focus
+    outline: none
+    border-color: lighten(#d1d1d1, 20%)
+    border-color: rgba(0, 0, 0, 0)
+    box-shadow(0px 0px 5px #d1d1d1)
+  &.error
+    color: $red-alfa
+    border-color: $red-alfa
+    &:focus
+      border-color: lighten($red-alfa, 20%)
+      border-color: rgba(0, 0, 0, 0)
+      box-shadow(0px 0px 5px $red-alfa)

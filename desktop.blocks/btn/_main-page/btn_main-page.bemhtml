@@ -1,0 +1,31 @@
+block('btn').mod('main-page', true)(
+tag()('a'),
+    attrs()(function() {
+        var bemJSON = {
+            href: this.ctx.href,
+            target: '_blank'
+        };
+
+        if(!this.ctx.target){
+            delete bemJSON.target
+        }
+
+        return bemJSON;
+    })
+)
+
+block('btn').mod('main-page', 'large')(
+tag()('a'),
+    attrs()(function() {
+        var bemJSON = {
+            href: this.ctx.href,
+            target: '_blank'
+        };
+
+        if(!this.ctx.target){
+            delete bemJSON.target
+        }
+
+        return bemJSON;
+    })
+)

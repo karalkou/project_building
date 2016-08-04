@@ -1,0 +1,46 @@
+.list_type_time-wrapper
+  margin-top: $margin-medium
+  margin-left: 25px
+  border-left: 1px solid $grayLight
+  &:after
+    display: block
+    clear: 'both'
+    content: ''
+
+.list_type_time
+  &:after
+    display: block
+    clear: 'both'
+    content: ''
+  .list__item
+    margin-bottom: 42px
+    text-indent: 0
+    &:before
+      display: none
+    &:after
+      display: block
+      clear: 'both'
+      content: ''
+  .list__time
+    display: block
+    position: relative
+    width: 82px
+    margin-left: -89px
+    float: left
+    font-family: 'robotobold'
+    font-size: ceil(1.25*$fs-base)
+    color: $red
+    background: white
+    .fa
+      position: absolute
+      left: -27px
+      top: 3px
+  .list__content
+    display block
+    float: left
+
+.content__manager
+  .list_type_time
+    padding-left: 63px
+  .list__item
+    margin-bottom: 42px

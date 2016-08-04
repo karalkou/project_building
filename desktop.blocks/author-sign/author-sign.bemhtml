@@ -1,0 +1,14 @@
+block('author-sign')(
+    content()(function(){
+        return [
+            {
+                elem: 'name',
+                content: this.ctx.name
+            },
+            {
+                elem: 'position',
+                content: this.ctx.position
+            }
+        ];
+    })
+)

@@ -1,0 +1,33 @@
+block('form-textarea').mod('listened', true)(
+	tag()('textarea'),
+	attrs()(function(){
+		return {
+			name: this.ctx.name,
+			placeholder: this.ctx.placeholder
+		}
+	}),
+	content()(function(){
+		return [
+			{
+				block: 'form',
+				elem: 'label',
+				mix: this.ctx.labelWidth ? this.ctx.labelWidth : 'col-md-4',
+				elemMods : this.ctx.required ? { type: 'required' } : '',
+				content: this.ctx.labelText
+			},
+			{
+				block: this.ctx.wrapper ? this.ctx.wrapper : 'col-md-4',
+				//content: this.ctx.
+			},
+			{
+				block: 'col-md-4',
+				content: [
+					{
+						block: 'form',
+						elem: 'error',
+					}
+				]
+			}
+		]
+	})
+)

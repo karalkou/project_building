@@ -1,0 +1,53 @@
+.share42init
+  display: inline-block
+
+.share42
+  &__item
+    display: inline-block
+    height: 22px
+  &__link
+    width: 33px
+    height: 22px
+    margin: 0
+    padding: 0
+    outline: none
+    text-decoration none
+    text-align: center
+    font-size: ceil($fs-base * 1.25)
+    @extend .fa
+
+.vk
+  color: #547ba2
+  &:before
+    content: $fa-var-vk
+
+.tw
+  width: 29px
+  color: #2199c9
+  &:before
+    content: $fa-var-twitter
+
+.fb
+  color: #3a5897
+  &:before
+    content: $fa-var-facebook
+
+.share42-counter
+  margin-top: -5px
+
+.share_center
+  margin-top: 39px
+  text-align: center
+  font-size: 24px
+  -webkit-font-smoothing: antialiased
+  font-family: 'robotothin'
+  .share42
+    &__item,
+    &__link
+      font-size: 24px
+  .vk
+    width: 35px
+    margin-right: 8px
+  .tw
+    width: 32px
+    margin-right: 4px

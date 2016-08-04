@@ -1,0 +1,42 @@
+.pagination
+  display: inline-block
+  margin: 0 auto
+  $border = 1px
+  list-style-type: none
+  &__item,
+  &__link
+    display inline-block
+    float: left
+    min-width: 39px
+    text-align: center
+    height: 45px
+    line-height: 43px
+    font-size: $fs-base-large
+    color: lighten($black, 18%)
+  &__link
+    border: $border solid #dddddd
+    border-right: none
+    text-decoration: none
+    background: white
+    transition: background .5s ease
+    &:hover,
+    &_selected
+      background: #ededed
+  &__item_last
+    .pagination__link
+      border-right: 1px solid #dddddd
+      border-top-right-radius: $border-radius-size-medium
+      border-bottom-right-radius: $border-radius-size-medium
+  &__item:last-child//= из-за ie8 нет extend
+    .pagination__link
+      border-right: 1px solid #dddddd
+      border-top-right-radius: $border-radius-size-medium
+      border-bottom-right-radius: $border-radius-size-medium
+  &__item:first-child
+    .pagination__link
+      border-top-left-radius: $border-radius-size-medium
+      border-bottom-left-radius: $border-radius-size-medium
+  &:after
+    display: block
+    clear: both
+    content: ""

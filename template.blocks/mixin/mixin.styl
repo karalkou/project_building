@@ -1,0 +1,17 @@
+box-shadow(args)
+  -webkit-box-shadow args
+  -moz-box-shadow args
+  box-shadow args
+
+opacity(n)
+  opacity n
+  if $support-for-ie
+    filter unquote('progid:DXImageTransform.Microsoft.Alpha(Opacity=' + round(n * 100) + ')')
+
+vendor(prop, args)
+  -webkit-{prop}: args
+  -moz-{prop}: args
+  {prop}: args
+
+border-radius(radius)
+  vendor('border-radius', radius)

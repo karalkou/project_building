@@ -1,0 +1,29 @@
+.tabs_scrolled
+  position: fixed
+  margin-top: 0 !important
+  padding-top: 10px !important
+  padding-bottom: 10px
+  top: 86px
+  z-index: 500
+  box-sizing: border-box
+  .tabs__btn,
+  .tabs__btn_hover_none
+    color: white
+  .tabs__btn_selected
+    background: rgba(255,255,255,0.8)
+    color: $black
+    &.tabs__btn_hover_none
+      color: white
+  &:after
+    position: absolute
+    display: block
+    height: 100%
+    top: 0
+    left: -2000px
+    width: 5000px
+    content: ''
+    background: black
+    background: rgba(0,0,0,0.8)
+    opacity: 1
+    transition: opacity ease-in-out 0.6s
+    z-index: -1

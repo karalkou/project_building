@@ -1,0 +1,47 @@
+.price-table
+  width: 600px
+  margin: 0 auto
+  margin-top: 49px
+  padding: 32px 50px
+  font-size: 20px
+  border: 1px solid $gray
+  border-radius: $border-radius-base
+  &__head
+    margin-bottom: $margin-medium
+    &_align_left
+      float: left
+    &_align_right
+      padding-right: 20px
+      float: right
+      text-align: right
+  &__item
+    position: relative
+    margin-bottom: 14px
+    height: 26px
+    &:before
+      display: inline-block
+      position: absolute
+      content: ''
+      width: 100%
+      height: 10px
+      z-index: 0
+      border: 0
+      border-bottom: 1px
+      border-style: dotted
+      border-color: $gray
+      left: 0
+      top: 10px
+  &__left
+    position: absolute
+    display: inline-block
+    left: 0
+    z-index: 1
+    padding-right: 5px
+    background: white
+  &__right
+    display: inline-block
+    position: absolute
+    padding-left: 5px
+    right: 0
+    z-index: 1
+    background: white

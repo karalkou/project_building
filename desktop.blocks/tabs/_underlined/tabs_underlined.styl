@@ -1,0 +1,31 @@
+.tabs_underlined
+  padding-bottom: 10px
+  .tabs__item
+    .tabs__btn
+      color: darken(white, 20%)
+      color: alpha(white, 0.3)
+
+    .tabs__btn_hover,
+    .tabs__btn_selected
+      color: alpha(white, 0.8)
+
+    .tabs__btn,
+    .tabs__btn_hover,
+    .tabs__btn_hover_none
+      padding: 0
+      margin-right: 25px
+      border: none
+      border-bottom: 1px solid transparent
+      border-radius: 0
+      background: transparent
+
+    .tabs__btn_hover
+      border-bottom: 1px solid alpha(white, 0.8)
+
+    .tabs__btn_selected
+      border-bottom: 1px solid alpha(white, 0.8)
+      background: none
+      &.tabs__btn_hover_none
+        color: darken(white, 20%)
+        color: alpha(white, 0.3)
+        border: none

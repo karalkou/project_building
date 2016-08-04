@@ -1,0 +1,47 @@
+block('price-table')(
+	content()(function(){
+		var self = this, arrItems, bemJSON;
+
+		arrItems = this.ctx.items.map(function(item){
+			var bemJSON = {
+				elem: 'item',
+				content: [
+                    {
+                        elem: 'left',
+                        content: item.leftContent
+                    },
+                    {
+                        elem: 'right',
+                        content: item.rightContent
+                    }
+                ]
+			};
+
+			return bemJSON;
+		});
+
+		bemJSON = [
+			{
+				block: 'price-table',
+				elem: 'head',
+				elemMods: { align: 'left' },
+				content: this.ctx.leftHead
+			},
+			{
+				block: 'price-table',
+                elem: 'head',
+                elemMods: { align: 'right' },
+                content: this.ctx.rightHead
+            },
+            {
+                block: 'clear'
+            },
+            {
+                tag: '',
+                content: arrItems
+            }
+		];
+
+		return bemJSON;
+	})
+)

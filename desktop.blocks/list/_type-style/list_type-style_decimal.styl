@@ -1,0 +1,7 @@
+.list_type-style_decimal
+  counter-reset: list
+  .list__item
+    margin-bottom: 0
+    &:before
+      counter-increment: list
+      content: counter(list)'. '

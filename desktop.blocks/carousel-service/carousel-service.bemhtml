@@ -1,0 +1,50 @@
+block('carousel-service')(
+	replace().once()(function(){
+		return {
+            block: 'carousel-service-wrapper',
+            content: [
+                {
+                    block: 'carousel-service',
+                    content: [
+                         {
+                            block: 'carousel-list',
+                            js: true,
+                            items: this.ctx.items
+                         },
+                         {
+                             block: 'carousel-service',
+                             elem: 'content'
+                         },
+                         {
+                             block: 'carousel-service',
+                             elem: 'counter',
+                             content: [
+                                {
+                                     block: 'carousel-service',
+                                     elem: 'counter-current',
+                                },
+                                {
+                                    block: 'carousel-service',
+                                    elem: 'counter-separator',
+                                    content: '/'
+                                },
+                                {
+                                    block: 'carousel-service',
+                                    elem: 'counter-count',
+                                }
+                             ]
+                         },
+                         {
+                             block: 'carousel-service',
+                             elem: 'btn-prev'
+                         },
+                         {
+                             block: 'carousel-service',
+                             elem: 'btn-next'
+                         }
+                     ]
+                }
+            ]
+        }
+	})
+)

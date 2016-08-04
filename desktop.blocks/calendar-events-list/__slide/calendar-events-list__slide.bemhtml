@@ -1,0 +1,9 @@
+block('calendar-events-list').elem('slide')(
+	content()(function(){
+		return {
+			block: 'calendar-events-list',
+            elem: 'months',
+            content: this.ctx.items
+        }
+	})
+)

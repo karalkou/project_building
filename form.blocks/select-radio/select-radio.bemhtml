@@ -1,0 +1,40 @@
+block('select-radio')(
+    tag()('address'),
+    content()(function(){
+        var self = this;
+        var selfCtx = this.ctx;
+        return this.ctx.items.map(function(item){
+
+            var bemJSON = {
+                    elem: 'label',
+                    elemMods : item.elemMods,
+                    mix: item.mix,
+                    content: [
+                        {
+                            block: 'input',
+                            type: 'radio',
+                            name: selfCtx.name,
+                            mix: { block: 'select-radio', elem: 'input' }
+                        },
+                        {
+                            tag: 'span',
+                            content: 'click'
+                        }
+                    ]
+                };
+
+            if(!item.elemMods){
+                delete bemJSON.elemMods;
+            }
+
+            if(!item.mix){
+                delete bemJSON.mix;
+            }
+
+            return bemJSON;
+
+        });
+    }),
+
+    elem('label')(tag()('label'))
+)

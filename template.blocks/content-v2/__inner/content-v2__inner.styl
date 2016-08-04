@@ -1,0 +1,23 @@
+.content-v2__inner
+  position: relative
+  padding: 55px 15px 55px 15px
+  font-size : $fs-base-plus
+  &:after,
+  &:before
+    display :table
+    content: ""
+    clear: both
+
+  .tiles
+    margin: 0
+  .tiles__item
+    margin: 0
+    text-indent: 0
+    &:before
+      display: none
+  .tiles__link
+    display: block
+    color: $black
+    border: 0
+    &:hover
+      color: $black

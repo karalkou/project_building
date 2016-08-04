@@ -1,0 +1,137 @@
+block('events-list')(
+	replace().once()(function(){
+		function templateGenerator(arr){
+		    return arr.map(function(item){
+		        return {
+		            elem: 'item',
+		            content: {
+		                elem : 'link',
+		                tag: 'a',
+		                attrs: { href: item.url},
+		                content: [
+							{
+								block: 'events-list',
+								elem: 'link-wrap',
+								content:[
+								    {
+								         block: 'events-list',
+								         elem: 'title',
+								         content: item.title
+								     },
+								     {
+								         block: 'events-list',
+								         elem: 'subtitle',
+								         content: item.subtitle
+								     },
+								     {
+								         block: 'events-list',
+								         elem: 'content',
+								         content: item.content
+								     },
+								     {
+								         block: 'events-list',
+								         elem: 'count',
+										 content: [
+											    {
+											        block: 'fa',
+											        mix: { block: 'fa-users'}
+											    },
+											    {
+											        tag: '',
+											        content: item.count
+											    }
+										  ]
+								     },
+								     {
+								         block: 'events-list',
+								         elem: 'date',
+								         content: item.date
+								     }
+								]
+							},
+							{
+								 block: 'img',
+								 tag: 'img',
+								 attrs: { src: item.img },
+								 mods: { responsive: true }
+							}
+		                ]
+		            }
+		        }
+		    });
+		}
+
+		var months = {
+				'1' : 'Январь',
+				'2' : 'Февраль',
+				'3' : 'Март',
+				'4' : 'Апрель',
+				'5' : 'Май',
+				'6' : 'Июнь',
+				'7' : 'Июль',
+				'8' : 'Август',
+				'9' : 'Сентябрь',
+				'10' : 'Октябрь',
+				'11' : 'Ноябрь',
+				'12' : 'Декабрь',
+			},
+			currentMonth = {},
+			content = [],
+			calendarContent = [];
+
+		this.ctx.content.forEach(function(currentItem, i, arr){
+	        if(!currentMonth[currentItem.month]){
+	          currentMonth[currentItem.month] = [];
+	        }
+	        if(currentItem.month ==  arr[i].month){
+	          currentMonth[currentItem.month].push(currentItem);
+	        }
+        });
+
+        for (month in currentMonth){
+            var events = currentMonth[month].filter(function(obj, index){
+            		        return index%2 == 0;
+            		    });
+
+             var eventsEven = currentMonth[month].filter(function(obj, index){
+                        return index%2 != 0;
+                    });
+
+
+			content.push({
+              tag: 'div',
+              cls: 'events-list-wrap',
+              attrs: { id: 'month-' + month},//убрать на бою
+              content: [
+                {
+                    tag: 'span',
+                    cls: 'events-list__month',
+                    content: months[month]
+                },
+                {
+                    block: 'events-list',
+                    elem: 'timeline'
+                },
+                {
+                  block: this.ctx.block,
+                  tag: 'ul',
+                  content: templateGenerator(events)
+                },
+                {
+				  block: this.ctx.block,
+				  tag: 'ul',
+				  mods: { even: true },
+                  content: templateGenerator(eventsEven)
+                }
+              ]
+            });
+
+        }
+
+        return content;
+    }),
+
+	elem('item')(
+		tag()('li')
+	)
+);

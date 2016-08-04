@@ -1,0 +1,78 @@
+.top-navigation-column
+  display: inline-block
+  padding: 0px
+  float: left
+  height: $header-height
+  padding-top: 20px
+  list-style-type none
+
+.top-navigation-column__item
+  padding-right: 19px
+  color: white
+  a
+    display: inline-block
+    color: white
+    text-decoration: none
+    border: 0px
+    font-size: $fs-base
+    font-size: 1.6rem
+    .ico-location
+      float: left
+      margin-top: -3px
+
+    .ico-user
+      margin-top: -2px
+      width: 24px
+      float: left
+
+    .ico-sign-in
+      float: left
+      margin-top: 3px
+
+    span
+      border: 0px
+      border-bottom: 1px
+      border-style: solid
+      border-color: white
+      border-color: rgba(255,255,255,0.3)
+
+    &:hover
+      text-decoration: none
+      color: white
+      color: $white-opacity-80
+
+
+
+.top-navigation-column__type-contact
+  .top-navigation-column__item
+    a
+      span
+        border-style: dashed
+
+.top-navigation-column__item__view-no-ico
+  padding-left: 24px
+
+@media screen and (max-width: 1320px)
+  .top-navigation-column__item
+    a
+      font-size: 14px
+
+@media screen and (max-width: 1305px)
+  .top-navigation-column__item
+    a
+      font-size: 14px
+
+@media screen and (min-width: 1305px)
+  .top-navigation-column__item
+    a
+      font-size: 14px
+
+@media screen and (min-width: 1398px)
+  .top-navigation-column__item
+    a
+      font-size: 16px
+      .ico-location
+        margin-top: -1px
+
+      .ico-user
+        margin-top: 1px

@@ -1,0 +1,95 @@
+block('select-autocomplite')(
+	content()(function(){
+		var options, bemJSON, selectedHTML;
+		var i = 0;
+
+		options =  this.ctx.item.map(function(item){
+			var bemJSON,
+			bemJSON = {
+				block: 'select-autocomplite-real',
+				elem: 'item',
+			    tag: 'option',
+			    content: item.content,
+			    attrs: {
+			        value: item.val? item.val : i,
+			        selected: 'selected'
+			    }
+			};
+
+			if(!item.selected){
+				delete bemJSON.attrs.selected;
+			}else{
+				selectedHTML = item.content;
+			}
+
+			i++;
+
+			return bemJSON;
+		});
+
+		optionsPseudo =  this.ctx.item.map(function(item){
+            var bemJSON,
+            bemJSON = {
+                block: 'select-autocomplite-list',
+                elem: 'item',
+                attrs: { 'data-val': item.val? item.val : i },
+                mods: { selected: true },
+                content: item.content,
+                mix: item.mixBlock
+            };
+
+            if(!item.selected){
+                delete bemJSON.mods.selected;
+            }
+
+            return bemJSON;
+        });
+
+		bemJSON = [
+			{
+				block: 'select-autocomplite-real',
+				tag: 'select',
+				attrs: { 'id': 'real-bem-select' }, /* was added on 09.12.2015 for backend aims */
+				content: options
+			},
+			{
+				block: 'select-autocomplite-input',
+				content: [
+					{
+						elem: 'value',
+						content: selectedHTML
+					},
+					{
+						block: 'select-autocomplite',
+						elem: 'outer-arrow-wrap',
+						content:
+							{
+								block: 'select-autocomplite',
+								elem: 'inner-arrow-wrap',
+								content: [
+									{
+										block: 'fa',
+										mix: [ { block: 'fa-sort-desc' }, { block: 'select-autocomplite-input', elem: 'sort-desc' } ]
+									},
+									{
+										block: 'fa',
+										mix: [ { block: 'fa-sort-asc' }, { block: 'select-autocomplite-input', elem: 'sort-asc' } ]
+									}
+								]
+							}
+					},
+					{
+						elem: 'permanent-selection'
+					},
+					{
+						block: 'select-autocomplite-list',
+						mods: { hidden: true },
+						content: optionsPseudo
+					}
+				]
+			}
+		]
+
+		return bemJSON;
+	})
+)

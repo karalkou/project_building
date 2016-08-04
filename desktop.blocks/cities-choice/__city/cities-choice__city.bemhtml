@@ -1,0 +1,9 @@
+block('cities-choice').elem('city')(
+	content()(function(){
+		return {
+			tag : 'a',
+			attrs : { href : '/'},
+			content: this.ctx.content
+		}
+	})
+)

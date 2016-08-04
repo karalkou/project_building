@@ -1,0 +1,80 @@
+.select-autocomplite
+  display: inline-block
+  position: relative
+  width: auto
+  cursor: pointer
+  background: alpha(white, 0)
+  outline: none
+  .select-autocomplite-real
+    display: none
+
+  .select-autocomplite-input
+    @extend .form-input
+    display: block
+    position: relative
+    padding: 0px 45px 0px 0px
+
+  &.select-autocomplite_color_white-transparent
+    .select-autocomplite-input
+      height: auto        //03.11.2015
+      color: white
+      border-color: white
+      border-color: alpha(white, 0.25)
+      background: none
+  .select-autocomplite-list
+    position: absolute
+    left: -1px
+    right: -1px
+    bottom: -1px
+    opacity: 1
+    background: #000
+    background-color: alpha(#000, 0.9)
+    border-radius: $border-radius-size-medium
+    transition: opacity ease-in-out .5s
+    padding: 0 1px
+    z-index: 20
+    &_hidden
+      /*display: none*/ /* 02.11.2015 */
+      visibility: hidden
+      opacity: 0
+    &__item
+      width: auto /* 03.11.2015 */
+      display: block
+      padding: 0 12px
+      //height: h = 36px // 02.11.2015
+      //line-height: h   // 02.11.2015
+      line-height: 36px  // 02.11.2015
+      span               // 02.11.2015
+        color: blue       // 02.11.2015
+      opacity: 1
+      -webkit-font-smoothing: antialiased
+      &:hover,
+      &_selected_hover
+        color: darken(white, 25%)
+        color: alpha(white, 0.8 )
+  &.select-autocomplite_width_full // 02.11.2015
+    width: 100%                    // 02.11.2015
+    max-width: 538px;              // 02.11.2015
+
+  .select-autocomplite-input__value
+    display: block
+    padding: 0 12px
+    //height: h = 36px
+    //line-height: h
+    line-height: 36px  // 03.11.2015
+    height: auto       // 03.11.2015
+    -webkit-font-smoothing: antialiased
+
+  .select-autocomplite-input__sort-desc,
+  .select-autocomplite-input__sort-asc
+    position: absolute
+    cursor: pointer
+    right: 15px
+    top: 8px
+    cursor: pointer
+    font-size: $fs-extra-small
+    z-index: 21
+  .select-autocomplite-input__sort-desc
+    top: auto
+    bottom: 8px
+

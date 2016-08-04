@@ -1,0 +1,9 @@
+block('form')(
+	tag()('form'),
+	attrs()(function(){
+		return {
+			method: this.ctx.method,
+			action: this.ctx.action
+		}
+	})
+)

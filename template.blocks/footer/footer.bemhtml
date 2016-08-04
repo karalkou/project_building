@@ -1,0 +1,71 @@
+block('footer')(
+	tag()('footer'),
+	content()(function(){
+		return {
+            block: 'container',
+            content: [
+                {
+                    block: 'col-md-5',
+                    mix: { block: 'row'},
+                    content: 'Генеральная лицензия от 16 января'
+                },
+                {
+                    block: 'col-md-7',
+                    mix: { block: 'row'},
+                    content: {
+                        block: 'footer-menu',
+                        'footer-menu': [
+                            {
+                                elem: 'item',
+                                url: '#',
+                                content: 'О'
+                            },
+                            {
+                                elem: 'item',
+                                url: '#',
+                                content: 'Обратная связь'
+                            },
+                            {
+                                elem: 'item',
+                                url: '#',
+                                content: 'Для бизнеса'
+                            }
+                        ]
+                    }
+                },
+                {
+                    block: 'col-md-9',
+                    mix: { block: 'row'},
+                    content:{
+                        block: 'footer',
+                        elem: 'copy',
+                        content: '© 2015'
+                    }
+                },
+                {
+                    block: 'col-md-3',
+                    content: {
+                        block: 'footer-social-list',
+                        'footer-social-list': [
+                            {
+                                elem: 'item',
+                                elemMods: { type: 'tw' },
+                                url: 'http://twitter.com'
+                            },
+                            {
+                                elem: 'item',
+                                elemMods: { type: 'vk' },
+                                url: 'http://vk.com'
+                            },
+                            {
+                                elem: 'item',
+                                elemMods: { type: 'fb' },
+                                url: 'http://www.facebook.com'
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+	})
+)

@@ -1,0 +1,16 @@
+.landing-navigation
+  min-width: 680px
+  .link_color_white
+    &:hover
+      color: $white-opacity-80
+      border-color: darken(white, 20%)
+      border-color: alpha(white, 0.3)
+    &:focus
+      color: white
+    &.link_selected
+      color: $white-opacity-80
+      border: none
+      &:hover,
+      &:focus
+        color: $white-opacity-80
+        cursor: default

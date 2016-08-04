@@ -1,0 +1,15 @@
+block('link')(
+    tag()('a'),
+    attrs()(function() {
+        var bemJSON = {
+            href: this.ctx.url,
+            target: '_blank'
+        };
+
+        if(!this.ctx.target){
+            delete bemJSON.target
+        }
+
+        return bemJSON;
+    })
+)

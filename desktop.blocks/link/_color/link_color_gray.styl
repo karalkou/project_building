@@ -1,0 +1,10 @@
+.link_color_gray
+  color: $grayDark
+  border-color: $grayDark
+  border-color: alpha($grayDark, 0.3)
+  &:hover,
+  &:focus
+    color: lighten($grayDark, 20%)
+    color: $grayDark-opacity-80
+    border-color: lighten($grayDark, 20%)
+    border-color: alpha($grayDark, 0.3)

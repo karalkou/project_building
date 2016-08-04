@@ -1,0 +1,52 @@
+.ico_type_arrow-down
+  width: 50px
+  height: 25px
+  position: absolute
+  overflow: hidden
+  cursor: pointer
+  z-index: 1
+  -webkit-animation: animateDown 0.8s infinite;
+  -moz-animation: animateDown 0.8s infinite;
+  -o-animation: animateDown 0.8s infinite;
+  animation: animateDown 0.8s infinite;
+  &:after,
+  &:before
+    position: absolute
+    display: block
+    top: 0
+    left: -42px
+    width: 60px
+    height: 60px
+    content: ""
+    border: 1px solid #fff
+    transform: rotate(45deg)
+  &:before
+    left: 31px;
+
+@-webkit-keyframes animateDown
+{
+  0%   {top:0px;}
+  50%  {top:25px;}
+  100% {top:0px;}
+
+}
+
+@-moz-keyframes animateDown
+{
+  0%   {top:0px;}
+  50%  {top:25px;}
+  100% {top:0px;}
+}
+
+@-o-keyframes animateDown
+{
+  0%   {top:0px;}
+  50%  {top:25px;}
+  100% {top:0px;}
+}
+
+@keyframes animateDown {
+  0%   {top:0px;}
+  50%  {top:25px;}
+  100% {top:0px;}
+}

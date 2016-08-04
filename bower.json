@@ -1,0 +1,14 @@
+{
+  "author": "YuryKaralkou",
+  "name": "alfa",
+  "email": "yury.karalkou@gmail.com",
+  "version": "0.0.0",
+  "ignore": [
+    ".bem/cache",
+    "node_modules",
+    "libs"
+  ],
+  "dependencies": {
+    "bem-components": "2.4.0"
+  }
+}

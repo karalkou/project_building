@@ -1,0 +1,52 @@
+block('pagination')(
+	tag()('ul'),
+	content()(function(){
+		var arrItems =  this.ctx.items.map(function(item){
+			return {
+				elem: 'item',
+				content: {
+					elem: 'link',
+					attrs: { href: ''},
+					content: item.content
+				}
+			}
+		});
+
+		arrItems.unshift({
+            elem: 'item',
+            content: {
+                elem: 'link',
+                attrs: { href: ''},
+                content: {
+                    block: 'fa',
+                    mix : { block: 'fa-angle-double-left' },
+                    tag: 'i',
+                }
+            }
+        });
+
+		arrItems.push({
+            elem: 'item',
+            mods: { last: true},
+            content: {
+                elem: 'link',
+                attrs: { href: ''},
+                content: {
+                    block: 'fa',
+                    mix : { block: 'fa-angle-double-right' },
+                    tag: 'i',
+                }
+            }
+        });
+
+        return arrItems;
+	}),
+
+	elem('item')(
+		tag()('li')
+	),
+	elem('link')(
+		tag()('a'),
+		attrs()({ href : '#'})
+	)
+)

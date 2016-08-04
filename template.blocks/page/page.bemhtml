@@ -1,0 +1,184 @@
+block('page').mod('sticky-push', true)(
+    content()(function(){
+    var header;
+
+    /* check to understand what header to apply on current page */
+    if( this.ctx.moderator ){
+    	header = 'header-moderator'
+    }else if( this.ctx.cabinet ){
+    	header = 'header-cabinet'
+    }else{
+    	header = 'header'
+    }
+
+	return [
+		{
+			tag: '',
+			content : this.ctx.scripts
+		},
+		{
+			block: 'page-sticky-footer',
+			content: [
+				{
+					block: header,
+					mods: this.ctx.headerMods ? this.ctx.headerMods : {}
+				},
+				{
+					tag: '',
+					content: this.ctx.content
+				},
+				{
+					block: 'clearfix'
+				},
+				{
+					block: 'sticky-push'
+				}
+			]
+		},
+		{
+			block: 'footer'
+		},
+		{
+			block: 'column-popup',
+			mods: { 'align': 'right'},
+			js: true,
+			ico: 'ico-user',
+			title: 'Личный кабинет',
+			'column-popup-nav': [
+				{
+					title: 'Персональные данные',
+					url: '/',
+					content: 'Подпись в персональныых данных текст текст текст'
+				},
+				{
+					title: 'Компании',
+					url: '/',
+					content: 'Подпись в компании влоыао выа текст текст текст'
+				},
+				{
+					title: 'Выйти',
+					url: '/'
+				}
+			]
+		},
+		{
+			 block: 'whole-popup',
+			 js: true,
+			 mods: { 'cities-choice' : true}
+		}
+	]
+
+    })
+);
+
+block('page').mod('sticky-push', 'none')(
+	content()(function(){
+		var header;
+
+		/* check to understand what header to apply on current page */
+		if( this.ctx.moderator ){
+			header = 'header-moderator'
+		}else if( this.ctx.cabinet ){
+			header = 'header-cabinet'
+		}else{
+			header = 'header'
+		}
+
+		return [
+			{
+                tag: '',
+                content : this.ctx.scripts
+            },
+            {
+                block: header,
+	            mods: this.ctx.headerMods ? this.ctx.headerMods : {}
+            },
+			{
+                tag: '',
+                content: this.ctx.content
+            },
+			{
+				block: 'footer'
+			},
+			{
+                block: 'column-popup',
+                mods: { 'align': 'right'},
+                js: true,
+                ico: 'ico-user',
+                title: 'Яков Даниэлс',
+                'column-popup-nav': [
+                    {
+                        title: 'Персональные данные',
+                        url: '/',
+                        content: 'Подпись в персональныых данных текст текст текст'
+                    },
+                    {
+                        title: 'Компании',
+                        url: '/',
+                        content: 'Подпись в компании влоыао выа текст текст текст'
+                    },
+                    {
+                        title: 'Выйти',
+                        url: '/'
+                    }
+                ]
+            },
+			{
+				 block: 'whole-popup',
+				 js: true,
+				 mods: { 'cities-choice' : true}
+			}
+		]
+	})
+
+    /*--- if there is modifier "moderator: true" ---*/
+	/*match(function(){ return this.ctx.moderator })(
+	content()(function(){
+		return [
+			{
+				tag: '',
+				content : this.ctx.scripts
+			},
+			{
+				block: 'header-moderator',
+				mods: this.ctx.headerMods ? this.ctx.headerMods : {}
+			},
+			{
+				tag: '',
+				content: this.ctx.content
+			},
+			{
+				block: 'footer'
+			},
+			{
+				block: 'column-popup',
+				mods: { 'align': 'right'},
+				js: true,
+				ico: 'ico-user',
+				title: 'Яков Даниэлс',
+				'column-popup-nav': [
+					{
+						title: 'Персональные данные',
+						url: '/',
+						content: 'Подпись в персональныых данных текст текст текст'
+					},
+					{
+						title: 'Компании',
+						url: '/',
+						content: 'Подпись в компании влоыао выа текст текст текст'
+					},
+					{
+						title: 'Выйти',
+						url: '/'
+					}
+				]
+			},
+			{
+				 block: 'whole-popup',
+				 js: true,
+				 mods: { 'cities-choice' : true}
+			}
+		]
+	})
+	)*/
+);

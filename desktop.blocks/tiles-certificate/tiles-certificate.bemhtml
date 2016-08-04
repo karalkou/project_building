@@ -1,0 +1,62 @@
+block('tiles-certificate')(
+	tag()('ul'),
+	content()(function(){
+		return this.ctx['tiles-certificate'].map(function(item){
+			return [
+				{
+					elem: 'item',
+					elemMods: item.mods,
+					content: {
+						elem: 'link',
+						elemMods: item.modsLink,
+						attrs: { href: item.url },
+						content:[
+							{
+								elem: 'animation',
+								content: [
+									{
+										block: 'inexistant-block',
+										mix: { block: 'tiles-certificate' ,elem: 'animation-text', mods: {'left-position': true} },
+										content: item.sideContent
+									},
+									{
+										block: 'btn',
+										mix: item.mixBtn,
+										content: 'Открыть'
+									}
+								]
+							},
+							{
+								elem: 'logo',
+								attrs: item.img ? { style: 'background-image: url(' + item.img + ')'} : '',
+								elemMods: item.modsImg
+							},
+							{
+								elem: 'text',
+								elemMods: item.modsText,
+								content: [
+									{
+										elem: 'title',
+										content: item.title
+									},
+									{
+										elem: 'subtitle',
+										content: item.subTitle
+									}
+								]
+							}
+						]
+					}
+				}
+			]
+		});
+	}),
+
+	elem('item')(
+		tag()('li')
+	),
+
+	elem('link')(
+		tag()('a')
+	)
+)

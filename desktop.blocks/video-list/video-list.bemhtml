@@ -1,0 +1,49 @@
+block('video-list')(
+	tag()('ul'),
+	content()(function(){
+		var self = this;
+		return this.ctx.list.map(function(item){
+			var bemJSON = {
+					elem: 'item',
+					js: item.js,
+					attrs: { 'data-click': item.dataClick, 'data-title': item.content },
+					elemMods : item.elemMods,
+					mix: item.mix,
+					content: [
+						{
+							block: 'link',
+							url: item.url,
+							mix: { block: 'video-list', elem: 'play' }
+						},
+						{
+							block: 'link',
+							url: item.url,
+							mods: { 'video-list': true },
+							mix: { block: 'video-list', elem: 'link' },
+							content: item.content
+						}
+					]
+				};
+
+			if(!item.elemMods){
+				delete bemJSON.elemMods;
+			}
+
+			if(!item.mix){
+                delete bemJSON.mix;
+            }
+
+			if(!item.js){
+                delete bemJSON.js;
+            }
+
+			if(!item.dataClick){
+                delete bemJSON.attrs;
+            }
+
+			return bemJSON;
+		});
+	}),
+
+	elem('item')(tag()('li'))
+)

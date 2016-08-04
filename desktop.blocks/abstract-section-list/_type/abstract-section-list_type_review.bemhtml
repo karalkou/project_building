@@ -1,0 +1,55 @@
+block('abstract-section-list').mod('type', 'review')(
+	mix()({block: 'row'}),
+    content()(function(){
+        var i  = 0;
+
+		if(this.ctx.pickOut == 'even'){
+		    var i = 1;
+		}
+
+        return this.ctx.items.map(function(item){
+            i++;
+
+             var elemItem = {
+                   elem: 'item',
+                   elemMods: { 'pick-out': (i%2 != 0)? true: false },
+                   content: [
+                     {
+                           block: item.imgUrl ? 'col-md-6' : 'col-md-offset-2 col-md-8',
+                           content: [
+								{
+									block: 'abstract-section-list',
+									elem: 'title',
+									content: item.title
+								},
+								{
+									block: 'abstract-section-list',
+									elem: 'subtitle',
+									mods: { size: 's' },
+									content: item.subtitleSecond
+								}
+                           ]
+                       },
+                       {
+                           block: 'col-md-offset-2',
+                           mix: { block: 'col-md-8' },
+                           content: {
+                             block: 'abstract-section-list',
+                             elem: 'content',
+                             mix: { block: 'content', elem: 'manager'},
+                             content: item.previewText
+                         }
+                       }
+
+                   ]
+               };
+
+            return elemItem;
+
+        });
+    }),
+
+    elem('title')(
+        tag()('h3')
+    )
+)

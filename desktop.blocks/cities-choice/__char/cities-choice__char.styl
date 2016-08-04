@@ -1,0 +1,19 @@
+.cities-choice__char
+  margin-top: 31px
+  margin-bottom: .3em
+  font-weight: 600
+  font-size: 1.6em
+  color: white
+  &_hidden
+    opacity(0)
+    filter: unquote('alpha(opacity=0)')
+    -webkit-transform: translate(0, -10px)
+    -moz-transform: translate(0, -10px)
+    -o-transform: translate(0, -10px)
+    -ms-transform: translate(0, -10px)
+    transform: translate(0, -10px)
+    height: 0
+    margin: 0
+  &_visible
+    -webkit-transition-delay: 0s, 0.4s
+    transition-delay: 0s, 0.4s

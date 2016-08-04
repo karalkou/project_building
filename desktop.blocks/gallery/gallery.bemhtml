@@ -1,0 +1,30 @@
+block('gallery')(
+	replace().once()(function(){
+	    return {
+	        block: 'row',
+	        content: this.ctx
+	    }
+	}),
+	content()(function(){
+		return this.ctx.items.map(function(item){
+			return {
+				elem: 'item',
+				mix: { block : 'col-md-3'},
+				content: {
+					elem: 'link',
+					tag: 'a',
+					attrs: { rel: "gallery", href: item.bigImage },
+					content: {
+						block: 'img',
+						url: item.minImage,
+						mods: { responsive: true }
+					}
+				}
+			};
+		});
+	}),
+	tag()('ul'),
+	elem('item')(
+		tag()('li')
+	)
+)

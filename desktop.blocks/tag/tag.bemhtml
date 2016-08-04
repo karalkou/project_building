@@ -1,0 +1,15 @@
+block('tag')(
+	tag()('span'),
+	content()(function(){
+		return [
+			{
+				tag: '',
+				content: '#'
+			},
+			{
+				tag: '',
+				content: this.ctx.content
+			}
+		]
+	})
+)

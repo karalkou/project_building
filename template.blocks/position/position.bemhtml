@@ -1,0 +1,15 @@
+block('position')(
+	replace().once()(function(){
+	    return [
+	        {
+	            block: this.ctx.block,
+	            mods: this.ctx.mods,
+	            content: this.ctx.content
+            },
+            {
+                block: 'position',
+                elem: 'clearfix'
+            }
+	    ]
+	})
+)

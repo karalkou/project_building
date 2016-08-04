@@ -1,0 +1,47 @@
+.btn-close
+    width: 30px
+    height: 30px
+    position: absolute
+    right: 35px
+    top: 20px
+    overflow: hidden
+    cursor: pointer
+    z-index: 1
+    background: url(img/close.png)
+
+.btn-close:after
+  -webkit-transform: rotate(45deg)
+  -ms-transform: rotate(45deg)
+  -o-transform: rotate(45deg)
+  transform: rotate(45deg)
+  content: ""
+  display: block
+  height: 60px
+  left: -42px
+  border: 1px solid #fff
+  position: absolute
+  top: 0
+  width: 60px
+
+.btn-close:before
+  -webkit-transform: rotate(45deg)
+  -ms-transform: rotate(45deg)
+  -o-transform: rotate(45deg)
+  transform: rotate(45deg)
+  content: ""
+  display: block
+  height: 60px
+  left: 12px
+  border: 1px solid #fff
+  position: absolute
+  top: 0
+  width: 60px
+
+.btn-close:hover:before
+.btn-close:hover:after
+  border: 1px solid $white-opacity-80
+
+.btn-close_hidden
+  &:after,
+  &:before
+    display: none

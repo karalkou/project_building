@@ -1,0 +1,9 @@
+block('screen').mod('half', true)(
+   replace().once()(function(){
+        return {
+            block: 'row',
+   			mods: { margin: '0' },
+            content: this.ctx
+        }
+    })
+);

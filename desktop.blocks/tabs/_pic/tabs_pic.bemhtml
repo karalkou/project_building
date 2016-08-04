@@ -1,0 +1,31 @@
+block('tabs').mod('pic', true)(
+	tag()('ul'),
+	content()( function(){
+		return this.ctx.tabs.map(function(item){
+			return {
+				elem: 'item',
+				mix: item.elemMix ? item.elemMix : {},
+				content: [
+					{
+						elem: 'pic',
+						content: {
+							block: 'img',
+							url: item.picUrl
+						}
+					},
+					{
+						elem: 'btn',
+						tag: 'a',
+						elemMods: item.mods,
+						attrs: { href: item.url , 'data-js': item.js},
+						content: item.content
+					}
+				]
+			}
+		})
+	}),
+
+	elem('item')(
+		tag()('li')
+	)
+);

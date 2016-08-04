@@ -1,0 +1,14 @@
+.btn_color_green-transparent
+  border: 1px solid lighten($green, 15%)
+  color: $green
+  background: transparent
+  border-radius: $input-border-radius
+  transition: background .5s ease
+  &:hover,
+  &:focus
+    outline: none
+    border-color: darken($green, 15%)
+    background: $green
+    transition: background .5s ease
+    color: white
+    cursor: pointer

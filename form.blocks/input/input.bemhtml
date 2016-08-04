@@ -1,0 +1,19 @@
+block('input')(
+	tag()('input'),
+	attrs()(function(){
+
+	    var context = this.ctx;
+	    var bemJSON = {
+            type: context.type ? context.type : 'text',
+            value: context.val ? context.val : '',
+            name: context.name ? context.name : '',
+            placeholder: context.placeholder ? context.placeholder : '',
+            maxlength: context.maxlength ? context.maxlength : '',
+            disabled: context.disabled ? context.disabled : ''
+        }
+        if(!context.elemMods){
+            delete bemJSON.disabled;
+        }
+         return bemJSON;
+     })
+)

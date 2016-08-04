@@ -1,0 +1,29 @@
+.blockquote
+  display: block
+  position: relative
+  padding : 44px 0 44px //init col-md-2
+  background: #f5f5f5
+  &:after
+    display: block
+    clear: both
+    content: ''
+  &:before
+    position: absolute
+    top: 30px
+    bottom: 32px
+    left: 15.3%
+    left: calc(16.66666667% - 16px)
+    display: inline-block
+    width: 7px
+    background: $red-alfa
+    content: ''
+  a
+    //@extend .link
+    //@extend .link_color_red /* disabled on 12.12.2015 because this string was the reason for ERROR */
+  p
+    margin-bottom: $margin-base
+    line-height: $margin-base
+  p:last-child
+    margin-bottom: 0px
+  p:first-child
+    margin-top: 0px

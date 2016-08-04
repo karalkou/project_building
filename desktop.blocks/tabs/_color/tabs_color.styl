@@ -1,0 +1,42 @@
+.tabs_color
+  &_white
+    .tabs__item
+      &:first-child
+        .tabs__btn
+          border-left: 1px solid white
+          border-color: alpha(white, 0.3)
+    .tabs__btn
+      border-color: white
+      border-color: alpha(white, 0.3)
+      color: white
+    .tabs__btn_selected,
+    .tabs__btn_hover,
+    .tabs__btn:hover
+      background: darken(white, 20%)
+      background: alpha(white, 0.1)
+      color: white
+      color: alpha(white, 0.8)
+    .tabs__btn_selected
+      color: white
+    .tabs__btn_hover_none
+      color: white
+
+  &_white-opaque
+    .tabs__item
+    &:first-child
+      .tabs__btn
+        border-left: 1px solid white
+        border-color: alpha(white, 0.3)
+    .tabs__btn
+      border-color: white
+      border-color: alpha(white, 0.5)
+      color: white
+    .tabs__btn_selected,
+    .tabs__btn_hover,
+    .tabs__btn:hover
+      background: white
+      color: $black
+    .tabs__btn_selected
+      color: $black
+    .tabs__btn_hover_none
+      color: white

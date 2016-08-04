@@ -1,0 +1,1 @@
+This block help to set COLOR for part of text (e.g. word in sentence)

@@ -1,0 +1,216 @@
+/*--------- variables ---------*/
+/* previous styles from site */
+.sitemenu {
+    /*background: transparent url("../img/dashed.gif") repeat-x scroll left top;*/
+    margin: 0 auto;
+    width: 996px;
+}
+.sitemenu_inner {
+    height: 40px;
+    /*background: transparent url("../img/dashed.gif") repeat-x scroll left bottom;*/
+}
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+}
+/**Top menu**/
+#horizontal-multilevel-menu,
+#horizontal-multilevel-menu ul {
+    margin: 0;
+    padding: 0;
+    /*background:#BC262C url(images/header_menu_bg.gif) repeat-x;*/
+    /*min-height:27px;*/
+    width: auto;
+    list-style: none;
+    font-size: 12px;
+    float: left;
+    /*font-size:90%*/
+}
+#horizontal-multilevel-menu {
+    height: 40px;
+    float: left;
+    text-transform: uppercase;
+}
+/*Links*/
+#horizontal-multilevel-menu a {
+    display: block;
+    /*padding:5px 0 0 5px;*/
+    /*padding:0.3em 0.8em;*/
+    text-decoration: none;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+}
+#horizontal-multilevel-menu li {
+    float: left;
+    margin: 0;
+}
+/*Root items*/
+#horizontal-multilevel-menu li a.root-item {
+    color: #4F4F4F;
+    /*font-weight:bold;*/
+    padding: 0px 5px;
+}
+/*Root menu selected*/
+#horizontal-multilevel-menu li a.root-item-selected {
+    /*background:#fc8d3d;*/
+    color: #4F4F4F;
+    /*font-weight:bold;*/
+    padding: 7px 5px;
+}
+/*Root items: hover*/
+#horizontal-multilevel-menu li:hover a.root-item,
+#horizontal-multilevel-menu li.jshover a.root-item {
+    color: #409F89;
+}
+/*------ NEW styles - NOT native ------*/
+#horizontal-multilevel-menu li ul > li:nth-child(n) a {
+    padding-left: 42px;
+    position: relative;
+}
+#horizontal-multilevel-menu li ul > li:nth-child(1) a {
+    /*background: url(../img/armchair.png) 5px center no-repeat;*/
+}
+#horizontal-multilevel-menu li ul > li:nth-child(2) a {
+    /*background: url(../img/kitchen.png) 5px center no-repeat;*/
+}
+#horizontal-multilevel-menu li ul > li:nth-child(3) a {
+    /*background: url(../img/w_machine.png) 5px center no-repeat;*/
+}
+#horizontal-multilevel-menu li ul > li:nth-child(4) a {
+    /*background: url(../img/lamp.png) 5px center no-repeat;*/
+}
+#horizontal-multilevel-menu li ul > li:nth-child(5) a {
+    /*background: url(../img/office-chair.png) 5px center no-repeat;*/
+}
+#horizontal-multilevel-menu li ul > li:nth-child(6) a {
+    /*background: url(../img/garden.png) 5px center no-repeat;*/
+}
+#horizontal-multilevel-menu li ul > li:nth-child(7) a {
+    /*background: url(../img/bathroom.png) 5px center no-repeat;*/
+}
+#horizontal-multilevel-menu li ul > li:nth-child(8) a {
+    /*background: url(../img/materials.png) 5px center no-repeat;*/
+}
+#horizontal-multilevel-menu li ul > li:nth-child(n) ul li a {
+    padding-left: 15px;
+    background: none;
+}
+/* чтобы сделать "мостик" для ховера между элементом и его потомком */
+#horizontal-multilevel-menu li ul > li:nth-child(n) a:after {
+    position: absolute;
+    top: 0%;
+    left: 92%;
+    width: 50px;
+    height: 100%;
+    content: '';
+}
+/*Item-parents changed*/
+#horizontal-multilevel-menu a.parent {
+    position: relative;
+}
+#horizontal-multilevel-menu a.parent:after {
+    /*background: url(../img/chevron.png) 0 center no-repeat;*/
+    position: absolute;
+    top: 0%;
+    left: 92%;
+    width: 50px;
+    height: 100%;
+    content: '';
+}
+/*Child-items: hover*/
+#horizontal-multilevel-menu li li:hover {
+    background-color: #f5f5f5;
+    transition: background-color ease 0.05s;
+}
+/*Child-items selected*/
+#horizontal-multilevel-menu li.item-selected {
+    background: #ECECEC;
+}
+/*Sub-menu box*/
+#horizontal-multilevel-menu li ul {
+    position: absolute;
+    top: 0;
+    display: none;
+    z-index: 500;
+    height: auto;
+    width: 238px;
+    background: #ffffff;
+    margin-left: -2px;
+}
+/*Sub-menu item box*/
+#horizontal-multilevel-menu li li {
+    width: 100%;
+    border-bottom: 1px dashed #cfcfcf;
+}
+#horizontal-multilevel-menu li li:last-child {
+    border-bottom: none;
+}
+#js-menu li li:last-child {
+    border-bottom: 1px dashed #cfcfcf !important;
+}
+/*Item link*/
+#horizontal-multilevel-menu li ul a {
+    text-align: left;
+}
+/*Items text color & size */
+#horizontal-multilevel-menu li a,
+#horizontal-multilevel-menu li:hover li a,
+#horizontal-multilevel-menu li:hover li:hover li a,
+#horizontal-multilevel-menu li:hover li:hover li:hover li a,
+#horizontal-multilevel-menu li:hover li:hover li:hover li:hover li a,
+#horizontal-multilevel-menu li:hover li:hover li:hover li:hover li:hover li a {
+    color: #4F4F4F;
+}
+/*Items text color & size: hover*/
+#horizontal-multilevel-menu li:hover li:hover a,
+#horizontal-multilevel-menu li:hover li:hover li:hover a,
+#horizontal-multilevel-menu li:hover li:hover li:hover li:hover a,
+#horizontal-multilevel-menu li:hover li:hover li:hover li:hover li:hover a,
+#horizontal-multilevel-menu li:hover li:hover li:hover li:hover li:hover li:hover a {
+    color: #4F4F4F;
+}
+#horizontal-multilevel-menu li ul ul {
+    margin: 0px 0 0 245px;
+}
+#horizontal-multilevel-menu li:hover ul ul,
+#horizontal-multilevel-menu li:hover ul ul ul,
+#horizontal-multilevel-menu li:hover ul ul ul ul,
+#horizontal-multilevel-menu li:hover ul ul ul ul ul {
+    /*top:-999em;*/
+    display: none;
+}
+#horizontal-multilevel-menu li:hover ul {
+    z-index: 1000;
+    top: auto;
+    display: block;
+}
+div.menu-clear-left {
+    clear: left;
+}
+/* end of previous styles */
+#horizontal-multilevel-menu ul {
+    box-shadow: 2px 2px 2px #d8d8d8;
+    padding: 0 5px;
+}
+#horizontal-multilevel-menu li:hover ul:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 25px;
+    top: -6px;
+    width: 13px;
+    height: 6px;
+    /*background: #ffffff url(../img/up.png) no-repeat 0 0;*/
+}
+#horizontal-multilevel-menu li:hover ul ul:after {
+    content: '';
+    display: none;
+}
+/* hide extra menu items */
+#horizontal-multilevel-menu ul ul {
+    overflow: hidden;
+}

@@ -1,0 +1,12 @@
+.tooltip
+  position: relative
+  font-size: $fs-base-large
+  cursor: pointer
+  &:hover
+    .tooltip
+      &__text,
+      &__arrow
+        display: block
+        opacity: 1
+        z-index: 500
+        transition-delay: 0s

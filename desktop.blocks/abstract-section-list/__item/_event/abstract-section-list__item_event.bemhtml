@@ -1,0 +1,84 @@
+block('abstract-section-list').elem('item').elemMod('event', true)(
+	attrs()(function(){
+		var item = this.ctx.content;
+		return {
+			'data-date': item.date ? item.date: '',
+			'data-month': item.month ? item.month: '',
+			'data-year': item.year ? item.year: '',
+			'data-city': item.city ? item.city: ''
+		}
+	}),
+	content()(function(){
+            var item = this.ctx.content;
+
+            elemItem = {
+                tag: '',
+                content: [
+                    {
+                        block: 'col-md-2',
+                        mix: { block: 'offset', mods: { 'padding-left': '17' } },
+                        content: item.tdFirst
+                    },
+                    {
+                        block: 'col-md-8',
+                        mix: { block: 'offset' },
+                        content: [
+                            {
+                                block: 'abstract-section-list',
+                                elem: 'title',
+                                tag: 'h3',
+                                content: {
+                                    block: 'link',
+                                    mods: { color: 'white' },
+                                    url: item.url,
+                                    content: item.title
+                                }
+                            },
+                            {
+                                block: 'abstract-section-list',
+                                elem: 'content',
+                                mix: { block: 'content', elem: 'manager'},
+                                content: item.content
+                            },
+                            {
+                                block: 'events',
+                                elem: 'item-img',
+                                tag: 'img',
+                                attrs : { src: item.img, alt : item.tdFirst }
+                            }
+                        ]
+                    },
+                    {
+                        block: 'col-md-2',
+                        content: [
+                            {
+                                block: 'position',
+                                mods: { right: true },
+                                content: {
+                                    tag : 'a',
+                                    block: item.btnContent? 'btn': '',
+                                    mods: { color: 'white-transparent', size: 'small' },
+                                    attrs: { href: item.url, target: '_blank' },
+                                    content: item.btnContent
+                                }
+                            }
+                        ]
+                    }
+                ]
+            };
+
+            if(!item.img){
+                elemItem.content[1].content.splice(2, 1);
+            }
+
+    		if(!item.content){
+                elemItem.content[1].content.splice(1, 1);
+            }
+
+            if(!item.title){
+                elemItem.content[1].content.splice(0, 1);
+            }
+
+            return elemItem;
+    })
+)

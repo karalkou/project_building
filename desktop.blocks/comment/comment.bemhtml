@@ -1,0 +1,28 @@
+block('comment')(
+    content()(function(){
+        var bemJSON;
+
+            bemJSON = [
+                {
+                    elem: 'author',
+                    content: this.ctx.author ? this.ctx.author : ''
+                },
+                {
+                    elem: 'time',
+                    content: this.ctx.time ? this.ctx.time : ''
+                },
+                {
+                    elem: 'msg',
+                    content: this.ctx.msg ? this.ctx.msg : ''
+                },
+                {
+                    block: 'line',
+                    mods: { height: '2' },
+                    mix: { block: 'comment', elem: 'divider' }
+                }
+            ];
+
+            return bemJSON;
+        }
+    )
+)

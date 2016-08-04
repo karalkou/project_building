@@ -1,0 +1,48 @@
+block('carousel-list')(
+	tag()('ul'),
+	content()(function(){
+
+		return this.ctx.items.map(function(item){
+			var bemJSON;
+
+			bemJSON = {
+				elem: 'item',
+				tag: 'li',
+				attrs: {
+					'data-active-img': item.activeImg,
+					'data-img': item.defaultImg,
+					style: 'width:230px'
+				},
+				content: [
+					{
+						elem: 'img-wrapper',
+						content: {
+							block: 'img',
+							url: item.defaultImg
+						}
+					},
+					{
+						elem: 'item-content',
+						elemMods: { hidden: true },
+						content: [
+							{
+								elem: 'item-title',
+								content: item.title
+							},
+							{
+								elem: 'item-description',
+								content: item.description
+							},
+							{
+								elem: 'item-discount',
+								content: item.discount
+							}
+						]
+					}
+				]
+			};
+
+			return bemJSON;
+		})
+	})
+)

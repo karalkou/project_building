@@ -1,0 +1,32 @@
+block('caroufredsel')(
+	content()(function(){
+		var carouselArr  = this.ctx.items.map(function(item){
+			return {
+				tag: 'li',
+				content: item
+			}});
+
+		return {
+            block: 'col-md-offset-2',
+            mix: { block: 'col-md-8' },
+            content: [
+                   {
+                       block: 'caroufredsel',
+                       elem: 'slider',
+                       content: carouselArr
+                   },
+                   {
+                       block: 'clearfix'
+                   },
+                   {
+                       block: 'slider-pagination',
+                       js: false
+                   }
+               ]
+        }
+	}),
+
+	elem('slider')(
+		tag()('ul')
+	)
+)

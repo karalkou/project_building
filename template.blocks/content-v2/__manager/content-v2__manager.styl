@@ -1,0 +1,81 @@
+.content-v2__manager
+  &_margin
+    &_minus-xs
+      margin-top: -78px
+    &_minus-minus-xs
+      @extend .content-v2__manager_margin_minus-xs
+      margin-bottom: -30px
+  h2
+    margin-top: 53px//88
+    margin-bottom: 32px
+    line-height: 44px
+    font-size: $fs-h2
+    font-weight: 300
+  h3
+    margin-top: 31px
+    margin-bottom: 18px
+    line-height: 1.2em
+    font-style: normal
+    font-weight: 300
+    font-size: ceil(1.5*$fs-base)
+  h4
+    margin-top: 30px
+    margin-bottom: 17px
+    line-height: 1.2em
+    font-size: $fs-h4
+  p
+    margin-bottom: $margin-base
+    line-height: $margin-base
+  ul
+    margin-bottom: 35px
+    padding: 0
+    list-style-type: none
+    li
+      margin-bottom: 4px
+      line-height: 26px
+      text-indent: -1em
+      &:before
+        content: '\2014\a0'
+        color: #ef3124
+
+  ol
+    margin-bottom: 35px
+    padding: 0
+    list-style-type: none
+    counter-reset: list;
+    li
+      margin-bottom: 4px
+      line-height: 26px
+      text-indent: -1em
+      &:before
+        counter-increment: list
+        content: counter(list)'. '
+        color: #ef3124
+
+  a
+    //@extend .link_color_red;
+  .link_color_white
+    //@extend .link_color_white;
+
+  table
+    width: 100%
+    color: $black
+    font-size: $fs-small
+    border-spacing: 0
+    border-collapse: collapse
+  thead
+    font-family: "robotoregular"
+    tr,
+    tr:nth-child(odd)
+      background: white
+  tbody
+    font-family: "robotolight"
+  tr:nth-child(even)
+    background: white
+  tr:nth-child(odd)
+    background: $gray
+  td
+    padding: 9px 29px
+
+strong
+  font-family: 'robotobold'

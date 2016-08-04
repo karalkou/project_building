@@ -1,0 +1,35 @@
+.list_service
+  $width-figure = 112px
+  &_button
+    margin: 14px 0 55px 0
+    &:before
+      display: block
+      content: "+"
+      position: absolute
+      right: 220px
+      top: 53px
+      -webkit-font-smoothing: subpixel-antialiased
+      font-size: 32px
+    .list__item
+      float: left
+      margin-right: 25px
+      width: 170px
+      text-align: center
+    .figure
+      width: $width-figure
+      margin: 0 auto
+    .figure__figcaption
+      width: w=170px
+      margin-left:  (($width-figure - w)/2)
+      margin-top: 19px
+      -webkit-font-smoothing: antialiased
+      font-size: 20px
+  &_invitation
+    .list__item
+      margin: 0
+    .figure
+      text-align: center
+    .figure__figcaption
+      margin-top: 38px
+      font-size: $fs-h3
+      line-height: ceil(1.73*$fs-h3)

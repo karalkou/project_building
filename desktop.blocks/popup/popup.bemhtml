@@ -1,0 +1,14 @@
+block('popup')(
+	content()(function(){
+		var bemJSON;
+
+		bemJSON = [
+			this.ctx.content,
+			{
+				elem: 'close'
+			}
+		];
+
+		return bemJSON;
+	})
+)

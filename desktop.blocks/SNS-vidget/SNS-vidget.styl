@@ -1,0 +1,23 @@
+.SNS-vidget
+  width: 348px
+  margin-top: 74px
+  border-top-left-radius : $border-radius-size-medium
+  border-top-right-radius: $border-radius-size-medium
+  background-color: white
+  
+  .tabs__item:first-child
+    .tabs__btn
+      border-radius: 0
+      border-top-left-radius: $border-radius-size-medium
+  .tabs__item:last-child
+    float: none // to prevent white line to the right of tab
+    .tabs__btn
+      border-radius: 0
+      border-top-right-radius: $border-radius-size-medium
+      width: 127px // to prevent white line to the right of tab
+  .tabs__btn
+    border-radius: 0
+    width: 100%
+  
+  .tabs-content
+    height: 282px

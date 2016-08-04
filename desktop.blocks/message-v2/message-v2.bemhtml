@@ -1,0 +1,84 @@
+/*block('message')(
+	tag()('div')
+);*/
+
+block('message-v2').mod('danger', true)(
+	content()(function(){
+	    var bemJSON;
+	    if(this.ctx.pic){
+	        bemJSON = [
+	            {
+                    elem: 'pic',
+                    elemMods: { danger: true }
+                },
+                {
+                    elem: 'text',
+                    content: this.ctx.content
+                }
+            ];
+	    }else{
+	        bemJSON = [
+	            {
+                    elem: 'text',
+                    content: this.ctx.content
+                }
+	        ]
+        }
+
+		return bemJSON;
+	})
+);
+
+block('message-v2').mod('attention', true)(
+	content()(function(){
+	    var bemJSON;
+	    if(this.ctx.pic){
+	        bemJSON = [
+	            {
+                    elem: 'pic',
+                    elemMods: { attention: true }
+                },
+                {
+                    elem: 'text',
+                    content: this.ctx.content
+                }
+            ];
+	    }else{
+	        bemJSON = [
+	            {
+                    elem: 'text',
+                    content: this.ctx.content
+                }
+	        ]
+        }
+
+		return bemJSON;
+	})
+);
+
+block('message-v2').mod('success', true)(
+	content()(function(){
+	    var bemJSON;
+	    if(this.ctx.pic){
+	        bemJSON = [
+	           {
+                   elem: 'pic',
+                    elemMods: { success: true }
+               },
+                {
+                    elem: 'text',
+                    content: this.ctx.content
+                }
+            ];
+	    }else{
+	        bemJSON = [
+	            {
+                    elem: 'text',
+                    content: this.ctx.content
+                }
+	        ]
+        }
+
+		return bemJSON;
+	})
+);

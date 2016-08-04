@@ -1,0 +1,53 @@
+.carousel-list
+  &__item
+    position: relative
+    box-sizing: border-box
+    display: block
+    float: left
+    height: 83px
+    z-index: 20
+    margin: 0
+    padding: 0
+    text-align: center
+    background: url(img/carousel-service_item.jpg) no-repeat
+    vertical-align: middle
+    cursor: pointer
+  &__img-wrapper
+    position: relative
+    display: table-cell
+    vertical-align: middle
+    text-align: center
+    width: 201px
+    height: 83px
+  &__item-content
+    &_hidden
+      visibility: hidden
+      opacity: 0
+  &__item-title
+    margin-top: 60px
+    margin-bottom: 28px
+    font-size: 40px
+    line-height: 29px
+    color: $red-alfa
+  &__item-description
+    margin-bottom: $margin-base
+    font-size: $fs-base-large
+    line-height: 22px
+    color: $black
+    -webkit-font-smoothing: antialiased
+  &__item-bonus
+    margin-top: 57px
+    margin-bottom: 43px
+    font-size: 48px
+    line-height: 24px
+    color: $red-alfa
+  &__item_active
+    background: url(img/carousel-service_item__active.jpg) no-repeat
+  &__item-price
+    display: inline
+    font-size: 72px
+
+
+.caroufredsel_wrapper
+  margin: 0 auto !important
+  left: 15px !important

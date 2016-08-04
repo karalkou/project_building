@@ -1,0 +1,414 @@
+block('whole-popup').mod('cities-choice', true)(
+	content()(function(){
+		return [
+			{
+				block: 'whole-popup-scroll',
+				content: {
+					block: 'whole-popup-wrapper',
+					content:{
+							block: 'whole-popup-container',
+							content: [
+								{
+									block: 'btn-close',
+									mix: { block: 'whole-popup', elem: 'close'},
+									js: true
+								},
+								{
+									content: [
+										{
+											block: 'logo',
+											mods: { background: 'none'}
+										},
+										{
+											block: 'whole-popup',
+											elem: 'content',
+											content: [
+												{
+													content: [
+														{
+															block: 'col-md-5',
+															content: [
+																{
+																	block: 'whole-popup',
+																	elem: 'controls',
+																	content: {
+																		block: 'form',
+																		action: '#',
+																		content: {
+																			block: 'search',
+                                                                            mods: { align: 'left' },
+                                                                            inputMods : { background : 'red' },
+                                                                            submitMods: { color: 'white' },
+                                                                            placeholder: 'Введите свой город'
+																		}
+																	}
+																}
+															]
+														},
+														{
+                                                            block: 'col-md-5',
+                                                            content: {
+                                                                block: 'whole-popup',
+                                                                elem: 'head',
+                                                                content:     [
+                                                                    {
+                                                                        block: 'cities-choice',
+                                                                        mix: { block: 'whole-popup', elem: 'close'},
+                                                                        elem: 'current',
+                                                                        content: 'Комсомольск-на-Амуре',
+                                                                        ico: 'ico-location'
+                                                                    },
+                                                                    {
+                                                                        block: 'cities-choice',
+                                                                        elem: 'all',
+                                                                        url: '/',
+                                                                        content: 'Все города'
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            block: 'col-md-12',
+                                                            content: {
+                                                                block: 'cities-choice',
+                                                                elem: 'content',
+                                                                content: [
+                                                                    {
+                                                                        block: 'cities-choice',
+                                                                        elem: 'column',
+                                                                        cities: [
+                                                                            {
+                                                                                content: 'Абакан'
+                                                                            },
+                                                                            {
+                                                                                content: 'Альметьевск'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Ангарск'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Архангельск'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Ачинск'
+	                                                                        },
+                                                                            {
+                                                                                content: 'Барнаул'
+                                                                            },
+                                                                            {
+                                                                                content: 'Белгород'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Бердск'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Бийск'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Бузулук'
+	                                                                        },
+{
+                                                                                content: 'Владивосток'
+                                                                            },
+                                                                            {
+                                                                                content: 'Владимир'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Волгоград'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Волжский'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Вологда'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Воронеж'
+	                                                                        },
+	                                                                        {
+                                                                                content: 'Глазов'
+                                                                            },
+                                                                            {
+                                                                                content: 'Дзержинск'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Екатеринбург'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Железногорск'
+	                                                                        }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        block: 'cities-choice',
+                                                                        elem: 'column',
+                                                                        cities: [
+                                                                            {
+                                                                                content: 'Златоуст'
+                                                                            },
+                                                                            {
+                                                                                content: 'Иваново'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Ижевск'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Излучинск'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Иркутск'
+	                                                                        },
+                                                                            {
+                                                                                content: 'Йошкар-Ола'
+                                                                            },
+                                                                            {
+                                                                                content: 'Казань'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Калининград'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Калуга'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Бузулук'
+	                                                                        },
+																			{
+                                                                                content: 'Каменск-Уральский'
+                                                                            },
+                                                                            {
+                                                                                content: 'Кемерово'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Киров'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Комсомольск-на-Амуре'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Краснодар'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Красноярск'
+	                                                                        },
+	                                                                        {
+                                                                                content: 'Курган'
+                                                                            },
+                                                                            {
+                                                                                content: 'Курск'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Липецк'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Магнитогорск'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Мегион'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Миасс'
+	                                                                        },
+	                                                                        {
+                                                                                content: 'Москва'
+                                                                            },
+                                                                            {
+                                                                                content: 'Мурманск'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Набережные Челны'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Находка'
+	                                                                        }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        block: 'cities-choice',
+                                                                        elem: 'column',
+                                                                        elemMods: { 'city-first': true },
+                                                                        cities: [
+                                                                            {
+                                                                                content: 'Нижневартовск'
+                                                                            },
+                                                                            {
+                                                                                content: 'Нижний Новгород'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Нижний Тагил'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Новокузнецк'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Новороссийск'
+	                                                                        },
+                                                                            {
+                                                                                content: 'Новосибирск'
+                                                                            },
+                                                                            {
+                                                                                content: 'Новотроицк'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Новочеркасск'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Новый Уренгой'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Омск'
+	                                                                        },
+																			{
+                                                                                content: 'Оренбург'
+                                                                            },
+                                                                            {
+                                                                                content: 'Орск'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Пенза'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Первоуральск'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Пермь'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Петрозаводск'
+	                                                                        },
+	                                                                        {
+                                                                                content: 'Прокопьевск'
+                                                                            },
+                                                                            {
+                                                                                content: 'Псков'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Радуй'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Ростов-на-Дону'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Рязань'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Самара'
+	                                                                        },
+	                                                                        {
+                                                                                content: 'Санкт-Петербург'
+                                                                            },
+                                                                            {
+                                                                                content: 'Саранск'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Саратов'
+	                                                                        }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        block: 'cities-choice',
+                                                                        elem: 'column',
+                                                                        elemMods: { 'city-first': true },
+                                                                        cities: [
+                                                                            {
+                                                                                content: 'Северодвинск'
+                                                                            },
+                                                                            {
+                                                                                content: 'Сосновый Бор'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Сочи'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Ставрополь'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Стерлитамак'
+	                                                                        },
+                                                                            {
+                                                                                content: 'Сургут'
+                                                                            },
+                                                                            {
+                                                                                content: 'Сызрань'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Сыктывкар'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Таганрог'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Тамбов'
+	                                                                        },
+																			{
+                                                                                content: 'Тверь'
+                                                                            },
+                                                                            {
+                                                                                content: 'Тольятти'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Томск'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Туапсе'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Тула'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Тюмень'
+	                                                                        },
+	                                                                        {
+                                                                                content: 'Ульяновск'
+                                                                            },
+                                                                            {
+                                                                                content: 'Усолье-Сибирское'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Уфа'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Хабаровск'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Чебоксары'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Челябинск'
+	                                                                        },
+	                                                                        {
+                                                                                content: 'Энгельс'
+                                                                            },
+                                                                            {
+                                                                                content: 'Южно-Сахалинск'
+                                                                            },
+                                                                            {
+	                                                                            content: 'Юрга'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Якутск'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Ярославль'
+	                                                                        },
+	                                                                        {
+	                                                                            content: 'Ясный'
+	                                                                        }
+                                                                        ]
+                                                                    },
+                                                                ]
+                                                            }
+                                                        }
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+					}
+				}
+			}
+		]
+	})
+)

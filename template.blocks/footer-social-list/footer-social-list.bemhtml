@@ -1,0 +1,24 @@
+block('footer-social-list')(
+	tag()('ul'),
+	content()(function(){
+		return this.ctx['footer-social-list'].map(function(item){
+			var  mods = '';
+
+			if(item.elemMods){
+				mods = item.elemMods
+			}
+
+			return [
+				{
+					elem: 'item',
+					elemMods : mods,
+					tag: 'li',
+					content: {
+						tag: 'a',
+						attrs: { href: item.url}
+					}
+				}
+			]
+		});
+	})
+)

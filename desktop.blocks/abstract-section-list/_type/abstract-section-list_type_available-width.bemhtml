@@ -1,0 +1,76 @@
+block('abstract-section-list').mod('type', 'available-width')(
+	mix()({block: 'row'}),
+    content()(function(){
+        var i  = 0;
+
+        return this.ctx.items.map(function(item){
+
+             var elemItem = {
+                   elem: 'item',
+                   attrs: {
+						'data-month': item.month ? item.month: '',
+						'data-category': item.type ? item.type: '',
+						'data-year': item.year ? item.year: '',
+						'data-series': item.series ? item.series: '',
+						'data-city': item.city ? item.city: ''
+                   },
+                   content: [
+						{
+							block: 'col-md-2',
+							content: item.subtitle
+						},
+						{
+							block: 'col-md-7',
+							mix: { block: 'offset', mods: { 'padding-left': 'medium-base-square' } },
+							content: [
+								{
+                                    block: 'abstract-section-list',
+                                    elem: 'title',
+                                    content:{
+                                        content: item.title
+                                    }
+                                },
+                                {
+                                    block: 'abstract-section-list',
+                                    elem: 'subtitle',
+                                    mods: { size: 's' },
+                                    content: item.subtitle
+                                },
+                                {
+									block: 'abstract-section-list',
+									elem: 'content',
+									 mix: { block: 'content', elem: 'manager'},
+									content: item.content
+                                },
+                                {
+                                    block: 'img',
+                                    url: item.img
+                                }
+							]
+						},
+						{
+							block: 'col-md-3',
+							content: [
+								{
+									block: 'position',
+									mods: { right: true },
+									content: {
+                                        block: item.btnContent? 'btn': '',
+                                        mods: { color: 'white-transparent' },
+                                        content: item.btnContent
+                                    }
+								}
+							]
+						}
+                   ]
+               };
+
+            return elemItem;
+
+        });
+    }),
+
+    elem('title')(
+        tag()('h3')
+    )
+)

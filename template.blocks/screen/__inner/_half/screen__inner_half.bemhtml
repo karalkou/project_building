@@ -1,0 +1,8 @@
+block('screen').elem('inner').elemMod('half', true)(
+    replace().once()(function(){
+        return {
+            block: 'row',
+            content: this.ctx
+        }
+    })
+);

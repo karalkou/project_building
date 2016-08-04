@@ -1,0 +1,19 @@
+.tabs-wrap
+
+  min-height: 0
+
+.tabs
+  margin: 0
+  list-style-type: none
+  &:after
+    display: block
+    clear: both
+    content: ''
+    opacity: 0
+  &_hidden_last
+    .tabs__item:first-child
+      .tabs__btn
+        border-radius: $border-radius-base
+    .tabs__item:last-child
+      display: none
+

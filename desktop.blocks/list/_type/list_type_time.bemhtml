@@ -1,0 +1,59 @@
+block('list').mod('type', 'time')(
+	tag()('ul'),
+	replace().once()(function(){
+        return {
+            block: 'list_type_time-wrapper',
+            content: this.ctx
+        }
+    }),
+    content()(function(){
+        return this.ctx.items.map(function(item){
+            var timeBlock = item.time;
+
+			if(item.mods){
+				if(item.mods.register){
+				   var timeBlock = [
+				       {
+				        block: 'fa',
+				        mix: { block: 'fa-pencil'}
+				       },
+				       {
+				           tag: '',
+				           content: item.time
+				       }
+				   ];
+				}else if(item.mods.coffee){
+					var timeBlock = [
+	                       {
+	                        block: 'fa',
+	                        mix: { block: 'fa-coffee'}
+	                       },
+	                       {
+	                           tag: '',
+	                           content: item.time
+	                       }
+	                   ];
+				}else{
+				   var timeBlock = item.time;
+				}
+
+
+			}
+
+            return {
+                elem: 'item',
+                content: [
+                    {
+                       elem: 'time',
+                       mods: item.mods,
+                       content: timeBlock
+                    },
+                    {
+                       tag:'',
+                       content: item.content
+                    }
+                ]
+            }
+        });
+    })
+)

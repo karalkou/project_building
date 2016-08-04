@@ -1,0 +1,125 @@
+block('abstract-section-list')(
+	mix()({block: 'row'}),
+	content()(function(){
+		var i  = 0;
+		return this.ctx.items.map(function(item){
+			i++;
+
+			return {
+				elem: 'item',
+				elemMods: { 'pick-out': (i%2 != 0)? true: false },
+				content: [
+					{
+						block: 'col-md-offset-2',
+						mix: { block: 'col-md-2' },
+						content:{
+                            block: 'img',
+                            url  : item.imgUrl,
+                            mods: { responsive: true, circle: true }
+                        }
+					},
+					{
+						block: 'col-md-6',
+						content: [
+							{
+								block: 'abstract-section-list',
+								elem: 'title',
+								content:{
+									block: 'link',
+									mods: { color: 'black'},
+									url: item.link,
+									content: item.title
+								}
+							},
+							{
+								block: 'abstract-section-list',
+                                elem: 'content',
+                                mix: { block: 'content', elem: 'manager'},
+                                content: item.previewText
+							}
+						]
+					}
+
+				]
+			}
+		});
+	}),
+	elem('title')(
+		tag()('h3')
+	)
+)
+
+block('abstract-section-list').mod('img-align', 'right')(
+	mix()({block: 'row'}),
+    	content()(function(){
+    		var i  = 0;
+    		return this.ctx.items.map(function(item){
+    			i++;
+    			return {
+    				elem: 'item',
+    				elemMods: { 'pick-out': (i%2 == 0)? true: false },
+    				content: [
+    					{
+    						block: 'col-md-offset-2',
+    						mix: { block: 'col-md-5' },
+    						content:[
+                                {
+                                    block: 'abstract-section-list',
+                                    elem: 'title',
+                                    content:{
+                                        block: item.link?  'link' : '',
+                                        tag: item.link?  'a' : '',
+                                        mods: { color: 'black'},
+                                        url: item.link,
+                                        content: item.title
+                                    }
+                                },
+                                {
+                                    block: 'abstract-section-list',
+                                    elem: 'content',
+                                    mix: { block: 'content', elem: 'manager'},
+                                    content: item.previewText
+                                }
+                            ]
+    					},
+    					{
+    						block: 'col-md-4',
+    						content: [
+    							{
+                                    block: 'img',
+                                    url  : item.imgUrl
+                                },
+                                {
+                                    tag: '',
+                                    content: item.underImg ? item.underImg: ''
+                                }
+    						]
+    					}
+
+    				]
+    			}
+    		});
+    	}),
+    	elem('title')(
+    		tag()('h3')
+    	)
+)
+
+block('abstract-section-list').mod('wrapper', 'none')(
+	replace().once()(function(){
+		var items = this.ctx.items.map(function(item){
+
+		   return {
+				block: 'abstract-section-list',
+				elem: 'item',
+				elemMods: { event: true },
+				content: item
+		   }
+		});
+
+        return {
+            tag : '',
+            content: items
+        }
+    })
+)

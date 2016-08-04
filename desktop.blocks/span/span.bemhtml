@@ -1,0 +1,11 @@
+block('span')(
+	tag()('span'),
+	content()(function(){
+		return [
+			{
+				tag: '',
+				content: this.ctx.content
+			}
+		]
+	})
+)

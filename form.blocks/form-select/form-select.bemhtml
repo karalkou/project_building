@@ -1,0 +1,82 @@
+block('form-select')(
+	tag()('select'),
+	attrs()(function(){
+		return {
+			'data-search': this.ctx.search? 'true': 'false',
+			'data-search-limit': this.ctx['search-limit']? this.ctx['search-limit'] : '5',
+			'data-placeholder': this.ctx.placeholder ? this.ctx.placeholder : 'Выберите...',
+			'data-visible-options': 2,
+			name: this.ctx.name
+		}
+	}),
+	content()(function(){
+		var i = 0,
+			selectedVal = this.ctx.showFirst
+
+        var arrOptions = this.ctx.item.map(function(item){
+            i++;
+            var selected = selectedVal == i, bemJSON;
+
+            bemJSON = [
+
+                {
+                    tag: 'option',
+                    content: item.content,
+                    attrs:{
+                        value: item.val? item.val : i,
+                        selected: 'selected'
+                    }
+
+                },
+                ' '
+            ];
+            if(!item.selected){
+                delete bemJSON[0].attrs.selected;
+            }
+            return bemJSON;
+
+        })
+
+        /*Кривой плагин что бы было видно Выберите..*/
+        if(!this.ctx.showFirst){
+			arrOptions.unshift({tag: 'option'})
+		}
+
+        return arrOptions;
+    })
+)
+
+block('form-select').mod('autocomplete', true)(
+	attrs()(function(){return {}}),
+	content()(function(){
+		var options, bemJSON, selectedHTML;
+		var i = 0;
+		options =  this.ctx.item.map(function(item){
+			var bemJSON,
+			bemJSON = {
+			    tag: 'option',
+			    content: item.content,
+			    attrs: {
+			        value: item.val? item.val : i,
+			        selected: 'selected'
+			    }
+			};
+
+			if(!item.selected){
+				delete bemJSON.attrs.selected;
+			}else{
+				selectedHTML = item.content;
+			}
+
+			i++;
+
+			return bemJSON;
+		});
+
+
+		bemJSON = options
+
+		return bemJSON;
+
+	})
+)

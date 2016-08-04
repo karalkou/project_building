@@ -1,0 +1,63 @@
+.popup
+  position: fixed
+  width: 1230px
+  display: none
+  top: 80px
+  left: 50%
+  margin: 0 0 0 -615px
+  padding: 65px 0 102px 0
+  z-index: 502
+  background: white
+  border-radius: $border-radius-base
+  &_visible
+    display: block
+  &__content
+    position: relative
+    padding: ceil($margin-medium*2) 0px
+
+  &__background
+    position: fixed
+    visibility: hidden
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: #811618
+    opacity: 0
+    z-index: 501
+    transition: opacity ease-in-out 0.5s
+    &_visible
+      visibility: visible
+      opacity: .8
+      transition: opacity ease-in-out 0.5s
+    &_closing
+      visibility: visible
+      opacity: 0
+      transition: opacity ease-in-out 0.5s
+
+  &__close
+    width: w=24px
+    height: w
+    position: absolute
+    right: 15px
+    top: 20px
+    z-index: 2
+    overflow: hidden
+    cursor: pointer
+    background: url(img/popup__close.png) no-repeat
+    &:before,
+    &:after
+      position: absolute
+      display: block
+      height: 54px
+      width: 54px
+      left: 7px
+      border: 1px solid rgba(0, 0, 0, 0.8)
+      content: ""
+      top: 0
+      transform: rotate(45deg)
+    &:after
+      left: -39px;
+    &:hover
+      opacity: .6
+

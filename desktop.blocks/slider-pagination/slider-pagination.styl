@@ -1,0 +1,25 @@
+.slider-pagination
+  height: 16px
+  margin: 0 auto
+  margin-top: 26px
+  list-style-type: none
+  li
+    display: block
+    float: left
+    width: 8px
+    height: 8px
+    margin-right: 11px
+    border: 1px
+    border-style: solid
+    border-color: #e8e8e8
+    border-radius: 15px
+    background: #8795a3
+    cursor: pointer
+    transition: .5s ease
+    &:last-child
+      margin-right: 0px
+    &:hover,
+    &.selected
+      background: $red-alfa
+      border-color: $red-alfa
+      transition: .5s ease

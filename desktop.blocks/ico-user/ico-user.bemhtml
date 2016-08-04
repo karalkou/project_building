@@ -1,0 +1,1 @@
+block('ico-user')(tag()('i'))

@@ -1,0 +1,38 @@
+block('top-navigation-column')(
+
+    tag()('ul'),
+
+    content()(function() {
+        return this.ctx['top-navigation-column'].map(function(item){
+            return [
+                {
+                    elem: 'item',
+                    content:{
+                       tag : 'a',
+                       block: 'link',
+                       mods: item.mods,
+                       js : item.js,
+                       attrs: { href: item.url},
+                       content: [
+							{
+							    block: item.ico,
+							    tag: 'i'
+							},
+							{
+								tag: 'span',
+								content: item.content
+							}
+                       ]
+                    }
+                },
+                ' '
+            ];
+
+        });
+
+    }),
+
+    elem('item')(
+            tag()('li')
+        )
+);

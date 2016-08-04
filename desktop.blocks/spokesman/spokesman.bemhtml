@@ -1,0 +1,68 @@
+block('spokesman')(
+    content()(function(){
+        var colOffset = this.ctx.colOffset || 'col-md-offset-2',
+            colLeft   = this.ctx.colLeft   || 'col-md-1',
+            colMiddle = this.ctx.colMiddle || 'col-md-3',
+            colRight  = this.ctx.colRight  || 'col-md-4',
+            bemJSON;
+
+            bemJSON = {
+                elem: 'inner-wrap',
+                mods: { 'video-catalog': true },
+                mix: { block: 'row' },
+                content: [
+                     {
+                         block: 'spokesman',
+                         elem: 'logo-wrap',
+                         mix: [{ block: colOffset }, { block: colLeft }],
+                         content: {
+                             block: 'spokesman',
+                             elem: 'logo',
+                             content: [
+                                 {
+                                     block: 'img',
+                                     mods: { circle: true, responsive: true},
+                                     url: this.ctx.logoUrl
+                                 }
+                             ]
+                         }
+                     },
+                     {
+                         block: 'spokesman',
+                         elem: 'info-wrap',
+                         mix: { block: colMiddle },
+                         content: [
+                             {
+                                 block: 'spokesman',
+                                 elem: 'author',
+                                 content: this.ctx.author
+                             },
+                             {
+                                 block: 'spokesman',
+                                 elem: 'name',
+                                 content: this.ctx.name
+                             },
+                             {
+                                 block: 'spokesman',
+                                 elem: 'position',
+                                 content: this.ctx.position
+                             }
+                         ]
+                     },
+                     {
+                         block: 'spokesman',
+                         elem: 'title-wrap',
+                         mix: { block: colRight },
+                         content: {
+                             block: 'spokesman',
+                             elem: 'title',
+                             content: this.ctx.title
+                         }
+                     }
+                 ]
+            };
+
+            return bemJSON;
+        }
+    )
+)

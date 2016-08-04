@@ -1,0 +1,21 @@
+block('figure')(
+	tag()('figure'),
+	content()(function(){
+		return [
+			{
+				block: 'img',
+				mods : this.ctx.imgMods ? this.ctx.imgMods : '',
+				url: this.ctx.url
+			},
+			{
+				elem: 'figcaption',
+				mix : this.ctx.titleMix ? this.ctx.titleMix : '',
+				content: this.ctx.title
+			}
+		]
+	}),
+	elem('figcaption')(
+		tag()('figcaption')
+	)
+
+)

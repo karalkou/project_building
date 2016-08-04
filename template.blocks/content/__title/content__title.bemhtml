@@ -1,0 +1,22 @@
+block('content').elem('title')(
+	tag()('h2')
+);
+
+block('content').elem('title').elemMod('countable', true)(
+	tag()('h2'),
+	content()(function(){
+		var bemJSON = [
+			{
+				block: 'content',
+				elem:  'title-counter',
+				content: this.ctx.count ? this.ctx.count : '*'
+			},
+			{
+				tag: '',
+				content: this.ctx.content
+			}
+		]
+
+		return bemJSON;
+	})
+);

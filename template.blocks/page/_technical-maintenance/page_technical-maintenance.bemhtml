@@ -1,0 +1,14 @@
+block('page').mod('technical-maintenance', true)(
+    content()(function(){
+        return [
+            {
+                tag: '',
+                content : this.ctx.scripts
+            },
+            {
+				tag: '',
+				content: this.ctx.content
+			}
+        ]
+    })
+);

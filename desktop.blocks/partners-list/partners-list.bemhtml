@@ -1,0 +1,54 @@
+block('partners-list')(
+	tag()('ul'),
+	mix()({ block : 'row' }),
+	content()(function(){
+		var itemsLength = this.ctx.items.length,
+			col = 12/itemsLength;
+
+		return this.ctx.items.map(function(item){
+			return [
+				{
+					elem: 'item',
+					mix: { block: 'col-md-' + col },
+					content: [
+						{
+							elem: 'head',
+							mix: { block: 'clearfix' },
+							content: [
+								{
+									elem: 'logo',
+									tag: 'a',
+									attrs: { href: '/' }
+								},
+								{
+									elem:   'company',
+									tag: 'a',
+									attrs: { href: '/' },
+									content: item.company
+								}
+							]
+						},
+						{
+							elem:   'text',
+							content: item.text
+						},
+						{
+						    block:  'bonuses-list',
+						    mods: item.bonusList.bonusMod,
+						    bonuses: item.bonusList.bonuses
+						},
+						{
+						    block:   'btn',
+                            mods:    item.button.mods ? item.button.mods : {},
+                            mix:     item.button.mix ? item.button.mix : {},
+						    content: item.button.content
+						}
+					]
+				}
+			]
+		});
+	}),
+	elem('item')(
+		tag()('li')
+	)
+)

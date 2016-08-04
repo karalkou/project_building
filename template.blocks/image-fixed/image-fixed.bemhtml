@@ -1,0 +1,9 @@
+block('image-fixed')(
+	tag()('div'),
+	content()(function(){
+		return {
+		    elem: 'img',
+		    attrs: { style: "background: url(" + this.ctx.url + ")"}
+		}
+	})
+)

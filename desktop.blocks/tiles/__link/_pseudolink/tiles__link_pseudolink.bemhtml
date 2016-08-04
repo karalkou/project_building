@@ -1,0 +1,4 @@
+block('tiles').elem('link').mod('pseudolink', true)(
+    tag()('div'),
+    attrs()(function() {return { href: this.ctx.url }; })
+)

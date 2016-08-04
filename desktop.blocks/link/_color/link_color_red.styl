@@ -1,0 +1,19 @@
+.link_color_red
+  text-decoration: none
+  color: $red-alfa
+  border-bottom: 1px solid $red-alfa
+  border-color: alpha($red-alfa, 0.3)
+  &:hover,
+  &:focus
+    text-decoration: none
+    color: lighten($red-alfa, 20%)
+    color: $red-alfa-opacity-80
+
+  &.link_selected
+    color: $red-alfa
+    color: $red-alfa-opacity-80
+    border: none
+    &:hover,
+    &:focus
+      color: $red-alfa
+      cursor: default

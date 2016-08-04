@@ -1,0 +1,26 @@
+.link_color_white-transparent
+  color: $white-opacity-80
+  border-color: white !important
+  border-color:  alpha(white, 0.3) !important
+  &.link_disabled
+    color: darken(white, 20%)
+    color: alpha(white, 0.3)
+    cursor: default
+    &:hover
+    &:focus
+      color: darken(white, 20%)
+      color: alpha(white, 0.3)
+  &:hover,
+  &:focus
+    color: $white-opacity-50
+    border-color: darken(white, 20%)
+    border-color: alpha(white, 0.3)
+  &.link_selected
+    color: white
+    color: $white-opacity-50
+    border: none
+    &:hover,
+    &:focus
+      color: white
+      color: $white-opacity-50
+      cursor: default

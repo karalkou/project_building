@@ -1,0 +1,16 @@
+.btn_color_white-transparent,
+a.btn_color_white-transparent
+  border-color: white
+  color: white
+  background: transparent
+  transition: background .5s ease-in-out
+  &:hover,
+  &:active,
+  &:focus
+    border-color: $white-opacity-80
+    background: darken(white, 20%)
+    background: rgba(255, 255, 255, 0.2)
+    transition: background .5s ease-in-out
+    color: white
+    color: alpha(white, 0.8)
+    cursor: pointer

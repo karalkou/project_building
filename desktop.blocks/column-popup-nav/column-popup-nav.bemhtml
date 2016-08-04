@@ -1,0 +1,24 @@
+block('column-popup-nav')(
+	content()(function(){
+	return this.ctx['column-popup-nav'].map(function(item){
+              return [
+	              {
+	                elem: 'item',
+	                content: [
+                      {
+	                     tag: 'a',
+	                     elem: 'link',
+	                     attrs: { href:  item.url},
+	                     content: item.title
+	                  },
+	                  {
+	                      elem: 'note',
+	                      content: item.content
+	                  }
+	                ]
+	              }
+
+              ]
+          })
+	})
+)

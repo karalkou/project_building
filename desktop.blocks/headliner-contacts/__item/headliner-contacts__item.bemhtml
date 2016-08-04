@@ -1,0 +1,27 @@
+block('headliner-contacts').elem('item')(
+	attrs()(function(){
+		var url = this.ctx.link;
+		if(url){
+			return { href: this.ctx.link}
+			}
+		}
+	),
+
+	content()(function(){
+		var self = this.ctx;
+		return [
+			{
+				block: 'ico',
+				mods: { type: self.icoType }
+			},
+			{
+				tag: 'span',
+				content: self.text
+			}
+		]
+	}),
+
+	elemMod('link', true)(
+		tag()('a')
+	)
+)

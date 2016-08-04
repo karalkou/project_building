@@ -1,0 +1,9 @@
+block('form').elem('cancel')(
+   	replace().once()(function(){
+   		return {
+   			elem: 'cancel-wrapper',
+   			content: this.ctx
+   		}
+   	}),
+   	tag()('a')
+)

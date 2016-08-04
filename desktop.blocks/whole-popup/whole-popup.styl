@@ -1,0 +1,67 @@
+.whole-popup
+  position: fixed
+  opacity: 0
+  left: 0
+  top: -100%
+  z-index: 503
+  width: 100%
+  height: 100%
+  min-width: 1230px
+  -webkit-transition: opacity ease-in-out 0.5s, top ease-in-out 0s
+  -o-transition: opacity ease-in-out 0.5s, top ease-in-out 0s
+  transition: opacity ease-in-out 0.5s, top ease-in-out 0s
+  -webkit-font-smoothing: antialiased
+  color: #fff
+
+.whole-popup_visible
+  top: 0
+  opacity: 1
+  filter: none //IE 8 bags
+.whole-popup_closing
+  -webkit-transition-delay: 0s, .5s
+  transition-delay: 0s, 0.5s
+
+.whole-popup-scroll
+  position: relative
+  height: 100%
+  width: 100%
+  overflow-y: scroll
+  opacity: .95
+  background: red
+  background: -webkit-radial-gradient(top left, circle, #c3373a, #7f2c34)
+  background: radial-gradient(circle at 0 0, #c3373a, #7f2c34)
+  background-repeat: no-repeat
+  filter: unquote("progid:DXImageTransform.Microsoft.gradient( startColorstr='#c3373a', endColorstr='#7f2c34',GradientType=1)")
+  z-index: -1
+
+.whole-popup-wrapper
+  position: absolute
+  top: 0px
+  bottom: 0px
+  left: 0px
+  width: auto
+  right: 0
+
+.whole-popup-container
+  position: relative
+  -webkit-transform: translate(0, 0)
+  -moz-transform: translate(0, 0)
+  -o-transform: translate(0, 0)
+  -ms-transform: translate(0, 0)
+  transform: translate(0, 0)
+  -webkit-transition: all ease-in-out 0.5s
+  -o-transition: all ease-in-out 0.5s
+  transition: all ease-in-out 0.5s
+
+.whole-popup__content
+  width: 970px
+  margin-left: 212px
+
+.whole-popup__controls
+  position: relative
+  font-weight: 100
+  margin-bottom: 35px
+  padding-top: 30px
+
+.whole-popup__head
+  margin-top: 35px;

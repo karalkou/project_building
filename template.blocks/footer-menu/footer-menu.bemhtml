@@ -1,0 +1,20 @@
+block('footer-menu')(
+	tag()('ul'),
+	content()(function(){
+		return this.ctx['footer-menu'].map(function(item){
+			return [
+                {
+                    block: 'footer-menu',
+                    elem: 'item',
+                    tag: 'li',
+                    content: {
+                        tag: 'a',
+                        attrs: { href: item.url},
+                        content: item.content
+                    }
+                },
+                ''
+            ]
+		})
+	})
+);

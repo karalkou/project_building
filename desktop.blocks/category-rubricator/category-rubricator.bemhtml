@@ -1,0 +1,323 @@
+block('category-rubricator')(
+    js()(true),
+    content()(function(){
+        var bemJSON = [
+            {
+                elem: 'header',
+                content: {
+                    block: 'row',
+                    content: {
+                        block: this.ctx.gridWidth,
+                        mix: { block: this.ctx.gridOffset },
+                        content: [
+                            {
+                                block: 'category-rubricator',
+                                elem: 'header-content',
+                                elemMods: this.ctx.header.visibilityMods ? this.ctx.header.visibilityMods : {},
+                                content: this.ctx.header.headerContent
+                            },
+                            {
+                                block: 'category-rubricator',
+                                elem: 'error',
+                                content: this.ctx.header.error ? this.ctx.header.error : 'Ошибка!'
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                elem: 'content-outline',
+                elemMods: this.ctx.outlineMods ? this.ctx.outlineMods : {},
+                content: {
+                    block: 'row',
+                    content: {
+                        block: this.ctx.gridWidth,
+                        mix: { block: this.ctx.gridOffset },
+                        content: {
+                            block: 'category-rubricator',
+                            elem: 'content',
+                            content: [
+                                {
+                                    elem: 'rubrics',
+                                    content: {
+                                        elem: 'row',
+                                        content: this.ctx.columns
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        ];
+
+        return bemJSON;
+    }),
+
+    elem('header')(
+        tag()('h2')
+    ),
+
+    elem('header-content')(
+        content()(function(){
+            return this.ctx.content.map(function(item){
+                var bemJSON = [
+                    {
+                        elem: 'header-item',
+                        content: [
+                            {
+                                elem: 'header-text',
+                                elemMods: item.textMods || {},
+                                attrs: { href: '#',id: item.id || '' },
+                                content: item.text || ''
+                            },
+                            {
+                                elem: 'arrow',
+                                elemMods: item.arrowMods || {}
+                            }
+                        ]
+                    }
+                ];
+
+                return bemJSON;
+            });
+
+            })
+    ),
+
+    elem('header-item')(
+        tag()('span')
+    ),
+
+    elem('header-text')(
+        tag()('a')
+    ),
+
+    elem('arrow')(
+        tag()('i')
+    ),
+
+    elem('error')(
+        tag()('div')
+    ),
+
+    elem('rubrics')(
+        tag()('table')
+    ),
+
+    elem('row')(
+        tag()('tr'),
+        content()(function(){
+            return this.ctx.content.map(function(item){
+                var bemJSON = {
+                    elem: 'column',
+                    content: item.content
+                };
+
+                return bemJSON;
+            });
+        })
+    ),
+
+    elem('column')(
+        tag()('td')
+    ),
+
+    elem('list')(
+        tag()('ul'),
+        content()(function(){
+            return this.ctx.list.map(function(item){
+                var bemJSON = {
+                    elem: 'item',
+                    content: item.content
+                };
+
+                return bemJSON;
+            });
+        })
+    ),
+
+    elem('item')(
+        tag()('li')
+    ),
+
+    elem('link')(
+        mix()(
+            {
+                block: 'link',
+                mods: { color: 'white' },
+                js: false
+            }
+        ),
+        tag()('a'),
+        attrs()({ href: '#' })
+    ),
+
+    elem('count')(
+        tag()('span')
+    )
+)
+
+/*--------------------------------------- modifier _wrapper_none --------------------------------------*/
+block('category-rubricator').mod('wrapper', 'none')(
+    js()(true),
+    replace().once()(function(){
+        var bemJSON = [
+            {
+                elem: 'header',
+                content: {
+                    block: 'row',
+                    content: {
+                        block: this.ctx.gridWidth,
+                        mix: { block: this.ctx.gridOffset },
+                        content: [
+                            {
+                                block: 'category-rubricator',
+                                elem: 'header-content',
+                                elemMods: this.ctx.header.visibilityMods ? this.ctx.header.visibilityMods : {},
+                                content: this.ctx.header.headerContent
+                            },
+                            {
+                                block: 'category-rubricator',
+                                elem: 'error',
+                                content: this.ctx.header.error ? this.ctx.header.error : 'Ошибка!'
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                elem: 'content-outline',
+                elemMods: this.ctx.outlineMods ? this.ctx.outlineMods : {},
+                content: {
+                    block: 'row',
+                    content: {
+                        block: this.ctx.gridWidth,
+                        mix: { block: this.ctx.gridOffset },
+                        content: {
+                            block: 'category-rubricator',
+                            elem: 'content',
+                            content: [
+                                {
+                                    elem: 'rubrics',
+                                    content: {
+                                        elem: 'row',
+                                        content: this.ctx.columns
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        ];
+
+        return {
+            tag: '',
+            content: bemJSON
+        };
+    }),
+
+    elem('header')(
+        tag()('h2')
+    ),
+
+    elem('header-content')(
+        content()(function(){
+            return this.ctx.content.map(function(item){
+                var bemJSON = [
+                    {
+                        elem: 'header-item',
+                        content: [
+                            {
+                                elem: 'header-text',
+                                elemMods: item.textMods || {},
+                                attrs: { href: '#',id: item.id || '' },
+                                content: item.text || ''
+                            },
+                            {
+                                elem: 'arrow',
+                                elemMods: item.arrowMods || {}
+                            }
+                        ]
+                    }
+                ];
+
+                return bemJSON;
+            });
+
+            })
+    ),
+
+    elem('header-item')(
+        tag()('span')
+    ),
+
+    elem('header-text')(
+        tag()('a')
+    ),
+
+    elem('arrow')(
+        tag()('i')
+    ),
+
+    elem('error')(
+        tag()('div')
+    ),
+
+    elem('rubrics')(
+        tag()('table')
+    ),
+
+    elem('row')(
+        tag()('tr'),
+        content()(function(){
+            return this.ctx.content.map(function(item){
+                var bemJSON = {
+                    elem: 'column',
+                    content: item.content
+                };
+
+                return bemJSON;
+            });
+        })
+    ),
+
+    elem('column')(
+        tag()('td')
+    ),
+
+    elem('list')(
+        tag()('ul'),
+        content()(function(){
+            return this.ctx.list.map(function(item){
+                var bemJSON = {
+                    elem: 'item',
+                    content: item.content
+                };
+
+                return bemJSON;
+            });
+        })
+    ),
+
+    elem('item')(
+        tag()('li')
+    ),
+
+    elem('link')(
+        mix()(
+            {
+                block: 'link',
+                mods: { color: 'white' },
+                js: false
+            }
+        ),
+        tag()('a'),
+        attrs()({ href: '#' })
+    ),
+
+    elem('count')(
+        tag()('span')
+    )
+)

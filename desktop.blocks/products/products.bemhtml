@@ -1,0 +1,195 @@
+block('products')(
+	tag()('ul'),
+	content()(function(){
+		var self = this , counter = 0;
+		return this.ctx.items.map(function(item){
+			var bemJSON,
+				colOffset = self.ctx.colOffset || 'col-md-offset-2',
+				colContent = self.ctx.colContent || 'col-md-8';
+
+			counter ++;
+			bemJSON = {
+				elem: 'item',
+				tag: 'li',
+				elemMods: { unique: item.unique ? item.unique : counter },
+				content: [
+					{
+						block: colOffset,
+						mix: { block: colContent },
+						content: [
+							{
+								block: 'products',
+								elem : 'section',
+								content: [
+									{
+										block: 'products',
+	                                    elem : 'title',
+	                                    content: item.title
+                                    },
+                                    {
+                                        block: 'products',
+                                        elem : 'description',
+                                        content: item.content
+                                    }
+								]
+							},
+							{
+								block: 'products',
+								elem: 'section',
+								mods: { second: true },
+								content: {
+									block: 'img',
+									mix: { block: 'products', elem: 'img' },
+									url: item.imgUrl
+								}
+							}
+						]
+					}
+				]
+			};
+
+			if(!self.ctx.uniqueElem){
+				delete bemJSON.elemMods;
+			}
+
+			if(item.elemMods){
+				bemJSON.elemMods = item.elemMods
+			}
+
+			return bemJSON;
+		});
+	})
+);
+
+block('products').mod('inner', true)(
+	tag()('ul'),
+	content()(function(){
+		var self = this;
+		return this.ctx.items.map(function(item){
+			var bemJSON,
+				colLeft = self.ctx.colLeft || 'col-md-3',
+				colContent = self.ctx.colContent || 'col-md-9';
+
+			 bemJSON = {
+			    elem: 'item',
+			    tag: 'li',
+			    attrs: { 'data-filter': item.filter },
+			    content: [
+			        {
+				        block: colLeft,
+				        content: [
+				            {
+					            block: 'link',
+					            url: item.url,
+					            mix: { block: 'products', elem: 'link' },
+					            content: {
+					                block: 'img',
+					                url: item.imgUrl
+					            }
+				            }
+				        ]
+			        },
+			        {
+			            block: colContent,
+			            content: [
+			                {
+		                        block: 'products',
+		                        elem: 'title',
+		                        content: {
+                                    block: 'link',
+                                    mods: { color: 'white' },
+                                    content: item.title
+		                        }
+			                },
+			                {
+			                    block: 'products',
+			                    elem: 'content',
+			                    content: item.content
+			                }
+			            ]
+			        }
+			    ]
+			 };
+
+			 if(!item.filter){
+			  delete bemJSON.attrs['data-filter'];
+			 }
+
+			 return bemJSON;
+		})
+	})
+)
+
+
+/* template for video-catalog-list.bemjson */
+
+block('products').mod('video-list', true)(
+	tag()('ul'),
+	content()(function(){
+		var self = this;
+		return this.ctx.items.map(function(item){
+			var bemJSON,
+				colLabel = self.ctx.colLabel || 'col-md-2'
+				colLogo = self.ctx.colLogo || 'col-md-3',
+				colContent = self.ctx.colContent || 'col-md-7';
+
+			 bemJSON = {
+			    elem: 'item',
+			    tag: 'li',
+			    attrs: { 'data-filter': item.filter },
+			    content: [
+					{
+						block: colLabel,
+						content: [
+							{
+								block: 'products',
+								elem: 'label',
+								content: item.label ? item.label : ''
+							}
+						]
+					},
+			        {
+				        block: colLogo,
+				        content: [
+				            {
+					            block: 'link',
+					            url: item.url,
+					            mix: { block: 'products', elem: 'link', mods: { pic: 'play' } },
+					            content: {
+					                block: 'img',
+					                url: item.imgUrl
+					            }
+				            }
+				        ]
+			        },
+			        {
+			            block: colContent,
+			            content: [
+			                {
+		                        block: 'products',
+		                        elem: 'title',
+		                        content: {
+                                    block: 'link',
+                                    mods: { color: 'white-transparent' },
+                                    content: item.title
+		                        }
+			                },
+			                {
+			                    block: 'products',
+			                    elem: 'content',
+			                    content: item.content
+			                }
+			            ]
+			        }
+			    ]
+			 };
+
+			 if(!item.filter){
+			  delete bemJSON.attrs['data-filter'];
+			 }
+
+			 return bemJSON;
+		})
+	})
+)
+

@@ -1,0 +1,35 @@
+block('checkbox')(
+    content()(function(){
+        var bemJSON = [
+            {
+                elem: 'real',
+            },
+            {
+                elem: 'unreal',
+            },
+            {
+                elem: 'label',
+                content: this.ctx.content
+            }
+        ];
+        return bemJSON;
+    }),
+
+    elem('real')(
+        tag()('input'),
+        attrs()(function() {
+            var bemJSON = {
+              type: 'checkbox',
+              value: this.ctx.val,
+              name: this.ctx.name,
+              disabled: this.ctx.disabled
+            };
+
+            return bemJSON;
+        })
+    ),
+
+    elem('label')(
+        tag()('span')
+    )
+)

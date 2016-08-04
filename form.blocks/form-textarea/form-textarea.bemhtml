@@ -1,0 +1,12 @@
+block('form-textarea')(
+	tag()('textarea'),
+	mix()(function(){
+		return [{ block: this.ctx.error ? 'error': ''}]
+	}),
+	attrs()(function(){
+		return {
+			name: this.ctx.name,
+			placeholder: this.ctx.placeholder
+		}
+	})
+)

@@ -1,0 +1,58 @@
+block('file-link')(
+	tag()('a'),
+	attrs()(function() {
+        var attrs =  {
+            href: this.ctx.url,
+            target: '_blank'
+        };
+        if(this.ctx.target){
+            delete attrs.target;
+        }
+        return attrs;
+	}),
+	content()(function(){
+		return [
+			{
+				elem: 'ico',
+				content: [
+					{
+						elem: 'extension',
+						content: this.ctx.extension
+					},
+					{
+						elem: 'extension-description',
+						content: [
+							{
+	                            elem: 'line'
+	                        },
+	                        {
+	                            elem: 'line'
+	                        },
+	                        {
+	                            elem: 'line'
+	                        },
+	                        {
+	                            elem: 'line',
+	                            elemMods: { width: 'no-full'}
+	                        }
+						]
+					}
+				]
+			},
+			{
+                elem: 'content',
+                content:[
+                    {
+                        elem: 'size',
+                        content: this.ctx.size
+                    }
+                ]
+            }
+		]
+	}),
+	elem('ico')(tag()('section')),
+	elem('line')(tag()('span')),
+	elem('extension')(tag()('span')),
+	elem('content')(tag()('section')),
+	elem('size')(tag()('span'))
+)

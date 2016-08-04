@@ -1,0 +1,68 @@
+block('event-line')(
+    content()(function(){
+        var self = this.ctx.event;
+        return [
+           {
+               elem: 'date',
+               elemMods: self.date.eventMods ? self.date.eventMods : {},
+               content:  self.date.content ? self.date.content : ''
+           },
+           {
+               elem: 'time',
+               elemMods: self.time.eventMods ? self.time.eventMods : {},
+               content:  self.time.content ? self.time.content : ''
+           },
+           {
+               block: 'link',
+               mods: { color: 'white' },
+               url: self.city.href ? self.city.href : '',
+               mix: { block: 'event-line', elem: 'city', elemMods: self.city.eventMods ? self.city.eventMods : {} },
+               content: self.city.content ? self.city.content : ''
+           },
+           {
+               block: 'link',
+               mods: { color: 'white' },
+               url: self.place.href ? self.place.href : '',
+               mix: { block: 'event-line', elem: 'place', elemMods: self.place.eventMods ? self.place.eventMods : {} },
+               content: self.place.content ? self.place.content : ''
+           },
+           {
+              elem: 'type',
+              elemMods: self.type.eventMods ? self.type.eventMods : {},
+              mix: {},
+              content: self.type.content ? self.type.content : ''
+           }
+      ];
+    })
+)
+/* КОСТЫЛЬ для смены цвета ссылок на черный */
+block('event-line').mod('color', 'black')(
+    content()(function(){
+        var self = this.ctx.event;
+        return [
+           {
+               elem: 'date',
+               elemMods: self.date.eventMods,
+               content:  self.date.content
+           },
+           {
+               elem: 'city',
+               elemMods: self.city.eventMods,
+               mix: { block: 'link', mods: { color: 'black' } },
+               content: self.city.content
+           },
+           {
+               elem: 'place',
+               elemMods: self.place.eventMods,
+               mix: { block: 'link', mods: { color: 'black' } },
+               content: self.place.content
+           },
+           {
+              elem: 'type',
+              elemMods: self.type.eventMods,
+              mix: {},
+              content: self.type.content
+           }
+      ];
+    })
+)

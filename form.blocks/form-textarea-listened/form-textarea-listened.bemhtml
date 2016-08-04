@@ -1,0 +1,52 @@
+block('form-textarea-listened')(
+	mix()({block: 'row'}),
+	content()(function(){
+		var self = this.ctx;
+
+		return [
+			{
+				block: 'form',
+				elem: 'label',
+				mix: { block: self.label.width ? self.label.width : 'col-md-4' },
+				elemMods : self.required ? { type: 'required' } : '',
+				content: self.label.content
+			},
+			{
+				block: self.textarea.width ? self.textarea.width : 'col-md-4',
+				content: {
+					tag: '',
+					content: self.textarea
+				}
+			},
+			{
+				block: self.listen.width ? self.listen.width : 'col-md-4',
+				content: [
+					{
+						block: 'form-textarea-listened',
+						elem: 'listen',
+						content: [
+							{
+								tag: 'span',
+								content: 'Максимальная длина текста составляет '+ self.listen.maxLength +' знаков. Осталось '
+							},
+							{
+								block: 'span',
+								content: self.listen.maxLength
+							},
+							{
+								tag: 'span',
+								content: ' знаков.'
+							},
+							{
+								block: 'form',
+								elem: 'error',
+								mix: { block: 'form-textarea-listened', elem: 'error' },
+								content: self.listen.error
+							}
+						]
+					}
+				]
+			}
+		]
+	})
+)

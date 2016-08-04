@@ -1,0 +1,16 @@
+block('cities-choice').elem('current')(
+	content()(function(){
+		return [
+			{
+				block: 'ico-location',
+				mods: { height: 'min'}
+			},
+			{
+				block: 'pseudo',
+				mods: { color: 'white-transparent'},
+				content: this.ctx.content
+			}
+
+		]
+	})
+)

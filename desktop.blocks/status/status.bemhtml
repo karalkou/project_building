@@ -1,0 +1,7 @@
+block('status')(
+    attrs()(function(){
+        if(this.ctx.filter){
+            return { 'data-filter': this.ctx.filter };
+        }
+    })
+)

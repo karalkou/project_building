@@ -1,0 +1,58 @@
+.carousel-service-wrapper
+  display: block
+  overflow: hidden
+  width: 100%
+  height: 476px
+  border-bottom: 1px solid #dddddd
+.carousel-service
+  position: relative
+  width: 1064px
+  margin: 0 auto
+  height: 486px
+  box-sizing: border-box
+  background: url(img/path-carousel.png)no-repeat bottom center
+.carousel-service
+  .btn_large
+    padding: 16px 68px
+    font-size: 18px
+  &__btn-next,
+  &__btn-prev
+    position: absolute
+    width: 41px
+    height: 41px
+    top: 139px
+    cursor: pointer
+  &__btn-next
+    right: 148px
+    background: url(img/btn-next.png)
+  &__btn-prev
+    left: 150px
+    background: url(img/btn-prev.png)
+  &__content
+    position: absolute
+    width: 600px
+    height: 392px
+    left: 50%
+    top: 78px
+    margin-left: -300px
+    text-align: center
+  &__counter
+    display: block
+    position: absolute
+    bottom: 20px
+    right: 38px
+    font-size: $fs-base-large
+    color: #999999
+    &-current
+      display: block
+      float: left
+      color: #ff0000
+    &-separator
+      display: block
+      float: left
+      font-size: 36px
+      font-weight: $ff-thin
+      margin-top: -12px
+    &-count
+      display: block
+      float: left

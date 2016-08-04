@@ -1,0 +1,22 @@
+block('abstract-section-list').mod('width', 'available')(
+	mix()({block: 'row'}),
+    content()(function(){
+        var i  = 0;
+        return this.ctx.items.map(function(item){
+
+			if(!item.elemMods){
+				item.elemMods = {};
+			}
+
+			item.elemMods.event = true;
+
+			return {
+			    block: 'abstract-section-list',
+			    elem: 'item',
+			    elemMods: item.elemMods,
+			    content: item
+			}
+
+        });
+    })
+)

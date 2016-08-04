@@ -1,0 +1,24 @@
+block('calendar-events-list')(
+	content()(function(){
+		return [
+			{
+			    elem: 'next',
+			    content: {
+			        block: 'fa',
+			        mix: {block: 'fa-angle-up' }
+			    }
+			},
+			{
+				elem: 'slider',
+				content: this.ctx.content
+			},
+			{
+				elem: 'prev',
+				content: {
+				   block: 'fa',
+				   mix: { block: 'fa-angle-down' }
+				}
+			}
+		]
+	})
+)

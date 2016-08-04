@@ -1,0 +1,39 @@
+block('table-list')(
+	tag()('ul'),
+	content()(function(){
+		return this.ctx.items.map(function(item, i){
+			return {
+				elem: 'item',
+				content: [
+					{
+                        elem:'td-first',
+                        mix: [{ block: 'col-md-offset-1'}, { block: 'col-md-1' }],
+                        content: item.tdFirst
+                    },
+                    {
+                        elem: 'td-second',
+                        mix: { block: 'col-md-2' },
+                        content: item.tdSecond
+                    },
+                    {
+                        elem: 'td-third',
+                        mix: { block: 'col-md-5' },
+                        content: item.tdThree
+                    },
+                    {
+                        elem: 'td-fourth',
+                        mix: { block: 'col-md-3' },
+                        content: item.tdFour
+                    },
+                    {
+                        block: 'clearfix'
+                    }
+				]
+			}
+		});
+	}),
+
+	elem('item')(
+		tag()('li')
+	)
+)

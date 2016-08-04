@@ -1,0 +1,14 @@
+block('file').mod('type', 'pdf')(
+	content()(function(){
+		return [
+			{
+				tag: '',
+				content: 'PDF '
+			},
+			{
+				tag: 'span',
+				content: this.ctx.content
+			}
+		]
+	})
+)

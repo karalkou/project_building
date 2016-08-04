@@ -1,0 +1,34 @@
+.cities-choice__city
+  margin-bottom: .6em
+  font-size: 1.05em
+  -webkit-transition: all ease-in-out 0.9s, opacity linear 0.4s
+  -o-transition: all ease-in-out 0.9s, opacity linear 0.4s
+  transition: all ease-in-out 0.9s, opacity linear 0.4s
+  a
+    text-decoration: none
+    line-height: 1.4em
+    color: white
+    border: 0px
+    border-bottom: 1px solid white
+    border-color: $white-opacity-80
+    &:visited
+      color: white
+      border-color: white
+      &:hover
+        color: darken(white, 20%)
+        color: $white-opacity-80
+    &:hover
+      color: darken(white, 20%)
+      color:$white-opacity-80
+  &_hidden
+    opacity(0)
+    -webkit-transform: translate(0, -10px)
+    -moz-transform: translate(0, -10px)
+    -o-transform: translate(0, -10px)
+    -ms-transform: translate(0, -10px)
+    transform: translate(0, -10px)
+    height: 0
+    margin: 0
+  &_visible
+    -webkit-transition-delay: 0s, 0.4s
+    transition-delay: 0s, 0.4s

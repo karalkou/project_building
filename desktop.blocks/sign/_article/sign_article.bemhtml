@@ -1,0 +1,71 @@
+block('sign').mod('article', true)(
+		content()(function(){
+    		return [
+    			{
+    				block: 'col-md-offset-2',
+    				mix: { block: 'col-md-2' },
+    				content: {
+    					block: 'img',
+    					mods: { circle: true, responsive: true},
+    					url: this.ctx.imgUrl
+    				}
+    			},
+    			{
+    				block: 'col-md-6',
+    				content: [
+    					{
+    						block: 'sign',
+    						elem: 'title',
+    						content: this.ctx.title
+    					},
+    					{
+    						block: 'sign',
+    						elem: 'content',
+    						content: [
+    						    {
+    						        block : 'row',
+    						        content: [
+	                                    {
+	                                        block: 'col-md-6',
+	                                        content: [
+                                                {
+	                                                block: 'sign',
+	                                                elem: 'option',
+	                                                content: this.ctx.optionThree
+	                                            },
+	                                            {
+	                                                block: 'sign',
+	                                                elem: 'option',
+	                                                content: this.ctx.optionFour
+	                                            }
+	                                        ]
+	                                    },
+	                                    {
+	                                        block: 'col-md-6',
+	                                        content: [
+	                                            {
+                                                    block: 'sign',
+                                                    elem: 'option',
+                                                    content: this.ctx.optionOne
+                                                },
+	                                            {
+	                                                block: 'sign',
+	                                                elem: 'option',
+	                                                content: this.ctx.optionTwo
+	                                            }
+	                                        ]
+	                                    }
+    						        ]
+    						    }
+    						]
+    					}
+    				]
+    			},
+    			{
+    			    block: 'col-md-offset-2',
+    			    mix: [{ block: 'content', elem: 'manager' }, { block: 'col-md-8' }, { block: 'sign', elem: 'body'}],
+    			    content: this.ctx.editor
+    			}
+    		]
+    	})
+)

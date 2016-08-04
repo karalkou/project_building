@@ -1,0 +1,188 @@
+block('rubricator')(
+    js()(true),
+    content()(function(){
+        if(this.ctx['specialBtn'] != undefined){
+            var bemJSON = {
+                elem: 'content',
+                content: [
+                    {
+                        elem: 'header',
+                        content: {
+                            elem: 'header-content',
+                            content: this.ctx.headerContent
+                        }
+                    },
+                    {
+                        elem: 'error',
+                        content: this.ctx.error ? this.ctx.error : 'Ошибка!'
+                    },
+                    {
+                        elem: 'divider',
+                        mix: { block: 'line' }
+                    },
+                    {
+                        elem: 'rubrics',
+                        content: {
+                            elem: 'row',
+                            content: this.ctx.columns
+                        }
+                    },
+                    {
+                        elem: 'special-btn',
+                        content: {
+                            elem: 'special-btn-pseudolink',
+                            mix: { block: 'link', mods: { color: 'black-red' } },
+                            attrs: { 'id': 'special', 'data-type': this.ctx.specialBtn.type ? this.ctx.specialBtn.type : 'all' },
+                            content: this.ctx.specialBtn.content ? this.ctx.specialBtn.content : 'special button'
+                        }
+                    }
+                ]
+            };
+        }else{
+            var bemJSON = {
+                elem: 'content',
+                content: [
+                    {
+                        elem: 'header',
+                        content: {
+                            elem: 'header-content',
+                            content: this.ctx.headerContent
+                        }
+                    },
+                    {
+                        elem: 'error',
+                        content: this.ctx.error ? this.ctx.error : 'Ошибка!'
+                    },
+                    {
+                        elem: 'divider',
+                        mix: { block: 'line' }
+                    },
+                    {
+                        elem: 'rubrics',
+                        content: {
+                            elem: 'row',
+                            content: this.ctx.columns
+                        }
+                    }
+                ]
+            };
+        }
+
+
+        return bemJSON;
+    }),
+
+    elem('header')(
+        tag()('h2')
+    ),
+
+    elem('header-item')(
+        tag()('span')
+    ),
+
+    elem('header-text')(
+        tag()('span')
+    ),
+
+    elem('arrow')(
+        tag()('i')
+    ),
+
+    elem('error')(
+        tag()('div')
+    ),
+
+    elem('rubrics')(
+        tag()('table')
+    ),
+
+    elem('row')(
+        tag()('tr')
+    ),
+
+    elem('column')(
+        tag()('td')
+    ),
+
+    elem('list')(
+        tag()('ul')
+    ),
+
+    elem('item')(
+        tag()('li')
+    ),
+
+    elem('link')(
+        tag()('span')
+    ),
+
+    elem('count')(
+        tag()('span')
+    ),
+
+    elem('special-btn-pseudolink')(
+        tag()('span')
+    )
+)
+
+block('rubricator').elem('row')(
+    content()(function(){
+        return this.ctx.content.map(function(item){
+            var bemJSON = {
+                elem: 'column',
+                content: item.content
+            };
+
+            return bemJSON;
+        });
+    })
+)
+
+block('rubricator').elem('list')(
+    content()(function(){
+        return this.ctx.list.map(function(item){
+            var bemJSON = {
+                elem: 'item',
+                content: item.content
+            };
+
+            return bemJSON;
+        });
+    })
+)
+
+block('rubricator').elem('header-content')(
+    content()(function(){
+        return this.ctx.content.map(function(item){
+            var bemJSON = [
+                {
+                    elem: 'header-item',
+                    content: [
+                        {
+                            elem: 'header-text',
+                            elemMods: item.textMods || {},
+                            attrs: { id: item.id || '' },
+                            content: item.text || 'Рубрикатор видов деятельности'
+                        },
+                        {
+                            elem: 'arrow',
+                            elemMods: item.arrowMods || {}
+                        }
+                    ]
+                },
+            ];
+
+            return bemJSON;
+        });
+    })
+)
+
+block('rubricator').elem('link')(
+    mix()(
+        {
+            block: 'link',
+            mods: { color: 'black-red' },
+            js: false
+        }
+    )
+)

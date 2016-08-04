@@ -1,0 +1,32 @@
+block('message-tile')(
+    content()(function(){
+        var self = this.ctx;
+
+        return {
+            elem: 'inner-wrap',
+            elemMods: self.wrapMods,
+            content: [
+                {
+                    elem: 'title',
+                    content: self.title
+                },
+                {
+                    elem: 'text',
+                    content: self.text
+                },
+                {
+                    elem: 'img-wrap',
+                    content: {
+                        block: 'img',
+                        url  : self.logoSource
+                    }
+                },
+                {
+                    block: 'btn',
+                    mods: self.button.mods,
+                    content: self.button.content
+                }
+            ]
+        }
+    })
+)

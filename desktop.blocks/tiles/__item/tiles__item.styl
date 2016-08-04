@@ -1,0 +1,47 @@
+.tiles__item
+  display: block
+  float: left
+  overflow: hidden
+  min-width: 230px
+  width: 40%
+  position: relative
+  opacity: 1
+  border-radius(5px)
+  font-size: $fs-base
+  color: $black
+  transform-origin: 50% 0
+  transform: scaleY(1)
+  transition: width .75s
+  &:hover
+    width: 50%
+    width: calc(50% - 1px)
+    transition: width .5s
+    .tiles__link
+      margin-right: 10px /* added in order to avoid white contour (see: tiles__link.styl) */
+      border-top-right-radius: 6px /* changed from 5px in order to avoid white contour */
+      border-bottom-right-radius: 6px /* changed from 5px in order to avoid white contour */
+      transition: margin-right ease-in .5s .3s
+    .tiles__animation
+      opacity: 1
+      transition: opacity ease-in .5s .3s
+      right: 9px /* added in order to avoid white contour (see: tiles__link.styl) */
+    .tiles__title
+      color: #d10e00
+
+
+.tiles__item_visible
+  width: 50%
+  width: calc(50% - 1px)
+  .tiles__link
+    margin-right: 10px /* added in order to avoid white contour (see: tiles__link.styl) */
+    border-top-right-radius: 6px /* changed from 5px in order to avoid white contour */
+    border-bottom-right-radius: 6px /* changed from 5px in order to avoid white contour */
+  .tiles__animation
+    opacity: 1
+    right: 9px /* added in order to avoid white contour (see: tiles__link.styl) */
+
+.tiles__item_hidden
+  &:hover
+    width: 40%
+    .tiles__animation
+      opacity: 0

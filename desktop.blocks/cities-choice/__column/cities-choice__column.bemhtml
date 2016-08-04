@@ -1,0 +1,30 @@
+block('cities-choice').elem('column')(
+	content()(function(){
+		var currentCityChar = '';
+
+		return this.ctx['cities'].map(function(city){
+			var arrCities = [];
+
+			 if(currentCityChar != city.content.charAt(0)){
+			    currentCityChar = city.content.charAt(0);
+			    if(city.content != 'Нижневартовск'){
+			        if(city.content != 'Северодвинск'){
+					    arrCities.push({
+		                    block: 'cities-choice',
+		                    elem: 'char',
+		                    content: currentCityChar
+		                });
+	                }
+			    }
+			 }
+
+			 arrCities.push({
+				block: 'cities-choice',
+                elem: 'city',
+                content: city.content
+			 });
+
+			 return arrCities;
+		})
+	})
+)

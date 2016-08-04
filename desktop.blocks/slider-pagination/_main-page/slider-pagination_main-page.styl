@@ -1,0 +1,30 @@
+.slider-pagination_main-page
+  height: 12px
+  margin: 0 auto
+  margin-top: 65px
+  list-style-type: none
+  li
+    display: block
+    float: left
+    width: 12px
+    height: 12px
+    margin-right: 25px
+    border: none !important
+    border-radius: 50%
+    background: white !important
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"
+    /* IE 5-7 */
+    /*filter: alpha(opacity=50)*/
+    opacity: .5
+    cursor: pointer
+    transition: .5s ease
+    &:last-child
+      margin-right: 0px
+    &:hover, &.selected
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"
+      /*filter: alpha(opacity=100)*/
+      opacity: 1
+      border: none !important
+      background: white !important
+      transition: .5s ease

@@ -1,0 +1,45 @@
+block('nav-pages')(
+	content()(function(){
+		return [
+			{
+				block: 'col-md-6',
+				content: {
+                    block: 'nav-pages',
+                    elem: 'prev',
+                    attrs: { href: '/'},
+                    content: {
+                        block: 'nav-pages',
+                        elem: 'wrap',
+                        content: {
+                            tag: 'span',
+                            content: this.ctx.prev
+                        }
+                    }
+                }
+			},
+			{
+                block: 'col-md-6',
+                content: {
+                     block: 'nav-pages',
+                     elem: 'next',
+                     attrs: { href: '/'},
+                     content: {
+                        block: 'nav-pages',
+                        elem: 'wrap',
+                        content: {
+                            tag: 'span',
+                            content: this.ctx.next
+                        }
+                     }
+                 }
+            }
+		]
+	}),
+	elem('next')(
+		tag()('a')
+	),
+
+	elem('prev')(
+        tag()('a')
+    )
+)

@@ -1,0 +1,10 @@
+block('logo')(
+	tag()('a'),
+	attrs()(function() {return { href: this.ctx.url }; }),
+	content()(function() {
+		return {
+				elem: 'img'
+			};
+		}),
+	elem('img')(tag()('span'))
+)

@@ -1,0 +1,33 @@
+block('blur')(
+	content()(function(){
+		return [
+			{
+				elem :'canvas',
+				condition : '> IE 9',
+			},
+			{
+				elem: 'image',
+				attrs: { src: this.ctx.url}
+			}
+		]
+	}),
+	elem('canvas')(
+		tag()('canvas'),
+		attrs()(function(){
+			return {
+				style: 'image-rendering: -webkit-optimize-contrast; width: 100% !important; height: 100% !important;',
+				id: 'canvas-background'
+			}
+		})
+	),
+
+	elem('image')(
+		tag()('img'),
+		attrs()(function(){
+			return {
+				id: 'current-background',
+				alt: 'background-image'
+			}
+		})
+	)
+)

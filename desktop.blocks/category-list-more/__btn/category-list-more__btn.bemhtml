@@ -1,0 +1,4 @@
+block('category-list-more').elem('btn')(
+    tag()('a'),
+    attrs()({ href: "#" })
+)

@@ -1,0 +1,25 @@
+.form__error
+  display: none
+  position: relative
+  width: 238px
+  padding: 7px
+  padding-left: 11px
+  padding-top: 9px
+  margin-bottom: 5px
+  border-radius: 5px
+  background: #e8101e
+  font-family: inherit
+  font-weight: 300
+  font-size: inherit
+  line-height: 18px
+  color: white
+  &:after
+   display: block
+   position: absolute
+   content: ''
+   top: 12px
+   left: -11px
+   border: 6px solid transparent
+   border-right: 6px solid #e8101e
+  &.error
+    display: block

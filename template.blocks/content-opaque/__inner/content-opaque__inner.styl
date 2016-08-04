@@ -1,0 +1,65 @@
+.content-opaque__inner
+  position: relative
+  padding-top: 26px
+  padding-bottom: 35px
+  font-size : $fs-base-plus
+  &:after,
+  &:before
+    display :table
+    content: ""
+    clear: both
+  h1
+    margin-top: 88px
+    margin-bottom: 32px
+    line-height: 44px
+    font-size: $fs-h2
+    font-weight: 300
+  p
+    margin-bottom: 24px
+    line-height: 24px
+  ul
+    padding: 0
+    list-style-type: none
+    li
+      margin-bottom: 4px
+      line-height: 26px
+      text-indent: -1em
+      &:before
+        content: '\2014\a0'
+  a
+    display: inline
+    text-decoration: none
+    color: white
+    border-bottom: 1px solid white
+    border-color: rgba(255, 255, 255, 0.3)
+    &:hover,
+    &:focus
+      text-decoration: none
+      color: darken(white, 20%)
+  .article__title
+    margin-top: 57px
+    margin-bottom: 48px
+    font-size: 57px
+    line-height: 1.3em
+    font-weight 100
+    -webkit-font-smoothing: antialiased
+    a
+      border: 0;
+      border-bottom: 1px;
+      border-style: solid;
+      border-color: rgba(255, 255, 255, 0.3);
+      -webkit-font-smoothing: antialiased;
+      font-weight: 100;
+      &:hover,
+      &:focus
+        text-decoration none
+  .article__subtitle
+    font-size: $fs-h3
+    margin-top: -10px
+    margin-bottom: 43px
+    line-height 31px
+    font-weight: 300
+  .jq-selectbox li
+    text-indent: 0;
+    &:before
+      display none

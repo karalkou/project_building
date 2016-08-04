@@ -1,0 +1,4 @@
+/*block(chosen-type).elem('auxiliary')(
+    tag()('input'),
+    attrs()()
+)*/

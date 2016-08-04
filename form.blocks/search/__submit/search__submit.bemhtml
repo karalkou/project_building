@@ -1,0 +1,11 @@
+block('search').elem('submit')(
+	tag()('button'),
+	attrs()({ type: 'submit'}),
+	content()(function(){
+		return {
+			block: 'fa',
+			tag: 'i',
+			mix: { block: 'fa-search'}
+		}
+	})
+)

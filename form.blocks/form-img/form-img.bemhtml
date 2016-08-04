@@ -1,0 +1,104 @@
+block('form-img')(
+	js()('true'),
+	content()(function(){
+		if( this.ctx.type == 'logo' ){
+			var bemJSON = [
+				{
+					block: 'row',
+					content: [
+						{
+							block: 'col-md-6',
+							content: {
+								block: 'form-img',
+								elem: 'place',
+								elemMods: this.ctx.placeMods ? this.ctx.placeMods : {},
+								attrs: { 'data-logo-container': 'background', 'data-type': this.ctx.type },
+								content: {
+									block: 'form-img',
+									elem: 'cross'
+								}
+							}
+						},
+						{
+							block: 'col-md-6',
+							mix: { block: 'offset', 'padding-left': 'reset' },
+							content: {
+								block: 'form-img', elem: 'pseudoFileLoader',
+								mix: [{ block: 'pull-right' }, { block: 'btn', mods: this.ctx.btnMods ? this.ctx.btnMods : {}, }],
+								content: [
+									{
+										tag: '',
+										content: 'Загрузить'
+									},
+									{
+										tag: 'input',
+										attrs: {
+											name: 'input-file',
+											type: 'file',
+											'data-container': 'data-' + this.ctx.type + '-container',
+											'data-height': '95',
+											'data-width': '95',
+											'data-save': 'true'
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			];
+		}else{
+			var bemJSON = [
+				{
+					block: 'row',
+					content: [
+						{
+							block: 'col-md-6',
+							content: {
+								block: 'form-img',
+								elem: 'place',
+								elemMods: this.ctx.placeMods ? this.ctx.placeMods : {},
+								attrs: { 'data-bg-container': 'background', 'data-type': this.ctx.type },
+								content: {
+									block: 'form-img',
+									elem: 'cross'
+								}
+							}
+						},
+						{
+							block: 'col-md-6',
+							mix: { block: 'offset', 'padding-left': 'reset' },
+							content: {
+								block: 'form-img', elem: 'pseudoFileLoader',
+								mix: [{ block: 'pull-right' }, { block: 'btn', mods: this.ctx.btnMods ? this.ctx.btnMods : {}, }],
+								content: [
+									{
+										tag: '',
+										content: 'Загрузить'
+									},
+									{
+										tag: 'input',
+										attrs: {
+											name: 'input-file',
+											type: 'file',
+											'data-container': 'data-' + this.ctx.type + '-container',
+											'data-height': '95',
+											'data-width': '95',
+											'data-save': 'true'
+										},
+									}
+								]
+							}
+						}
+					]
+				}
+			];
+		}
+
+		return bemJSON;
+	}),
+
+	elem('pseudoFileLoader')(
+		tag()('label')
+	)
+);

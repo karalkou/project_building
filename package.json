@@ -1,0 +1,36 @@
+{
+  "name": "alfa",
+  "description": "BEM project",
+  "version": "0.0.0",
+  "repository": {},
+  "author": {
+    "name": "karalkou",
+    "email": "yury.karalkou@gmail.com"
+  },
+  "dependencies": {
+    "bower": "^1.6.5"
+  },
+  "devDependencies": {
+    "bem": "^0.10.2",
+    "borschik-tech-cleancss": "^2.1.0",
+    "enb": "^1.1.0",
+    "enb-bem-techs": "^2.1.0",
+    "enb-bemxjst": "^4.0.2",
+    "enb-borschik": "^2.1.0",
+    "enb-js": "^1.1.0",
+    "enb-stylus": "^2.2.0",
+    "gulp": "^3.8.11",
+    "gulp-html-replace": "^1.4.5",
+    "gulp-if": "^1.2.5",
+    "gulp-jsbeautifier": "0.0.8",
+    "gulp-rename": "1.2.2"
+  },
+  "scripts": {
+    "start": "enb server",
+    "postinstall": "npm run deps",
+    "deps": "bower i"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

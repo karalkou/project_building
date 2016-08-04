@@ -1,0 +1,3 @@
+block('article').elem('subtitle')(
+	tag()('h4')
+)

@@ -1,0 +1,14 @@
+block('prism')(
+	tag()('pre'),
+	attrs()({ 'data-start' : '1' }),
+	content()(function(){
+
+			return {
+				tag: 'code',
+				attr: {'data-language': this.ctx.language},
+				cls: 'language-' + this.ctx.language,
+				content: this.xmlEscape(this.reapply(applyNext()))
+			}
+		}
+	)
+)

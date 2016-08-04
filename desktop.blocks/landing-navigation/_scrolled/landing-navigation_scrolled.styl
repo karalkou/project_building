@@ -1,0 +1,67 @@
+.landing-navigation_scrolled
+  position: fixed
+  //left: 253px
+  padding-top: 10px !important
+  padding-bottom: 10px
+  margin-top: 0 !important
+  top: 86px
+  z-index: 500
+  box-sizing: border-box
+  &:after
+    position: fixed
+    display: block
+    height: 41px
+    top: 86px
+    left: -2000px
+    width: 10000px
+    content: ''
+    background: black
+    background: rgba(0,0,0,0.8)
+    opacity: 1
+    transition: background ease-in-out 0.6s
+    z-index: -1
+
+@media only screen and (max-width: 600px)
+  .landing-navigation_scrolled
+    a
+      font-size: 13px
+
+@media only screen and (min-width: 600px) and (max-width: 1259px)
+  .landing-navigation_scrolled
+    a
+      font-size: 13px
+
+@media only screen and (min-width: 1259px) and (max-width: 1397px)
+  .landing-navigation_scrolled
+    a
+      font-size: 14px
+
+//@media only screen and (max-width: 1397px)
+//  .landing-navigation_scrolled
+//    a
+//      font-size: 14px
+
+@media only screen and (min-width: 1398px)
+  .landing-navigation_scrolled
+    a
+      font-size: 16px
+/*-------------------------------------*/
+@media only screen and (max-width: 1323px)
+  .landing-navigation_scrolled
+    left: 240px
+
+@media only screen and (min-width: 1324px) and (max-width: 1500px)
+  .landing-navigation_scrolled
+    left: 243px
+
+@media only screen and (min-width: 1501px)
+  .landing-navigation_scrolled
+    left: 246px
+
+@media only screen and (min-width: 1660px)
+  .landing-navigation_scrolled
+    left: 249px
+
+@media only screen and (min-width: 1790px)
+  .landing-navigation_scrolled
+    left: 252px

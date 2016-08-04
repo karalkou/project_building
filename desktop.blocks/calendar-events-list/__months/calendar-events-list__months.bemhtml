@@ -1,0 +1,85 @@
+block('calendar-events-list').elem('months')(
+	content()(function(){
+		var months = {
+	                    '1' : 'Январь',
+	                    '2' : 'Февраль',
+	                    '3' : 'Март',
+	                    '4' : 'Апрель',
+	                    '5' : 'Май',
+	                    '6' : 'Июнь',
+	                    '7' : 'Июль',
+	                    '8' : 'Август',
+	                    '9' : 'Сентябрь',
+	                    '10' : 'Октябрь',
+	                    '11' : 'Ноябрь',
+	                    '12' : 'Декабрь',
+	                },
+	                currentMonth = {},
+	                content = [],
+	                calendarContent = [];
+
+        function templateGeneratorCalendar(arr){
+            return arr.map(function(item){
+                return {
+                        block: 'calendar-events-list',
+                        elem: 'date',
+                        content: [
+                            {
+                                block: 'calendar-events-list',
+                                elem: 'day',
+                                content: item.date
+                            },
+                            {
+                                block: 'calendar-events-list',
+                                tag: 'a',
+                                attrs: { href: '/' },
+                                elem: 'city',
+                                content: item.title
+                            }
+                        ]
+                    }
+            });
+        };
+
+        this.ctx.content.forEach(function(currentItem, i, arr){
+            if(!currentMonth[currentItem.month]){
+              currentMonth[currentItem.month] = [];
+            }
+            if(currentItem.month ==  arr[i].month){
+              currentMonth[currentItem.month].push(currentItem);
+            }
+        });
+
+        for (month in currentMonth){
+            var events = currentMonth[month].filter(function(obj, index){
+                            return index%2 == 0;
+                        });
+
+             var eventsEven = currentMonth[month].filter(function(obj, index){
+                        return index%2 != 0;
+                    });
+
+            calendarContent.push({
+                block: 'calendar-events-list',
+                elem: 'month-wrap',
+                content: [
+                    {
+                        block: 'calendar-events-list',
+                        elem: 'month',
+                        content: {
+                            block: 'calendar-events-list',
+                            elem: 'text',
+                            content: months[month]
+                        }
+                    },
+                    {
+                        tag: '',
+                        content: templateGeneratorCalendar(currentMonth[month])
+                    }
+                ]
+            });
+        }
+
+		return calendarContent;
+	})
+)

@@ -1,0 +1,3 @@
+block('colorization')(
+    tag()('span')
+    );

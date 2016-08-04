@@ -1,0 +1,20 @@
+block('tooltip')(
+	tag()('span'),
+	content()(function(){
+		return [
+			{
+				tag: '',
+				content: this.ctx.content
+			},
+			{
+				elem: 'text',
+				content: this.ctx.hintText
+			},
+			{
+                elem: 'arrow'
+            }
+		]
+	}),
+	elem('text')(tag()('span')),
+	elem('arrow')(tag()('span'))
+)

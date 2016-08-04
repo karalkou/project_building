@@ -1,0 +1,63 @@
+block('bonuses-list')(
+	tag()('ul'),
+	content()(function(){
+		var self = this;
+		return this.ctx.bonuses.map(function(item){
+			var bemJSON = {
+					elem: 'item',
+					elemMods : item.elemMods,
+					mix: item.mix,
+					content: {
+						tag: (self.ctx.wrapper ==='none') ? '' : 'span',
+						elem: 'item-content',
+						mix: { block: 'message', mods: { dashed: true, 'border-color': 'white-transparent' } },
+						content: item.content
+					}
+				};
+
+			if(!item.elemMods){
+				delete bemJSON.elemMods;
+			}
+
+			if(!item.mix){
+                delete bemJSON.mix;
+            }
+
+			return bemJSON;
+		});
+	}),
+
+	elem('item')(tag()('li'))
+)
+
+block('bonuses-list').mod('main-page', true)(
+	tag()('ul'),
+	content()(function(){
+		var self = this;
+		return this.ctx.bonuses.map(function(item){
+			var bemJSON = {
+					elem: 'item',
+					elemMods : item.elemMods,
+					mix: item.mix,
+					content: {
+						tag: (self.ctx.wrapper ==='none') ? '' : 'span',
+						elem: 'item-content',
+						mix: { block: 'message', mods: { dashed: true, 'border-color': 'white-transparent' } },
+						content: item.content
+					}
+				};
+
+			if(!item.elemMods){
+				delete bemJSON.elemMods;
+			}
+
+			if(!item.mix){
+                delete bemJSON.mix;
+            }
+
+			return bemJSON;
+		});
+	}),
+
+	elem('item')(tag()('li'))
+)

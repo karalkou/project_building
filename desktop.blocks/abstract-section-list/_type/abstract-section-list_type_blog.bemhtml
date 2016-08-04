@@ -1,0 +1,86 @@
+block('abstract-section-list').mod('type', 'blog')(
+	mix()({block: 'row'}),
+    content()(function(){
+        var i  = 0,
+            statePickOut = this.ctx.pickOut;
+
+        if(this.ctx.pickOut == 'even'){
+            var i = 1;
+        }
+
+        return this.ctx.items.map(function(item){
+            i++;
+
+             var elemItem = {
+                   elem: 'item',
+                   elemMods: { 'pick-out': (i%2 != 0 && statePickOut != false)? true: false},
+                   content: [
+                     {
+                           block: item.imgUrl ? 'col-md-6' : 'col-md-offset-2 col-md-8',
+                           content: [
+                               {
+                                   block: 'abstract-section-list',
+                                   elem: 'subtitle',
+                                   content: item.subtitle
+                               },
+                               {
+                                   block: 'abstract-section-list',
+                                   elem: 'subtitle',
+                                   mods: { size: 's' },
+                                   content: item.subtitleSecond
+                               },
+
+                           ]
+                       },
+                       {
+                           block: 'col-md-offset-2',
+                           mix: { block: 'col-md-8' },
+                           content: {
+                             block: 'abstract-section-list',
+                             elem: 'content',
+                             mix: { block: 'content', elem: 'manager'},
+                             content: item.previewText
+                         }
+                       }
+
+                   ]
+               };
+			if (item.title){
+				var titleBlock = {
+						block: 'abstract-section-list',
+						elem: 'title',
+						content:{
+						   tag: item.link ? 'a' : '',
+						   block: item.link? 'link' : '',
+						   mods: { color: 'black'},
+						   url: item.link,
+						   content: item.title
+						}
+					};
+
+
+				elemItem.content[0].content.unshift(titleBlock);
+			}
+            if(item.imgUrl){
+                var imgBlock = {
+						block: 'col-md-offset-2',
+						mix: { block: 'col-md-2' },
+						content:{
+						    block: 'img',
+						    url  : item.imgUrl,
+						    mods: { responsive: true, circle: true }
+						}
+					};
+
+				elemItem.content.unshift(imgBlock);
+            }
+
+            return elemItem;
+
+        });
+    }),
+
+    elem('title')(
+        tag()('h3')
+    )
+)

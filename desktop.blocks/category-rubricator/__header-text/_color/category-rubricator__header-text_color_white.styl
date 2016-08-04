@@ -1,0 +1,26 @@
+.category-rubricator__header-text_color_white
+  color: white
+  border-color: white !important
+  border-color:  alpha(white, 0.3) !important
+  &.category-rubricator__header-text_disabled
+    border: 0 !important
+    color: darken(white, 20%)
+    color: alpha(white, 0.6)
+    cursor: default
+    &:hover
+    &:focus
+      color: darken(white, 20%)
+      color: alpha(white, 0.6)
+  &:hover,
+  &:focus
+    color: $white-opacity-80
+    border-color: darken(white, 20%)
+    border-color: alpha(white, 0.3)
+  &.category-rubricator__header-text_selected
+    color: white
+    color: $white-opacity-80
+    border: none
+    &:hover,
+    &:focus
+      color: white
+      cursor: default

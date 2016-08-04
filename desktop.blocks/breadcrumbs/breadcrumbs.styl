@@ -1,0 +1,29 @@
+.breadcrumbs
+  font-size: $fs-base
+  list-style: none
+  &:after
+    display: block
+    clear: both
+    content: ''
+  &__item
+    float: left
+    .breadcrumbs__link
+      color: alpha(white, 0.6)
+      border-color: alpha(white, 0.4)
+      &:hover
+        color: alpha(white, 0.4)
+        border-color: transparent
+  &__link
+    &:after
+      display: block
+      float: left
+      margin: 0 11px
+      margin-top: 8px
+      width: 5px
+      height: 10px
+      content: ""
+      background: url(img/arrow.png) no-repeat
+  &__item:first-child
+    .breadcrumbs__link
+      &:after
+        display: none

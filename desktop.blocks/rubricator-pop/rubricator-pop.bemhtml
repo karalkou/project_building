@@ -1,0 +1,39 @@
+block('rubricator-pop')(
+    content()(function(){
+        var bemJSON = {
+            elem: 'cover',
+            content: [
+                 {
+                     elem: 'close'
+                 },
+                 {
+                     elem: 'wrap',
+                     content: {
+                         elem: 'wrap-row',
+                         content: {
+                             elem: 'wrap-cell',
+                             content: {
+                                 elem: 'content',
+                                 content: this.ctx.content ? this.ctx.content : ''
+                             }
+                         }
+                     }
+                 }
+             ]
+        }
+
+        return bemJSON;
+    }),
+
+    elem('wrap')(
+        tag()('table')
+    ),
+
+    elem('wrap-row')(
+        tag()('tr')
+    ),
+
+    elem('wrap-cell')(
+        tag()('td')
+    )
+)

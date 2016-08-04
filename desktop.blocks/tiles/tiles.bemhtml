@@ -1,0 +1,44 @@
+block('tiles')(
+	tag()('ul'),
+	content()(function(){
+		return this.ctx['tiles'].map(function(item){
+			return [
+				{
+					elem: 'item',
+					elemMods: item.mods,
+					content: {
+						elem: 'link',
+						elemMods: item.modsInner,
+						attrs: { href: item.url },
+						content:[
+							{
+								elem: 'animation',
+								attrs: item.img ? { style: 'background-image: url(' + item.img + ')'} : ''
+							},
+							{
+								elem: 'title',
+								content: item.title
+							},
+							{
+								elem: 'subtitle',
+								content: item.subTitle ? item.subTitle : ''
+							}
+						]
+					}
+				}
+			]
+		});
+	}),
+
+	elem('item')(
+		tag()('li')
+	),
+
+	elem('link')(
+		tag()('a')
+	),
+
+	elem('link').mod('pseudolink', true)(
+		tag()('div')
+	)
+)

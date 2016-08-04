@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="33px" height="38px" viewBox="0 0 33 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6 (26304) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/play</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="finolog-alfa/full-photo" transform="translate(-558.000000, -528.000000)" stroke-width="2" stroke="#FFFFFF">
+            <g id="Head">
+                <g id="first-screen" transform="translate(266.000000, 266.000000)">
+                    <path d="M300.646552,297.994101 C295.871193,300.758783 292,298.518474 292,293.001964 L292,268.998036 C292,263.476273 295.870408,261.240763 300.646552,264.005899 L321.353448,275.994101 C326.128807,278.758783 326.129592,283.240763 321.353448,286.005899 L300.646552,297.994101 Z" id="icons/play"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

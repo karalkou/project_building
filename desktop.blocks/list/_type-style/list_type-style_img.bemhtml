@@ -1,0 +1,45 @@
+block('list').mod('type-style', 'img')(
+	content()(function(){
+		var self = this;
+		return this.ctx.list.map(function(item){
+			var bemJSON = [
+				{
+					elem: 'item',
+					content: [
+						{
+	                        block: 'col-md-offset-2',
+	                        mix: { block: 'col-md-1' },
+	                        content: {
+	                            block: 'img',
+	                            mix: { block: 'list', elem: 'img' },
+	                            mods: { responsive : true },
+	                            url: item.imgUrl
+	                        }
+	                    },
+	                    {
+	                        block: self.ctx.contentCol ? 'col-md-7' : 'col-md-5',
+	                        content: [
+	                            {
+	                                block: 'list',
+	                                elem: 'title',
+	                                tag: 'h4',
+	                                content: item.title
+	                            },
+	                            {
+	                                block: 'list',
+	                                elem: 'content',
+	                                tag: 'p',
+	                                content: item.content
+	                            }
+	                        ]
+	                    }
+					]
+				}
+
+            ];
+
+            return bemJSON;
+
+		})
+	})
+)

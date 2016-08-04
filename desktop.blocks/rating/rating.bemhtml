@@ -1,0 +1,38 @@
+block('rating')(
+    content()(function(){
+        var bemJSON = [];
+        var starQuantity = 5;
+        // check is data numeric
+        function isNumeric(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+
+        // check whether rate is exist
+        if(this.ctx.rate){
+            var rateData = isNumeric(this.ctx.rate);
+            if(rateData){
+                for(var i = 0; i < starQuantity; i++){
+                    var j = i;
+                    if (j < this.ctx.rate){
+                        bemJSON.push(
+                            {
+                                elem: 'item',
+                                mods: { 'shaded': true }
+                            }
+                        )
+                    }else{
+                        bemJSON.push(
+                            {
+                                elem: 'item'
+                            }
+                        )
+                    }
+                }
+            }
+
+            return bemJSON;
+        }else{
+            return false;
+        }
+    })
+)

@@ -1,0 +1,29 @@
+block('list')(
+	tag()('ul'),
+	content()(function(){
+		var self = this;
+		return this.ctx.list.map(function(item){
+			var bemJSON = {
+					elem: 'item',
+					elemMods : item.elemMods,
+					mix: item.mix,
+					content: {
+						tag: (self.ctx.wrapper ==='none') ? '' : 'span',
+						content: item.content
+					}
+				};
+
+			if(!item.elemMods){
+				delete bemJSON.elemMods;
+			}
+
+			if(!item.mix){
+                delete bemJSON.mix;
+            }
+
+			return bemJSON;
+		});
+	}),
+
+	elem('item')(tag()('li'))
+)

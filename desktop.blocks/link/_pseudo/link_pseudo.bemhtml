@@ -1,0 +1,4 @@
+block('link').mod('pseudo', true)(
+    tag()('span'),
+    attrs()(function() {return { href: this.ctx.url }; })
+)

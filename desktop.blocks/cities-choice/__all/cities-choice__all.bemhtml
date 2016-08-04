@@ -1,0 +1,10 @@
+block('cities-choice').elem('all')(
+	content()(function(){
+		return {
+			block: 'link',
+			url: '/',
+			mods: {'border-style' : 'dotted' },
+			content: this.ctx.content
+		}
+	})
+)

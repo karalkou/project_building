@@ -1,0 +1,111 @@
+block('header-cabinet')(
+	tag()('header'),
+	replace().once()(function(){
+        return [
+            {
+                block: 'header-cabinet',
+                content: [
+                    {
+                        block: 'logo',
+                        url: '/'
+                    },
+                    {
+                        block: 'top-navigation',
+                        content: [
+                            {
+                                block: 'top-navigation_section-wrapper',
+                                content: [
+                                    {
+                                        block: 'top-navigation_section-header',
+                                        content: 'Личный кабинет'
+                                    },
+                                    {
+                                        block: 'top-navigation_section',
+                                        'top-navigation_section': [
+                                            {
+                                                url: '/ss',
+                                                content: 'Профиль'
+                                            },
+                                            {
+                                                url: '/ss',
+                                                content: 'Подарки'
+                                            },
+                                            {
+                                                url: '/ss',
+                                                content: 'Проверка контрагентов'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                block: 'top-navigation-additions',
+                                content: [
+                                    {
+                                        block: 'top-navigation-column',
+                                        mods: { type: 'special'},
+                                        "top-navigation-column": [
+                                            {
+                                                block: 'link',
+                                                mods: { 'whole-popup': true },
+                                                js: {
+                                                    'whole-popup': {
+                                                        state: true,
+                                                        mods: 'cities-choice'
+                                                    }
+                                                },
+                                                url: '/',
+                                                ico: 'ico-location',
+                                                content: 'Комсомольск-на-Амуре'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        block: 'top-navigation-column',
+                                        mods: { type: 'no-display'},
+                                        "top-navigation-column": [
+                                            {
+                                                block: 'link',
+                                                js: {
+                                                    showPopup: {
+                                                        state: true,
+                                                        align: 'right'
+                                                    }
+                                                },
+                                                url: '/',
+                                                mods: { 'show-column-popup': true },
+                                                ico: 'ico-user',
+                                                content: 'Яков Даниэлс',
+                                            },
+                                        ]
+                                    },
+                                    {
+                                        block: 'top-navigation-column',
+                                        "top-navigation-column": [
+                                            {
+                                                block: 'link',
+                                                js: {
+                                                    showPopup: {
+                                                        state: false,
+                                                        align: 'right'
+                                                    }
+                                                },
+                                                url: '/',
+                                                mods: { 'show-column-popup': false },
+                                                ico: 'ico-sign-in',
+                                                content: 'Войти',
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                block: 'header-push'
+            }
+        ]
+    })
+)

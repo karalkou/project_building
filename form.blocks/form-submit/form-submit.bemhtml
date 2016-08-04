@@ -1,0 +1,17 @@
+block('form-submit')(
+	tag()('input'),
+	mix()(function(){
+		if(!this.ctx.mix ){
+			return {
+                block: 'btn',
+                mods: { color: 'green-transparent'}
+            }
+		}
+	}),
+	attrs()(function(){
+		return {
+			type: 'submit',
+			value: this.ctx.content
+		}
+	})
+)

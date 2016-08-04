@@ -1,0 +1,18 @@
+.tabs_controls
+  .tabs__item
+    &:first-child
+      .tabs__btn
+        border-top-left-radius: $border-radius-base
+        border-bottom-left-radius: $border-radius-base
+    &:last-child
+      .tabs__btn
+        border-top-right-radius: $border-radius-base
+        border-bottom-right-radius: $border-radius-base
+  &_align-right
+    float: left
+    .tabs__item
+      &:first-child
+        .tabs__btn
+          border-left: 0
+          border-top-left-radius: 0
+          border-bottom-left-radius: 0

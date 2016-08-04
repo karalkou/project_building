@@ -1,0 +1,18 @@
+block('search')(
+	content()(function(){
+		return[
+			{
+				block: 'input',
+				type: this.ctx.type ? this.ctx.type : '',
+				mix: { block: 'search', elem: 'input'},
+				mods: this.ctx.inputMods,
+                placeholder: this.ctx.placeholder
+			},
+			{
+				block: 'search',
+				elemMods: this.ctx.submitMods,
+				elem: 'submit'
+			}
+		]
+	})
+)

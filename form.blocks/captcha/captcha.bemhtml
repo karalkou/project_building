@@ -1,0 +1,78 @@
+block('captcha')(
+	content()(function(){
+		if(this.ctx.errorShow){
+				this.ctx.code.field.error = true
+			}
+
+			if(this.ctx.code.hint){
+				var hint = {
+					  block: 'form',
+					  elem: 'hint',
+					  mix: { block: this.ctx.errorShow ? 'hide' : '' },
+					  content: this.ctx.item.hint
+				  }
+			}else{
+				var hint = '';
+			}
+
+		return [
+			{
+				block: 'row',
+				content: [
+					{
+						block: 'captcha',
+						elem: 'label',
+						mix: this.ctx.label.mix ? this.ctx.label.mix : {},
+						elemMods : { type: 'required' },
+						content: this.ctx.label.content
+					},
+					{
+						block: 'captcha',
+						elem: 'image',
+						mix: { block: 'col-md-4' },
+						content: [
+							{
+								block: 'img',
+								url: this.ctx.image.url ? this.ctx.image.url : '#'
+							},
+							/*{
+								content: 'refresh'
+							}*/
+						]
+					}
+				]
+			},
+			{
+				block: 'row',
+				content: [
+					{
+						block: 'form',
+						elem: 'label',
+						mix: this.ctx.code.mix,
+						elemMods : this.ctx.code.required ? { type: 'required' }:'',
+						content: this.ctx.code.label
+					},
+					{
+						block: 'col-md-4',
+						content: {
+							tag: '',
+							content: this.ctx.code.field
+						}
+					},
+					{
+						block: 'col-md-4',
+						content: [
+							hint,
+							{
+								block: 'form',
+								elem: 'error',
+								mix: { block: this.ctx.errorShow ? 'error' : '' },
+								content: this.ctx.code.error
+							}
+						]
+					}
+				]
+			}
+		]
+	})
+)

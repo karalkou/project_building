@@ -1,0 +1,23 @@
+block('list').mod('link', 'pseudo')(
+	tag()('ul'),
+	content()(function(){
+		return this.ctx.list.map(function(item){
+			return [
+				{
+					elem: 'item',
+					mix: item.mix ? item.mix : {},
+					attrs: item.attrs ? item.attrs : {},
+					content: {
+						block: 'link',
+						mix: { block : 'list', elem : 'link' },
+						mods: { pseudo: true, color: 'white' },
+						url : item.url,
+						content: item.content
+					}
+				}
+			];
+		});
+	}),
+
+	elem('item')(tag()('li'))
+)

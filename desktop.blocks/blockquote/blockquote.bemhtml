@@ -1,0 +1,10 @@
+block('blockquote')(
+	tag()('blockquote'),
+	content()(function(){
+		return {
+			block: 'col-md-offset-2',
+			mix: { block: 'col-md-8' },
+			content: this.ctx.content
+		}
+	})
+);

@@ -1,0 +1,40 @@
+.range-slider
+  position: relative
+  height: 44px
+  padding: 0
+  width: 200px
+  &__input
+    width: 100%
+    padding: 6px 45px 6px 10px
+    -webkit-apperance: none
+    height: 36px
+    background: #fff
+    background: rgba(0,0,0,0)
+    border: 1px solid white
+    border-radius: $input-border-radius
+    color: white
+    outline: none
+    font-size: inherit
+    font-family:inherit
+    font-weight: 300
+    cursor: default
+  &__handle
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 14px
+    height: 12px
+    cursor: default
+    touch-action: none
+    background: white
+    &:after
+      position: absolute
+      display: block
+      content: ''
+      width: 100%
+      top: -10px
+      box-sizing: border-box
+      border-top: 0
+      border-bottom: 10px solid white
+      border-right: 7px solid transparent
+      border-left: 7px solid transparent

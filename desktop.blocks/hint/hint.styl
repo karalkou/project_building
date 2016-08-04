@@ -1,0 +1,17 @@
+.hint-acceptor
+  position: relative
+  cursor: pointer
+  &:hover .hint
+    display: block
+    opacity: 1
+
+.hint
+  position: absolute
+  z-index: 100
+  display: none
+  border-radius($border-radius-base)
+  background: white
+  box-shadow(2px 4px 7px 1px rgba(0, 1, 1, 0.21))
+  color: $grayDark
+  opacity: 0
+  transition: opacity .5s ease-in-out

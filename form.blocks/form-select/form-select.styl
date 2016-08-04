@@ -1,0 +1,77 @@
+.jq-selectbox
+  width: 100%
+  select
+    display: none
+
+.jq-selectbox__select,
+.jq-selectbox__dropdown,
+.jq-selectbox__search input
+  border-radius: $border-radius-base
+
+.jq-selectbox.focused
+  .jq-selectbox__select
+    border: 1px solid lighten(#d1d1d1,20%)
+    box-shadow(0px 0px 5px #d1d1d1)
+
+.jq-selectbox.focused
+  .jq-selectbox__dropdown
+    border: 1px solid #d1d1d1
+
+.jq-selectbox
+  li
+    &:hover
+      background: $red-alfa
+      color: white
+  li.selected
+    position: relative
+    background: #dadada
+    color: white
+    &:after
+      display: inline-block
+      font: normal normal normal 14px/1 FontAwesome
+      font-size: inherit
+      text-rendering: auto
+      -webkit-font-smoothing: antialiased
+      -moz-osx-font-smoothing: grayscale
+      transform: translate(0, 0)
+      content: '\f00c'
+      position: absolute
+      width: 10px
+      height: 10px
+      right: 10px
+      top: 50%
+      margin-top: -5px
+      font-size: 11px
+      color: $red-alfa
+    &:hover
+      background: $red-alfa
+
+.error
+  .jq-selectbox__select
+    border: 1px solid $red-alfa
+  &.jq-selectbox.focused
+    .jq-selectbox__select
+      border: 1px solid lighten($red-alfa, 20%)
+      border-color: rgba(0,0,0,0)
+      box-shadow(0px 0px 5px $red-alfa)
+
+
+.jq-selectbox
+  ul
+    max-height: 171px !important;
+
+.form-select_opaque
+  .jq-selectbox__select
+    background: none
+    background: rgba(255,255,255,0)
+    border-color: alpha(white, 0.3)
+    color: white
+  .placeholder
+    color: white
+  .jq-selectbox__trigger-arrow
+    border-top: 5px solid #FFFFFF
+
+.form-select-wrapper
+  &_type
+    &_year
+      width: 96px

@@ -1,0 +1,22 @@
+block('company-contacts')(
+
+    tag()('div'),
+	content()(function() {
+	    return this.ctx['company-contacts'].map(function(item){
+	        return [
+	            {
+	                elem: 'item',
+	                attrs: { href: item.url},
+	                content: item.content
+	            },
+	            ' '
+	        ];
+
+	    });
+
+	}),
+
+	elem('item')
+		(tag()('a')
+    )
+);

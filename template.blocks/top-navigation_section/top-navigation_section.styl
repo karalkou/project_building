@@ -1,0 +1,97 @@
+.top-navigation_section-wrapper
+  display: inline-block
+  position: relative
+  padding-left: 41px
+  padding-left: 2.2%
+  float: left
+  width: 50%
+  height: $header-height
+
+.top-navigation_section
+  display: inline-block
+  position: absolute
+  width: 100%
+  padding: 0
+  text-indent: 0
+  vertical-align: top
+  letter-spacing: normal
+  word-spacing: normal
+
+.top-navigation_section__item
+  display: inline-block
+  position: relative
+  height: $header-height
+  padding-top: 20px
+  vertical-align: top
+  letter-spacing: normal
+  word-spacing: normal
+  text-indent: 0
+  max-width: 200px
+  padding-right: 2%
+
+  a
+    border: 0
+    color: white
+    border-bottom: 1px
+    border-style: solid
+    border-color: white
+    border-color: $white-opacity-30
+    text-decoration: none
+    font-size: $fs-base
+    font-size: 1.6rem
+
+    &:hover
+      text-decoration: none
+      color: white
+      color: $white-opacity-80
+
+
+
+.top-navigation_selector-item__selected
+  a
+    text-decoration: none
+    color: white
+    color: $white-opacity-80
+    border: 0
+
+/*Для меню которое не является карусельюь*/
+@media screen and (min-width: 600px)
+  .top-navigation_section-wrapper
+    width: 53%
+
+  .top-navigation_section__item
+    a
+      font-size: 13px
+
+@media screen and (min-width: 1259px)
+  .top-navigation_section__item
+    a
+      font-size: 14px
+
+@media screen and (max-width: 1397px)
+  .top-navigation_section__item
+    a
+      font-size: 14px
+
+@media screen and (min-width: 1398px)
+  .top-navigation_section__item
+    a
+      font-size: 16px
+
+@media screen and (min-width: 1598px)
+  .top-navigation_section-wrapper
+    width: 62%
+
+@media screen and (min-width: 1660px)
+  .top-navigation_section-wrapper
+    width: 64%
+
+@media screen and (min-width: 1790px)
+  .top-navigation_section-wrapper
+    width: 66%
+  .top-navigation_section__item
+    max-width: none
+  .top-navigation_section__item
+    br
+      display: none
+

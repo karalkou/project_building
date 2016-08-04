@@ -1,0 +1,30 @@
+.tiles-certificate__item
+  display: block
+  float: left
+  overflow: hidden
+  min-width: 230px
+  width: 40%
+  position: relative
+  opacity: 1
+  border-radius(5px)
+  font-size: $fs-base
+  color: $black
+  transform-origin: 50% 0
+  transform: scaleY(1)
+  transition: width .75s, opacity ease-in-out .5s
+
+  &:hover
+    width: 50%
+    transition: width .5s
+    .tiles-certificate__animation
+      opacity: 1
+      transition: opacity ease-in .5s .3s
+
+
+.tiles-certificate__item_visible
+  visibility: visible
+  opacity: 1
+
+.tiles-certificate__item_hidden
+  visibility: hidden
+  opacity: 0

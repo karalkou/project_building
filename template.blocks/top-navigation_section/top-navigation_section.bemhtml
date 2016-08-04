@@ -1,0 +1,23 @@
+block('top-navigation_section')(
+
+    tag()('ul'),
+
+    content()(function() {
+        return this.ctx['top-navigation_section'].map(function(item){
+            return [
+                {
+                    elem: 'item',
+                    tag: 'li',
+                    content: {
+                        block: 'link',
+                        url: item.url,
+                        content: item.content
+                    },
+                },
+                ' '
+            ];
+
+        });
+
+    })
+);

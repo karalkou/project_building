@@ -1,0 +1,35 @@
+block('title').mod('main-page', 'headline')(
+    tag()('h1')
+)
+
+block('title').mod('main-page', 'screen')(
+    tag()('h2')
+)
+
+block('title').mod('main-page', 'screen-in-head')(
+    tag()('h2')
+)
+
+block('title').mod('main-page', 'screen-content')(
+    tag()('h3')
+)
+
+block('title').mod('main-page', 'screen-content-red')(
+    tag()('h3')
+)
+
+block('title').mod('main-page', 'screen-subcontent')(
+    tag()('h3')
+)
+
+block('title').mod('main-page', 'video-list')(
+    tag()('h4')
+)
+
+block('title').mod('main-page', 'slide-resource')(
+    tag()('h5')
+)
+
+block('title').mod('main-page', 'screen-href')(
+    tag()('a')
+)

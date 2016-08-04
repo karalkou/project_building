@@ -1,0 +1,20 @@
+block('breadcrumbs')(
+	tag()('ul'),
+	content()(function(){
+		return this.ctx.items.map(function(item){
+			return {
+				elem: 'item',
+				content: {
+					block: 'link',
+					mix: { block: 'breadcrumbs', elem: "link"},
+					url: item.url,
+					content: item.content,
+				}
+			}
+		});
+	}),
+
+	elem('item')(
+		tag()('li')
+	)
+)

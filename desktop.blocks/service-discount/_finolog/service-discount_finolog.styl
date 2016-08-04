@@ -1,0 +1,52 @@
+.service-discount_finolog
+  padding: 0
+  padding-top: 85px
+  padding-bottom: 85px
+
+  .service-discount__title
+    margin-bottom: 0 !important
+  //.service-discount__description
+  //  margin-bottom: 22px
+  //  margin-left: -3px
+  //  text-transform: none
+  //  -webkit-font-smoothing: subpixel-antialiased
+  //  font-size: 36px
+  //  line-height: 48px
+
+  .service-discount__decimal
+    position: relative
+    display: inline-block
+    margin-top: 35px
+    margin-bottom: 50px
+    font-size: ceil($fs-base* 5.625)
+    line-height: 100%
+    font-family: $ff-thin
+    font-weight: 100
+    -webkit-font-smoothing: antialiased
+  .service-discount__decimal_line-through
+    &:after
+      content: ''
+      position: absolute
+      top: 58%
+      left: -5%
+      width: 110%
+      border-bottom: 1px solid white
+
+  .service-discount__description_small
+      margin-bottom: 36px
+      line-height: 22px
+      font-size: $fs-base-plus
+      -webkit-font-smoothing: antialiased
+
+  .service-discount__btn
+    font-size: $fs-base-large
+    padding-top: 10px
+    padding-bottom: 10px
+    width: 540px
+    text-align: center
+
+  .service-discount__annotation
+    margin-top: 35px
+    line-height: 22px
+    font-size: $fs-base-plus
+    -webkit-font-smoothing: antialiased
